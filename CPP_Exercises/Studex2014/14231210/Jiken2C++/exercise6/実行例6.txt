@@ -1,0 +1,40 @@
+((CARDSET))
+	no card
+insert: c = ? spade 6
+insert: c = ? spade 9
+insert: c = ? heart 5
+insert: c = ? heart 6
+insert: c = ? diamond 10
+insert: c = ? club 10
+insert: c = ? joker
+insert: c = ? club 6
+insert: c = ? diamond 12
+insert: c = ? diamond 15
+((CARDSET))
+	[spade 6]
+	[spade 9]
+	[heart 5]
+	[heart 6]
+	[diamond 10]
+	[club 10]
+	[joker]
+	[club 6]
+	[diamond 12]
+delete card: c = ?diamond 10
+((CARDSET))
+	[spade 6]
+	[spade 9]
+	[heart 5]
+	[heart 6]
+	[club 10]
+	[joker]
+	[club 6]
+	[diamond 12]
+delete card number: n = ?6
+((CARDSET))
+	[spade 9]
+	[heart 5]
+	[club 10]
+	[joker]
+	[diamond 12]
+

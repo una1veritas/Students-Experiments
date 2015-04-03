@@ -1,0 +1,152 @@
+1-1
+o231205m@mint42:~/C++$ gcc -o ex1 vec2ex1c.c vector2c.c
+o231205m@mint42:~/C++$ ./ex1
+a = ? 3 2
+b = ? 2 2
+a + b = ( 5.000000 4.000000 )
+a + (2,1) = ( 5.000000 3.000000 )
+
+1-2
+o231205m@mint42:~/C++$ gcc -o ex1-2 vec2ex1c.c vector2c.c
+o231205m@mint42:~/C++$ ./ex1-2
+a = ? 2 1
+b = ? 1 1
+a + b = ( 3.000000 2.000000 )
+a - b = ( 1.000000 0.000000 )
+
+2-1
+
+o231205m@mint42:~/C++$ cc -o ex2-1 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint42:~/C++$ ./ex2-1
+a = ? 2 2
+b = ? 1 1
+a + b = ( 3.000000 3.000000 )
+a + (2,1) = ( 4.000000 3.000000 )
+
+2-2
+o231205m@mint42:~/C++$ cc -o ex2-2 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint42:~/C++$ ./ex2-2
+a = ? 2 1
+b = ? 1 1
+a + b = ( 3.000000 2.000000 )
+a - b = ( 1.000000 0.000000 )
+
+2-3
+o231205m@mint42:~/C++$ cc -o ex2-3 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint42:~/C++$ ./ex2-3
+a = ? 1 1
+b = ? 2 2
+a + b = ( 3.000000 3.000000 )
+a - b = ( -1.000000 -1.000000 )
+a・b = 2.000001
+a × b = ( 0.000000 0.000000 )
+
+3-1
+o231205m@mint42:~/C++$ cc -o ex3-1 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint42:~/C++$ ./ex3-1
+( 0.000000 0.000000 )( 0.000000 0.000000 )
+
+3-2
+o231205m@mint77:~/C++$ cc -o ex3-2 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint77:~/C++$ ./ex3-2
+Vector2 a, bを宣言
+dcon( 0.000000, 0.000000 )
+dcon( 0.000000, 0.000000 )
+a = ? 1 2
+b = ? 3 4
+Vector2 vec(5,6)を宣言
+con( 5.000000, 6.000000 )
+
+3-3
+o231205m@mint77:~/C++$ cc -o ex3-3 vec2ex1p.cc vector2p.cc -fno-exceptions
+o231205m@mint77:~/C++$ ./ex3-3
+Vector2 a, bを宣言
+dcon( 0.000000, 0.000000 )
+dcon( 0.000000, 0.000000 )
+a = ? 1 2
+b = ? 3 4
+Vector2 vec(5,6)を宣言
+con( 5.000000, 6.000000 )
+Vector2 vecをコピー
+ccon( 5.000000, 6.000000 )
+
+4
+o231205m@mint77:~/C++$ cc -o ex4 main.cc sub.cc -fno-exceptions
+o231205m@mint77:~/C++$ ./ex4
+a = ? 1 2 3 4
+b = ? 5 6 7 8
+a + b =
+ 6.000000 8.000000
+ 10.000000 12.000000
+a - b =
+ -4.000000 -4.000000
+ -4.000000 -4.000000
+a・b =
+ 19.000000 22.000000
+ 43.000000 50.000000
+
+5
+o231205m@mint77:~/C++$ cc -o ex5 main.cc sub.cc -fno-exceptions
+o231205m@mint77:~/C++$ ./ex5
+Vec
+a = ? 1 2
+b = ? 3 4
+a + b =
+ 4.000000 6.000000
+a - b =
+ -2.000000 -2.000000
+SqMat
+c = ? 5 6 7 8
+d = ? 9 1 2 3
+a + b =
+ 14.000000 7.000000
+ 9.000000 11.000000
+a - b =
+ -4.000000 5.000000
+ 5.000000 5.000000
+
+6-1
+o231205m@mint77:~/C++$ g++ -o ex6-1 cardsetex1.cc cardset.cc -fno-exceptions
+o231205m@mint77:~/C++$ ./ex6-1
+((CARDSET))
+        no card
+insert: c = ? spade 1
+insert: c = ? diamond 1
+insert: c = ? heart 1
+insert: c = ? club 1
+insert: c = ? joker
+insert: c = ? spade spade
+((CARDSET))
+        [spade 1]
+        [diamond 1]
+        [heart 1]
+        [club 1]
+        [joker]
+
+6-2
+o231205m@mint84:~/C++$ g++ cardset.cc cardsetex1.cc -o ex6-2
+o231205m@mint84:~/C++$ ./ex6-2
+((CARDSET))
+        no card
+insert: c = ? spade 1
+insert: c = ? spade 2
+insert: c = ? spade 3
+insert: c = ? spade 4
+insert: c = ? spade 5
+insert: c = ? spade 6
+insert: c = ? spade 0
+((CARDSET))
+        [spade 1]
+        [spade 2]
+        [spade 3]
+        [spade 4]
+        [spade 5]
+        [spade 6]
+pickup
+((CARDSET))
+        [spade 1]
+        [spade 3]
+        [spade 4]
+        [spade 5]
+        [spade 6]
+o231205m@mint84:~/C++$            

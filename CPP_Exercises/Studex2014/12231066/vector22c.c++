@@ -1,0 +1,71 @@
+/*
+ * vector2c.c - 2次元ベクトル型(C版)
+ *	作者: (あなたの名前); 日付: (完成した日付)
+ */
+#include <stdio.h>
+#include "vector22c.h"
+
+/*
+ * constv2() - x0, y0 を与えて，定数 (x0, y0) を得る
+ */
+Vector22::Vector22(double x0,double x1, double y0, double y1)
+{
+        x[0][0] = x0; x[0][1] = x1;
+        x[1][0] = y0; x[1][1] = y1;
+}
+
+/*
+ * addv2() - ベクトル u と v の和 u + v を求める
+ */
+Vector22 Vector22::addv22(Vector22 u)
+{
+        Vector22 ret;
+
+	ret.x[0][0] = u.x[0][0] + x[0][0]; 
+	ret.x[0][1] = u.x[0][1] + x[0][1];
+	ret.x[1][0] = u.x[1][0] + x[1][0];
+	ret.x[1][1] = u.x[1][1] + x[1][1]; 
+
+	return ret;
+}
+
+/*
+ * addv2() - ベクトル u と v の和 u + v を求める
+ */
+Vector22 Vector22::subv22(Vector22 u)
+{
+        Vector22 ret;
+	ret.x[0][0] = x[0][0] - u.x[0][0]; 
+	ret.x[0][1] = x[0][1] - u.x[0][1];
+	ret.x[1][0] = x[1][0] - u.x[1][0];
+	ret.x[1][1] = x[1][1] - u.x[1][1]; 
+	
+	return ret;
+}
+/*
+ * scanv2() - ベクトルの値を標準入力から *pu に入力する
+ */
+void Vector22::scanv22(void)
+{
+  scanf("%lf %lf %lf %lf", &x[0][0], &x[0][1], &x[1][0], &x[1][1]);
+}
+
+/*
+ * printv2() - ベクトル u の値を標準出力に出力する
+ */
+void Vector22::printv22(void)
+{
+  printf(" %f %f \n %f %f", x[0][0], x[0][1], x[1][0], x[1][1]);
+}
+
+Vector22 Vector22::mulv22(Vector22 v)
+{
+        Vector22 ret;
+
+	ret.x[0][0] = x[0][0] * v.x[0][0] + x[0][1] * v.x[1][0];
+	ret.x[0][1] = x[0][0] * v.x[0][1] + x[0][1] * v.x[1][1];
+	ret.x[1][0] = x[1][0] * v.x[0][0] + x[1][1] * v.x[1][0];
+	ret.x[1][1] = x[1][0] * v.x[0][1] + x[1][1] * v.x[1][1];
+	
+	return ret;
+}

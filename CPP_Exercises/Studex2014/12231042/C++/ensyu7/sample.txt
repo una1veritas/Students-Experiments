@@ -1,0 +1,2 @@
+コンパイル方法
+c++ ensyu7.cc ensyu7ex.cc ensyu6.cc

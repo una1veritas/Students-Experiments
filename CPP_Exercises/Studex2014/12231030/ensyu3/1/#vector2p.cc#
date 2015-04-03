@@ -1,0 +1,81 @@
+//
+// vector2p.cc - 2’¼¡’¸µ’¥Ù’¥¯’¥È’¥ë’·¿(C++’ÈÇ)
+//	’ºî’¼Ô: ’Äê’Ê¿’Åµ’µ×; ’Æü’ÉÕ: 14/04/10
+//
+#include <stdio.h>
+#include "vector2p.h"
+
+//
+// Vector2::Vector2() - x0, y0 ’¤ò’Í¿’¤¨’¤Æ’Äê’¿ô (x0, y0) ’¤ò’ÆÀ’¤ë’¥³’¥ó’¥¹’¥È’¥é’¥¯’¥¿
+//
+Vector2::Vector2(void)
+{
+	x = 0;
+	y = 0;
+	printf("%f,%f",x,y);
+}
+Vector2::Vector2(double x0, double y0)
+{
+	x = x0;
+	y = y0;
+}
+
+//
+// Vector2::add() - ’¼«’¿È’¤Î’¥Ù’¥¯’¥È’¥ë’¤È’¥Ù’¥¯’¥È’¥ë u ’¤È’¤Î’ÏÂ’¤ò’µá’¤á’¤ë
+//
+Vector2 Vector2::add(Vector2 u)
+{
+	Vector2 ret;
+
+	ret.x = x + u.x;
+	ret.y = y + u.y;
+
+	return ret;
+}
+
+//
+// Vector2::sub() - ’¼«’¿È’¤Î’¥Ù’¥¯’¥È’¥ë’¤È’¥Ù’¥¯’¥È’¥ë u ’¤È’¤Î’º¹’¤ò’µá’¤á’¤ë
+//
+Vector2 Vector2::sub(Vector2 u)
+{
+	Vector2 ret;
+
+	ret.x = x - u.x;
+	ret.y = y - u.y;
+
+	return ret;
+}
+//
+// Vector2::inpro() - ’¼«’¿È’¤Î’¥Ù’¥¯’¥È’¥ë’¤È’¥Ù’¥¯’¥È’¥ë u ’¤È’¤Î’³°’ÀÑ’¤ò’µá’¤á’¤ë
+//
+double Vector2::inpro(Vector2 u)
+{
+	double ret;
+
+	ret=x * u.x + y * u.y;
+
+	return ret;
+}
+double Vector2::outpro(Vector2 u)
+{
+	double ret;
+
+	ret=x * u.y + y * u.x;
+
+	return ret;
+}
+//
+// Vector2::scan() - ’¥Ù’¥¯’¥È’¥ë’¤Î’ÃÍ’¤ò’É¸’½à’Æþ’ÎÏ’¤«’¤é’¼«’¿È’¤Ë’Æþ’ÎÏ’¤¹’¤ë
+//
+void Vector2::scan(void)
+{
+	scanf("%lf %lf", &x, &y);
+}
+
+//
+// Vector2::print() - ’¼«’¿È’¤Î’¥Ù’¥¯’¥È’¥ë’¤Î’ÃÍ’¤ò’É¸’½à’½Ð’ÎÏ’¤Ë’½Ð’ÎÏ’¤¹’¤ë
+//
+void Vector2::print(void)
+{
+	printf("( %f %f )", x, y);
+}

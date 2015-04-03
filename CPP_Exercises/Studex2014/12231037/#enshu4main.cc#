@@ -1,0 +1,47 @@
+//
+// vec2ex1p.cc - 2’¼¡’¸µ’¥Ù’¥¯’¥È’¥ë’·¿(C++’ÈÇ)’¥Æ’¥¹’¥È’¥×’¥í’¥°’¥é’¥à
+//      ’ºî’¼Ô: (’¤¢’¤Ê’¤¿’¤Î’Ì¾’Á°); ’Æü’ÉÕ: (’´°’À®’¤·’¤¿’Æü’ÉÕ)
+//
+#include <stdio.h>
+#include "enshu4.h"
+
+//
+// main() - ’¥Æ’¥¹’¥È’¥×’¥í’¥°’¥é’¥à
+//
+int main(void)
+{
+  Matrix22 a, b;
+
+  /*a, b ’¤Î’½é’´ü’ÃÍ’¤ò’½Ð’ÎÏ
+        printf("’¹Ô’Îó’¤Î’½é’´ü’ÃÍ");
+        a.print();
+        b.print();
+        printf("\n");
+  */
+
+// a, b ’¤ò’Æþ’ÎÏ
+        printf("a = ? ");
+        a.scan();
+        printf("b = ? ");
+        b.scan();
+
+// a + b ’¤ò’½Ð’ÎÏ
+        printf("a + b = ");
+        (a.add(b)).print();
+        printf("\n");
+
+// a - b ’¤ò’½Ð’ÎÏ
+        printf("a - b = ");
+        (a.sub(b)).print();
+        printf("\n");
+
+// a * b ’¤ò’½Ð’ÎÏ
+        printf("a * b = ");
+        (a.mul(b)).print();
+        printf("\n");
+
+
+
+
+        return 0;
+}

@@ -1,0 +1,1052 @@
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+	[diamond 5]
+	[heart 12]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[diamond 12]
+	[spade 10]
+	[diamond 11]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[club 11]
+	[spade 3]
+	[club 12]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[heart 3]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[spade 5]
+	[spade 11]
+	[diamond 3]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+	[diamond 5]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+	[diamond 11]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[club 11]
+	[spade 3]
+	[club 12]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[heart 3]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[spade 5]
+	[spade 11]
+	[diamond 3]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+	[diamond 5]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[club 12]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[heart 3]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[spade 5]
+	[spade 11]
+	[diamond 3]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+	[diamond 5]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[heart 3]
+PLAYER 4((CARDSET))
+	[spade 5]
+	[spade 11]
+	[diamond 3]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+	[diamond 5]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 5]
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[club 3]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 8]
+	[spade 10]
+	[club 3]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[joker]
+	[club 10]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 10]
+	[club 3]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 7]
+	[spade 3]
+	[joker]
+	[club 10]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 10]
+	[club 3]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[joker]
+	[club 10]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[club 7]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 10]
+	[club 3]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[joker]
+	[club 10]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 9]
+	[spade 1]
+	[heart 10]
+	[club 7]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 7]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 10]
+	[club 3]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[joker]
+	[club 10]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 1]
+	[heart 10]
+	[club 7]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 10]
+	[club 3]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[joker]
+	[club 10]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 1]
+	[heart 10]
+	[club 7]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 3]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[joker]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 1]
+	[heart 10]
+	[club 7]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 3]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 6]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 1]
+	[heart 10]
+	[club 7]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 3]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 11]
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[heart 1]
+	[spade 9]
+	[spade 11]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 3]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[spade 9]
+	[spade 11]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[club 3]
+	[spade 7]
+	[heart 1]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 3]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[spade 9]
+	[spade 11]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 7]
+	[heart 1]
+PLAYER 2((CARDSET))
+	[club 4]
+	[club 8]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[spade 8]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[spade 9]
+	[spade 11]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 7]
+	[heart 1]
+PLAYER 2((CARDSET))
+	[club 4]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 4]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[spade 9]
+	[spade 11]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 7]
+	[heart 1]
+PLAYER 2((CARDSET))
+	[club 4]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[club 7]
+	[heart 6]
+	[heart 4]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[diamond 6]
+	[spade 9]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 7]
+	[heart 1]
+PLAYER 2((CARDSET))
+	[club 4]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 9]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 7]
+	[heart 1]
+	[diamond 6]
+PLAYER 2((CARDSET))
+	[club 4]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 9]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[diamond 6]
+PLAYER 2((CARDSET))
+	[club 4]
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 9]
+	[heart 11]
+	[joker]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 9]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[diamond 6]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 9]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 9]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[diamond 6]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+	[heart 9]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 11]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[diamond 6]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[diamond 6]
+	[spade 11]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[spade 11]
+PLAYER 2((CARDSET))
+	[spade 7]
+	[diamond 6]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[spade 11]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+	[diamond 6]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 6]
+	[heart 4]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[club 7]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[spade 11]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[spade 1]
+	[heart 10]
+	[heart 4]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[club 7]
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[spade 11]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[heart 10]
+	[heart 4]
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[heart 1]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	[spade 7]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[heart 10]
+	[heart 4]
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	[spade 7]
+	[heart 1]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+PLAYER 4((CARDSET))
+	[heart 10]
+	[heart 4]
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	[heart 1]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[club 4]
+	[spade 7]
+PLAYER 4((CARDSET))
+	[heart 10]
+	[heart 4]
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[diamond 10]
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	[heart 1]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[spade 7]
+PLAYER 4((CARDSET))
+	[heart 10]
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[spade 1]
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	[heart 1]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+	[spade 1]
+PLAYER 2((CARDSET))
+	[heart 1]
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[diamond 2]
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[club 2]
+	[heart 11]
+	[joker]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 1 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[joker]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 3 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+	[joker]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 1 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[spade 7]
+	[joker]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 3 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+	[joker]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 1 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[spade 7]
+	[joker]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 3 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[club 7]
+	[joker]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 1 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 11]
+	[joker]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	[heart 11]
+PLAYER 4((CARDSET))
+	no card
+# プレーヤ 3 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[joker]
+PLAYER 2((CARDSET))
+	no card
+PLAYER 3((CARDSET))
+	no card
+PLAYER 4((CARDSET))
+	no card
+
+### FINISHED ###

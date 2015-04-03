@@ -1,0 +1,314 @@
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+	[club 7]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 7]
+	[heart 5]
+	[spade 2]
+	[heart 9]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[club 11]
+	[diamond 7]
+	[spade 9]
+PLAYER 3((CARDSET))
+	[spade 6]
+	[club 8]
+	[heart 11]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[heart 6]
+	[club 10]
+プレーヤ1はプレーヤ0のカードを取る。
+何番目のカードをとるか？(0から2まで入力): 
+2
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 5]
+	[spade 2]
+	[heart 9]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[club 11]
+	[diamond 7]
+	[spade 9]
+PLAYER 3((CARDSET))
+	[spade 6]
+	[club 8]
+	[heart 11]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[heart 6]
+	[club 10]
+プレーヤ2はプレーヤ1のカードを取る。
+何番目のカードをとるか？(0から3まで入力): 
+3
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 5]
+	[spade 2]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[club 11]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[spade 6]
+	[club 8]
+	[heart 11]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[heart 6]
+	[club 10]
+プレーヤ3はプレーヤ2のカードを取る。
+何番目のカードをとるか？(0から3まで入力): 
+2
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 5]
+	[spade 2]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[spade 6]
+	[club 8]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[heart 6]
+	[club 10]
+プレーヤ4はプレーヤ3のカードを取る。
+何番目のカードをとるか？(0から4まで入力): 
+0
+# プレーヤ 3 からプレーヤ 4 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 5]
+	[spade 2]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 8]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	[club 10]
+プレーヤ0はプレーヤ4のカードを取る。
+何番目のカードをとるか？(0から0まで入力): 
+0
+# プレーヤ 4 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+	[club 10]
+PLAYER 1((CARDSET))
+	[spade 10]
+	[heart 5]
+	[spade 2]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 8]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ1はプレーヤ0のカードを取る。
+何番目のカードをとるか？(0から2まで入力): 
+2
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[heart 5]
+	[spade 2]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[heart 2]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 8]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ2はプレーヤ1のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+1
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[heart 5]
+PLAYER 2((CARDSET))
+	[diamond 8]
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 8]
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ3はプレーヤ2のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+0
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+	[diamond 12]
+PLAYER 1((CARDSET))
+	[heart 5]
+PLAYER 2((CARDSET))
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 5]
+	[spade 7]
+	[spade 12]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ0はプレーヤ3のカードを取る。
+何番目のカードをとるか？(0から2まで入力): 
+2
+# プレーヤ 3 からプレーヤ 0 にカードが渡る
+PLAYER 0((CARDSET))
+	[joker]
+PLAYER 1((CARDSET))
+	[heart 5]
+PLAYER 2((CARDSET))
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 5]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ1はプレーヤ0のカードを取る。
+何番目のカードをとるか？(0から0まで入力): 
+0
+# プレーヤ 0 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[heart 5]
+	[joker]
+PLAYER 2((CARDSET))
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[club 5]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ2はプレーヤ1のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+0
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[joker]
+PLAYER 2((CARDSET))
+	[diamond 7]
+	[heart 5]
+PLAYER 3((CARDSET))
+	[club 5]
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ3はプレーヤ2のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+1
+# プレーヤ 2 からプレーヤ 3 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[joker]
+PLAYER 2((CARDSET))
+	[diamond 7]
+PLAYER 3((CARDSET))
+	[spade 7]
+PLAYER 4((CARDSET))
+	no card
+プレーヤ1はプレーヤ3のカードを取る。
+何番目のカードをとるか？(0から0まで入力): 
+0
+# プレーヤ 3 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[joker]
+	[spade 7]
+PLAYER 2((CARDSET))
+	[diamond 7]
+PLAYER 3((CARDSET))
+	no card
+PLAYER 4((CARDSET))
+	no card
+プレーヤ2はプレーヤ1のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+0
+# プレーヤ 1 からプレーヤ 2 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	[spade 7]
+PLAYER 2((CARDSET))
+	[diamond 7]
+	[joker]
+PLAYER 3((CARDSET))
+	no card
+PLAYER 4((CARDSET))
+	no card
+プレーヤ1はプレーヤ2のカードを取る。
+何番目のカードをとるか？(0から1まで入力): 
+0
+# プレーヤ 2 からプレーヤ 1 にカードが渡る
+PLAYER 0((CARDSET))
+	no card
+PLAYER 1((CARDSET))
+	no card
+PLAYER 2((CARDSET))
+	[joker]
+PLAYER 3((CARDSET))
+	no card
+PLAYER 4((CARDSET))
+	no card
+
+### FINISHED ###
+
