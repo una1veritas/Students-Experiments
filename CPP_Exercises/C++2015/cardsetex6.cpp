@@ -16,15 +16,16 @@ int main (int argc, char * const argv[]) {
 		CardSet cs;
 		
 		cs.print();
-		// 入力がエラーになるまで指定したカードを入れる
-		std::cout << "insert: c = ? ";
+		std::cout << std::endl; // 行末記号 end of line を標準出力に出力．
+
+		// カード入力がエラーになるまで指定したカードを入れる
 		while(true) {
-		  c.scan();
-		  if (! c.isValid())
-		    break;
-		  if(cs.insert(c))
-		    std::cout << "\tinsert error\n";
-		  std::cout << "insert: c = ? ";
+			std::cout << "Card (suit number) or x (end) ? ";
+			if ( !c.scan() )
+				break;
+			c.print();
+			std::cout << std::endl;
+			cs.insert(c);
 		}
 		cs.print();
 		

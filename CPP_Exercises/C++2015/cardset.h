@@ -25,6 +25,9 @@ class Card {
 private:
 	int suit;	// 組
 	int number;	// 番号
+
+	static const char * suitnames[]; // クラス変数（定数）．値の初期化は .cpp で行う
+
 // メンバ関数
 public:
 	// デフォルトコンストラクタ(初期値不定)
@@ -59,7 +62,7 @@ public:
 		return suit;
 	}
 
-	// 標準出力から自身に入力する(true: エラー; false: 正常終了)
+	// 標準出力から自身に入力する(true: 正常終了; false: 異常終了)
 	bool scan(void);
 	
 	
@@ -94,16 +97,16 @@ public:
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
 	void makedeck(void);
 		// 自身に全部の(maxnumcard 枚の)カードを入れる
-	bool pickup(Card* ret, int targetpos = -1);
+	int pickup(Card* ret, int targetpos = -1);
 		// 自身から targetpos 枚目のカードを除き *ret に返す
 		// targetpos が -1 のときはランダムに選ぶ
-		// (true: 失敗; false: 成功)
-	bool insert(Card newcard);
-		// 自身に newcard のカードを入れる(true: 失敗; false: 成功)
-	bool remove(Card target);
-		// 自身から target のカードを除く(true: 失敗; false: 成功)
+		// (-1: 失敗; 0以上: 成功)
+	int insert(Card newcard);
+		// 自身に newcard のカードを入れる(-1: 失敗; 0以上: 成功)
+	int remove(Card target);
+		// 自身から target のカードを除く(-1: 失敗; 0以上: 成功)
 	bool remove(int num);
-		// 自身から数字が num であるカードを除く(true: 失敗; false: 成功)
+		// 自身から数字が num であるカードを除く(-1: 失敗; 0以上: 成功)
 	void print(void);
 		// 自身の状態を標準出力に出力する
 		

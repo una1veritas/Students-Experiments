@@ -13,7 +13,7 @@ struct vector2 { /* 2次元ベクトル型 */
 };
 
 /* プロトタイプ宣言 */
-struct vector2 constv2(double x0, double y0);
+struct vector2 initv2(double x0, double y0);
 	/* x0, y0 を与えて，定数 (x0, y0) を得る */
 struct vector2 addv2(struct vector2 u, struct vector2 v);
 	/* ベクトル u と v の和 u + v を求める */

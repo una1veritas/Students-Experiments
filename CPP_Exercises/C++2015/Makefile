@@ -2,12 +2,12 @@ CC	= cc
 C++	= c++
 CFLAGS = -Wall -g
 C++FLAGS = -Wall -g
-VEC2EX1COBJS = vector2c.o vec2ex1c.o
-VEC2EX1POBJS = vector2p.o vec2ex1p.o
-MAT22EX1OBJS = matrix22.o mat22ex1.o
-CARDSETEX1OBJS = cardset.o cardsetex1.o
-CARDSETEXOBJS = cardset.o cardset_example.o
-BABANUKI1OBJS = cardset.o babastate.o babanuki1.o
+EX1OBJS = vector2c.o vec2ex1c.o
+EX2OBJS = vector2.o vec2ex2.o
+EX4OBJS = matrix22.o mat22ex4.o
+EX6OBJS = cardset.o cardsetex6.o
+EX7OBJS = cardset.o cardset_example.o
+EX8OBJS = cardset.o babastate.o babanuki1.o
 
 .SUFFIXES: .o .cc .c++ .c
 
@@ -17,20 +17,23 @@ BABANUKI1OBJS = cardset.o babastate.o babanuki1.o
 .cc.o:
 	$(C++) -c $(C++FLAGS) $<
 
+.cpp.o:
+	$(C++) -c $(C++FLAGS) $<
+
 all     :
 	@echo '使用法: make xxx の形で演習を指定すること'
 
-vec2ex1c	: $(VEC2EX1COBJS)
-	$(CC) $(VEC2EX1COBJS) -o vec2ex1c
+ex1	: $(EX1OBJS)
+	$(CC) $(EX1OBJS) -o ex1
 
-vec2ex1p	: $(VEC2EX1POBJS)
-	$(C++) $(VEC2EX1POBJS) -o vec2ex1p
+ex2	: $(EX2OBJS)
+	$(C++) $(EX2OBJS) -o ex2
 
-mat22ex1	: $(MAT22EX1OBJS)
-	$(C++) $(MAT22EX1OBJS) -o mat22ex1
+ex4	: $(EX4OBJS)
+	$(C++) $(EX3OBJS) -o ex3
 
-cardsetex1	: $(CARDSETEX1OBJS)
-	$(C++) $(CARDSETEX1OBJS) -o cardsetex1
+ex6	: $(EX6OBJS)
+	$(C++) $(EX6OBJS) -o cardsetex6
 
 babanuki1	: $(BABANUKI1OBJS)
 	$(C++) $(BABANUKI1OBJS) -o babanuki1
@@ -40,12 +43,12 @@ cardset_example: $(CARDSETEXOBJS)
 
 vector2c.o	: vector2c.h
 vec2ex1c.o	: vector2c.h
-vector2p.o	: vector2p.h
-vec2ex1p.o	: vector2p.h
+vector2.o	: vector2.h
+vec2ex2.o	: vector2.h
 matrix22.o	: matrix22.h
-mat22ex1.o	: matrix22.h
+mat22ex4.o	: matrix22.h
 cardset.o	: cardset.h
-cardsetex1.o	: cardset.h
+cardsetex6.o : cardset.h
 babastate.o	: babastate.h cardset.h
 babanuki1.o	: babastate.h cardset.h
 

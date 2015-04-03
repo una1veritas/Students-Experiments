@@ -6,9 +6,9 @@
 #include "vector2c.h"
 
 /*
- * constv2() - x0, y0 を与えて，定数 (x0, y0) を得る
+ * initv2() - x0, y0 を与えて，定数 (x0, y0) を得る
  */
-struct vector2 constv2(double x0, double y0)
+struct vector2 initv2(double x0, double y0)
 {
 	struct vector2 ret;
 
@@ -36,7 +36,7 @@ struct vector2 addv2(struct vector2 u, struct vector2 v)
  */
 void scanv2(struct vector2* pu)
 {
-	scanf("%lf %lf", &pu->x, &pu->y);
+	scanf("%lf,%lf", &pu->x, &pu->y);
 }
 
 /*
@@ -44,5 +44,5 @@ void scanv2(struct vector2* pu)
  */
 void printv2(struct vector2 u)
 {
-	printf("( %f %f )", u.x, u.y);
+	printf("( %f, %f )", u.x, u.y);
 }

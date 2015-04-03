@@ -3,7 +3,7 @@
 //	作者: (あなたの名前); 日付: (完成した日付)
 //
 #include <stdio.h>
-#include "vector2p.h"
+#include "vector2.h"
 
 //
 // Vector2::Vector2() - x0, y0 を与えて定数 (x0, y0) を得るコンストラクタ
@@ -32,7 +32,7 @@ Vector2 Vector2::add(Vector2 u)
 //
 void Vector2::scan(void)
 {
-	scanf("%lf %lf", &x, &y);
+	scanf("%lf,%lf", &x, &y);
 }
 
 //
@@ -40,5 +40,5 @@ void Vector2::scan(void)
 //
 void Vector2::print(void)
 {
-	printf("( %f %f )", x, y);
+	printf("( %f, %f )", x, y);
 }
