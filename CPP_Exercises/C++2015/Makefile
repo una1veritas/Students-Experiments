@@ -5,9 +5,10 @@ C++FLAGS = -Wall -g
 EX1OBJS = vector2c.o vec2ex1c.o
 EX2OBJS = vector2.o vec2ex2.o
 EX4OBJS = matrix22.o mat22ex4.o
-EX6OBJS = cardset.o cardsetex6.o
-EX7OBJS = cardset.o cardset_example.o
-EX8OBJS = cardset.o babastate.o babanuki1.o
+EX6OBJS = card.o cardset.o cardsetex6.o
+EX7OBJS = card.o cardset.o cardset_example.o
+EX8OBJS = card.o cardset.o babastate.o babanuki1.o
+BABANUKIOBJS = babastate.o babanuki.o card.o cardset.o
 
 .SUFFIXES: .o .cc .c++ .c
 
@@ -35,8 +36,8 @@ ex4	: $(EX4OBJS)
 ex6	: $(EX6OBJS)
 	$(C++) $(EX6OBJS) -o cardsetex6
 
-babanuki1	: $(BABANUKI1OBJS)
-	$(C++) $(BABANUKI1OBJS) -o babanuki1
+babanuki	: $(BABANUKIOBJS)
+	$(C++) $(BABANUKIOBJS) -o babanuki
 
 cardset_example: $(CARDSETEXOBJS)
 	$(C++) $(CARDSETEXOBJS) -o cardset_example
@@ -47,10 +48,11 @@ vector2.o	: vector2.h
 vec2ex2.o	: vector2.h
 matrix22.o	: matrix22.h
 mat22ex4.o	: matrix22.h
-cardset.o	: cardset.h
-cardsetex6.o : cardset.h
+card.o	: card.h
+cardset.o	: card.h cardset.h
+cardsetex6.o : card.h cardset.h
 babastate.o	: babastate.h cardset.h
-babanuki1.o	: babastate.h cardset.h
+babanuki.o	: babastate.h cardset.h
 
 clean   :
 	rm -f core *.o *~

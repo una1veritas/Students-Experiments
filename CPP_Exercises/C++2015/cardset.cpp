@@ -3,56 +3,8 @@
 //	作者: (あなたの名前); 日付: (完成した日付)
 //
 #include <iostream>
+#include "card.h"
 #include "cardset.h"
-
-// クラス変数（定数）の初期化
-const char * Card::suitnames[] = {
-  		"spade",
-  		"diamond",
-  		"heart",
-  		"club",
-  		"joker"
-};
-
-//
-// Card::scan() - 標準出力から自身に入力する(true: 正常終了; false: 異常終了)
-//
-bool Card::scan(void)
-{
-  char buf[BUFSIZ];
-  // initialize static const variable
-
-  // 4組のいずれか？
-  if(scanf("%s", buf) < 1)
-    return false;
-  for(int s = SUIT_SPADE; s <= SUIT_CLUB; s++) {
-	  if( buf[0] == Card::suitnames[s][0] ) { // 一文字目だけで判定
-		  suit = s;
-		  // なら番号もスキャン
-		  if( (scanf("%d", &number) < 1) && (number < 1 || number > 13) )
-			  return false;
-		  return true;
-    }
-  }
-  // joker はそのまま(number は 0 とする)
-  if( buf[0] == 'j' ) {
-    suit = SUIT_JOKER;
-    number = 0;
-    return true;
-  }
-  
-  return false;	// エラー
-}
-
-//
-// Card::print() - 自身の値を標準出力に出力する
-//
-void Card::print(void)
-{
-	printf("[%s %d]", suitnames[suit], number);
-}
-
-
 
 //
 // CardSet::locate() - 内部での target のカードの位置を返す(-1: ない)
@@ -72,16 +24,16 @@ int CardSet::locate(Card target)
 int CardSet::locate(int number)
 {
   for(int i = 0; i < numcard; i++)
-    if(number == cdat[i].gnumber())
+    if(number == cdat[i].getNumber())
       return i;
   
   return -1;	// 見つからなかった
 }
 
 //
-// CardSet::makedeck() - 自身に全部の(maxnumcard 枚の)カードを入れる
+// CardSet::setupDeck() - 自身に全部の(maxnumcard 枚の)カードを入れる
 //
-void CardSet::makedeck(void)
+void CardSet::setupDeck(void)
 {
   Card c;
   int suit, num;
@@ -123,6 +75,8 @@ int CardSet::insert(Card newcard)
 	if( location >= 0)
 		return location;	// 既にある
 	// 最後に追加
+	if ( numcard >= maxnumcard )
+		return -1; // もうはいらないし，入れるカードはないはず
 	location = numcard;
 	cdat[location] = newcard;
 	numcard++;

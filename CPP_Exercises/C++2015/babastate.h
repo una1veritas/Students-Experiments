@@ -5,6 +5,7 @@
 #ifndef BABASTATE_H
 #define BABASTATE_H
 
+#include "card.h"
 #include "cardset.h"
 
 //
@@ -22,8 +23,8 @@ public:
 	BabaState(void)	{ reset(); }
 		// デフォルトコンストラクタ(初期値はカードを配った状態)
 	void reset(void);
-		// リセット(最初にカードを配った状態にする)
-	bool isfinished(int plr)	{ return hand[plr].isempty(); }
+		// リセット(はじめにカードを配りおえた状態にする)
+	bool isFinished(int plr)	{ return hand[plr].isEmpty(); }
 		// plr 番のプレーヤが上がった(終了した)か否かの判定
 		// (true: 上がった; false: 未了)
 	bool move(int from, int to);

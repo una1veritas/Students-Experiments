@@ -6,72 +6,6 @@
 #define CARDSET_H
 
 //
-// Card - トランプカード型
-//
-class Card {
-	// クラス定数
-	// トランプの組(suit)のコード
-	public:
-	enum {
-		SUIT_SPADE,
-		SUIT_DIAMOND,
-		SUIT_HEART,
-		SUIT_CLUB,
-		SUIT_JOKER,
-		SUIT_NUMBER
-	};
-	
-// メンバ変数
-private:
-	int suit;	// 組
-	int number;	// 番号
-
-	static const char * suitnames[]; // クラス変数（定数）．値の初期化は .cpp で行う
-
-// メンバ関数
-public:
-	// デフォルトコンストラクタ(初期値不定)
-	Card(void)	{ }
-	// 組と番号を設定する
-	void set(int st, int num) {
-		suit = st;
-		number = num; 
-	}
-
-	// 自身と tgt のカードの組，番号が等しいか判定 (true: 同; false: 異)
-	// データとして同じオブジェクトかどうかではない．
-	bool equal(Card tgt) { 
-		return (suit == tgt.suit) && (number == tgt.number); 
-	}
-
-	bool isValid() {
-		if ( ((SUIT_SPADE <= suit) && (suit <= SUIT_CLUB)) 
-			 && (1 <= number && (number <= 13)) )
-			return true;
-		else if (suit == SUIT_JOKER)
-			return true;
-		return false;
-	}
-	
-	// アクセサ
-	int gnumber(void) {
-		return number;
-	}
-	
-	int gsuit(void)	{
-		return suit;
-	}
-
-	// 標準出力から自身に入力する(true: 正常終了; false: 異常終了)
-	bool scan(void);
-	
-	
-	// 自身の値を標準出力に出力する
-	void print(void);
-	
-};
-
-//
 // CardSet - トランプカードの集合型
 //
 class CardSet {
@@ -89,24 +23,24 @@ private:
 	int locate(int num);
 		// 内部で数字が num のカードの位置を返す(-1: ない)
 public:
-	CardSet(void)		{ makeempty(); }
+	CardSet(void)		{ makeEmpty(); }
 		// デフォルトコンストラクタ(初期値空集合)
-	void makeempty(void)	{ numcard = 0 ; }
+	void makeEmpty(void)	{ numcard = 0 ; }
 		// 自身を空集合にする
-	bool isempty(void)	{ return numcard == 0; }
+	bool isEmpty(void)	{ return numcard == 0; }
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
-	void makedeck(void);
+	void setupDeck(void);
 		// 自身に全部の(maxnumcard 枚の)カードを入れる
 	int pickup(Card* ret, int targetpos = -1);
 		// 自身から targetpos 枚目のカードを除き *ret に返す
 		// targetpos が -1 のときはランダムに選ぶ
 		// (-1: 失敗; 0以上: 成功)
 	int insert(Card newcard);
-		// 自身に newcard のカードを入れる(-1: 失敗; 0以上: 成功)
+		// 自身に newcard のカードを入れる(-1: もう入らないので失敗; 0以上: 成功)
 	int remove(Card target);
 		// 自身から target のカードを除く(-1: 失敗; 0以上: 成功)
-	bool remove(int num);
-		// 自身から数字が num であるカードを除く(-1: 失敗; 0以上: 成功)
+	int remove(int num);
+		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
 	void print(void);
 		// 自身の状態を標準出力に出力する
 		
