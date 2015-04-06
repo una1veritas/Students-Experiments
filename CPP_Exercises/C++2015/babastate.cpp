@@ -20,7 +20,7 @@ void BabaState::reset(void)
   // 無くなるまで initcs から無作為にカードをとり plr 番のプレーヤに配る
   int plr = 0;	// 配る相手のプレーヤ
   Card c;		// 配るカード
-  while(!initcs.pickup(&c)) {
+  while(initcs.pickup(c) != -1) {
     // 既に配られたカードと同じ番号があれば
     // 今度のカードと既に配られたカードとの両方を捨てる
     // 無ければ今度のカードを自分の手に加える

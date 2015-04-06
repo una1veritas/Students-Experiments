@@ -18,7 +18,7 @@ private:
 	Card cdat[maxnumcard];	// カードのデータ
 // メンバ関数
 private:
-	int locate(Card target);
+	int locate(Card & target);
 		// 内部での target のカードの位置を返す(-1: ない)
 	int locate(int num);
 		// 内部で数字が num のカードの位置を返す(-1: ない)
@@ -31,14 +31,15 @@ public:
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
 	void setupDeck(void);
 		// 自身に全部の(maxnumcard 枚の)カードを入れる
-	int pickup(Card* ret, int targetpos = -1);
-		// 自身から targetpos 枚目のカードを除き *ret に返す
-		// targetpos が -1 のときはランダムに選ぶ
+	int pickup(Card & card, int targetpos);
+		// 自身から targetpos 枚目のカードを除き，そのカードを返す
+	int pickup(Card & card) { return pickup(card, -1); }
+		// 同様だが，ランダムに選ぶ
 		// (-1: 失敗; 0以上: 成功)
 	int insert(Card newcard);
-		// 自身に newcard のカードを入れる(-1: もう入らないので失敗; 0以上: 成功)
-	int remove(Card target);
-		// 自身から target のカードを除く(-1: 失敗; 0以上: 成功)
+		// 自身に newcard を入れる(-1: もう入らないので失敗; 0以上: 成功)
+	int remove(Card & target);
+		// 自身から target のカードを取り除く(-1: 失敗; 0以上: 成功)
 	int remove(int num);
 		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
 	void print(void);
