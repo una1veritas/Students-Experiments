@@ -1,1 +1,0 @@
-ExtraPlayers/GroupB.cc

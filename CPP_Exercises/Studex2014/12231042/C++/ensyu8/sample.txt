@@ -1,4 +1,0 @@
-コンパイル方法
-c++ ensyu8.cc ensyu8ex.cc（カードセットのプログラム）
-
-c++ ensyu8-1.cc ensyu8-1ex.cc ensyu8.cc（ババ抜きプログラム）
