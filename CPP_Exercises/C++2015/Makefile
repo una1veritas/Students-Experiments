@@ -31,10 +31,10 @@ ex2	: $(EX2OBJS)
 	$(C++) $(EX2OBJS) -o ex2
 
 ex4	: $(EX4OBJS)
-	$(C++) $(EX3OBJS) -o ex3
+	$(C++) $(EX3OBJS) -o ex4
 
 ex6	: $(EX6OBJS)
-	$(C++) $(EX6OBJS) -o cardsetex6
+	$(C++) $(EX6OBJS) -o ex6
 
 babanuki	: $(BABANUKIOBJS)
 	$(C++) $(BABANUKIOBJS) -o babanuki
