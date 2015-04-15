@@ -39,7 +39,7 @@ public:
 	int insert(Card newcard);
 		// 自身に newcard を入れる(-1: もう入らないので失敗; 0以上: 成功)
 	int remove(Card & target);
-		// 自身から target のカードを取り除く(-1: 失敗; 0以上: 成功)
+		// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)
 	int remove(int num);
 		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
 	void print(void);

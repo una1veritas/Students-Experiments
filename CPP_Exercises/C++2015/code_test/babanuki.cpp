@@ -27,19 +27,18 @@ int main(void)
 	while(1) {
 	// 次の from と to を探す
 		for(to = (to + 1) % BabaState::numplayer;
-		 bs.isFinished(to);
-		 to = (to + 1) % BabaState::numplayer)
-			;
+				bs.isFinished(to);
+				to = (to + 1) % BabaState::numplayer) ;
 		for(from = (to + BabaState::numplayer - 1) % BabaState::numplayer;
-		 bs.isFinished(from);
-		 from = (from + BabaState::numplayer - 1) % BabaState::numplayer)
-			;
+				bs.isFinished(from);
+				from = (from + BabaState::numplayer - 1) % BabaState::numplayer) ;
 // 終了判定
-		if(from == to)	// ゲームの終了条件(1人以外は上がった)
+		if( from == to )	// ゲームの終了条件(1人以外は上がった)
 			break;
 // from から to にカードが渡る
 		bs.move(from, to);
-		std::cout << "# プレーヤ " << from << " からプレーヤ " << to << " にカードが渡る"<< std::endl;
+		std::cout << "# "<< std::endl;
+		std::cout << "# プレーヤ " << from << " からプレーヤ " << to << " がカードを取る．"<< std::endl;
 		bs.print();
 	}
 

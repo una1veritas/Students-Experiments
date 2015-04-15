@@ -60,7 +60,6 @@ int CardSet::pickup(Card & card, int targetpos /* = -1 */)
 	else
 		targetpos %= numcard;
 	card = cdat[targetpos];
-
 	// remove(*ret); // remove() 実現後にコメントを外せ
 	return targetpos;
 }

@@ -76,7 +76,7 @@ public:
 	friend std::ostream & operator<<(std::ostream& ostr, const Card & card) {
 		ostr << '[' << suitnames[card.suit];
 		if (card.suit != SUIT_JOKER )
-			ostr << ", " << card.number;
+			ostr << " " << card.number;
 		ostr << ']';
 		return ostr;
 	}

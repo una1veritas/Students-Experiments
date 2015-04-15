@@ -29,7 +29,7 @@ public:
 		// (true: 上がった; false: 未了)
 	bool move(int from, int to);
 		// to 番のプレーヤが from 番のプレーヤからカードを取る
-		// (true: 失敗; false: 成功)
+		// (true: 成功; false: 失敗)
 	void print(void);
 		// 自身の状態を標準出力に出力する
 };

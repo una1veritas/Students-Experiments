@@ -28,34 +28,37 @@ int main (int argc, char * const argv[]) {
 			// std::cout << c << std::endl; // C++ 風に出力するには，operator<< を定義する．
 			std::cout << std::endl;
 		} while ( cs.insert(c) >= 0 ); // 常に ture のはず
+		std::cout << "CardSet contents: " << std::endl;
 		cs.print();
-
-		std::cout << "Rmove the identical card. " << std::endl;
-		// カード入力がエラーまたは削除が失敗するまで指定したカードを削除 (1)
+		std::cout << std::endl;
+		
+		std::cout << "Remove the same card." << std::endl;
+		// カード入力がエラーになるまで指定したカードを入れる
 		do {
-			cs.print();
-			std::cout << std::endl;
 			std::cout << "Type 'suit number', or e'x'it: ";
 			if ( !c.scan() )
 				break;
 			c.print();
 			// std::cout << c << std::endl; // C++ 風に出力するには，operator<< を定義する．
 			std::cout << std::endl;
-		} while ( cs.remove(c) >= 0 );
+		} while ( cs.remove(c) >= 0 ); // あれば true
+		std::cout << "CardSet contents: " << std::endl;
+		cs.print();
+		std::cout << std::endl;
 
-		std::cout << "Rmove a card by the number. " << std::endl;
-		// カード入力がエラーまたは削除が失敗するまで指定したカードを削除 (2)
+		std::cout << "Remove a card of the same number." << std::endl;
+		// カード入力がエラーになるまで指定したカードを入れる
 		do {
-			cs.print();
-			std::cout << std::endl;
 			std::cout << "Type 'suit number', or e'x'it: ";
 			if ( !c.scan() )
 				break;
 			c.print();
 			// std::cout << c << std::endl; // C++ 風に出力するには，operator<< を定義する．
 			std::cout << std::endl;
-		} while ( cs.remove(c.getNumber()) >= 0 );
+		} while ( cs.remove(c.getNumber()) >= 0 ); // あれば true
+		std::cout << "CardSet contents: " << std::endl;
 		cs.print();
+		std::cout << std::endl;
 
 		return 0;
 }
