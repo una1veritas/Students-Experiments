@@ -6,15 +6,11 @@ EX1OBJS = vector2c.o vec2ex1c.o
 EX2OBJS = vector2.o vec2ex2.o
 EX4OBJS = matrix22.o mat22ex4.o
 EX6OBJS = card.o cardset.o cardsetex6.o
-<<<<<<< HEAD
-EX7OBJS = card.o cardset.o babastate.o babanuki.o
-=======
 EX6TEST = card.o cardset.o cardset_remove.o cardsetex6t.o
 EX6TOBJS = card.o cardset.o ./test/cardset_remove.o ./test/cardsetex6t.o
 EX7OBJS = card.o cardset.o babastate.o  babanuki.o
 EX7TEST  = card.o cardset.o babastate.o babanuki.o ./test/cardset_remove.o ./test/cardset_pickup.o ./test/babastate_move.o 
 EX7TOBJS = card.o cardset.o babastate.o babanuki.o cardset_remove.o cardset_pickup.o babastate_move.o 
->>>>>>> origin/master
 
 .SUFFIXES: .o .cc .c++ .c
 
@@ -40,31 +36,16 @@ ex4	: $(EX4OBJS)
 	$(C++) $(EX3OBJS) -o ex4
 
 ex6	: $(EX6OBJS)
-<<<<<<< HEAD
 	$(C++) $(EX6OBJS) -o ex6
-	
-ex6t : card.o cardset.o ./test/cardset_remove.o ./test/cardsetex6t.o 
-	$(C++) card.o cardset.o cardset_remove.o cardsetex6t.o -o ex6t
-=======
-	$(C++) $(EX6OBJS) -o cardsetex6
 
 ex6t : $(EX6TOBJS)
 	$(C++) $(EX6TEST) -o ex6t
->>>>>>> origin/master
 
 ex7 : $(EX7OBJS)
 	$(C++) $(EX7OBJS) -o ex7
 
-<<<<<<< HEAD
-ex7t : card.o cardset.o babastate.o babanuki.o \
-	./test/babastate_move.o ./test/cardset_remove.o ./test/cardset_pickup.o
-	$(C++) card.o cardset.o babastate.o babanuki.o \
-			babastate_move.o cardset_remove.o cardset_pickup.o \
-			-o ex7t
-=======
 ex7t : $(EX7TEST)
 	$(C++) $(EX7TOBJS) -o ex7t
->>>>>>> origin/master
 
 vector2c.o	: vector2c.h
 vec2ex1c.o	: vector2c.h
@@ -75,20 +56,14 @@ mat22ex4.o	: matrix22.h
 card.o	: card.h
 cardset.o	: card.h cardset.h
 cardsetex6.o : card.h cardset.h
-<<<<<<< HEAD
-cardsetex6t.o : card.h cardset.h
-=======
->>>>>>> origin/master
 babastate.o	: babastate.h cardset.h
 babanuki.o	: babastate.h cardset.h
 
 cardset_remove.o: card.h cardset.h
-<<<<<<< HEAD
-cardset_move.o: card.h cardset.h
-=======
 cardsetex6t.o : card.h cardset.h
->>>>>>> origin/master
 babastate_move.o	: babastate.h cardset.h
 
 clean   :
 	rm -f core *.o *~
+	rm -f ex1 ex2 ex4 ex6 ex6t ex7 ex7t
+	

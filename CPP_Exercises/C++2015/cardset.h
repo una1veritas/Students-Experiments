@@ -5,6 +5,8 @@
 #ifndef CARDSET_H
 #define CARDSET_H
 
+#include <cstdlib>
+
 //
 // CardSet - トランプカードの集合型
 //

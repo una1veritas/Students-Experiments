@@ -48,14 +48,9 @@ void CardSet::setupDeck(void)
 }
 
 //
-<<<<<<< HEAD
-// CardSet::pickup() - 自身から targetpos 枚目のカードをぬき card にセットする
-//	targetpos が -1 のときはランダムに選ぶ(-1: 失敗; 0以上: 成功)
-=======
 // CardSet::pickup() - 自身から targetpos 枚目のカードをぬき card にセットし返す
 //	targetpos が -1 のときはランダムに選ぶ．
 // (-1: 失敗; 0以上: 成功)
->>>>>>> origin/master
 //
 // remove() 実現後にコメントを外せ
 /*
@@ -63,7 +58,7 @@ int CardSet::pickup(Card & card, int targetpos)
 {
 	if( numcard == 0 )
 		return -1;
-	if(targetpos == -1 )
+	if(targetpos < 0)
 		targetpos = random() % numcard;
 	else
 		targetpos %= numcard;
