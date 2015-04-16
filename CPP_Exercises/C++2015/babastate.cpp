@@ -24,7 +24,7 @@ void BabaState::reset(void)
     // 既に配られたカードと同じ番号があれば
     // 今度のカードと既に配られたカードとの両方を捨てる
     // 無ければ今度のカードを自分の手に加える
-    if(!hand[plr].remove(c.getNumber()))
+    if( hand[plr].remove(c.getNumber()) == -1 )
       hand[plr].insert(c);
     // plr を次のプレーヤにする
     if(++plr >= numplayer)
