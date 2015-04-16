@@ -1,10 +1,10 @@
-.o
-.a
+*.o
+*.a
 
 .cproject
 .project
 
-.docx
-.pptx
-.pdf
-.ppt
+*.docx
+*.pptx
+*.pdf
+*.ppt
