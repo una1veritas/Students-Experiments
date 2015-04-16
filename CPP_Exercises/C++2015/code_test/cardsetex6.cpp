@@ -1,1 +1,0 @@
-../cardsetex6.cpp
