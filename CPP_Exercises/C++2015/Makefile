@@ -33,7 +33,7 @@ ex4	: $(EX4OBJS)
 	$(C++) $(EX3OBJS) -o ex4
 
 ex6	: $(EX6OBJS)
-	$(C++) $(EX6OBJS) -o ex6
+	$(C++) $(EX6OBJS) -o cardsetex6
 
 ex6a : $(EX6AOBJS)
 	$(C++) $(EX6AOBJS) -o ex6a
