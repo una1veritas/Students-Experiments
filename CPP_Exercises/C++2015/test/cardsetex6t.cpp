@@ -4,8 +4,8 @@
 //	作者: (あなたの名前); 日付: (完成した日付)
 //
 #include <iostream>
-#include "card.h"
-#include "cardset.h"
+#include "../card.h"
+#include "../cardset.h"
 
 //
 // main() - トランプカードの集合型テストプログラム

@@ -48,10 +48,13 @@ void CardSet::setupDeck(void)
 }
 
 //
-// CardSet::pickup() - 自身から targetpos 枚目のカードをぬき *ret に返す
-//	targetpos が -1 のときはランダムに選ぶ(-1: 失敗; 0以上: 成功)
+// CardSet::pickup() - 自身から targetpos 枚目のカードをぬき card にセットし返す
+//	targetpos が -1 のときはランダムに選ぶ．
+// (-1: 失敗; 0以上: 成功)
 //
-int CardSet::pickup(Card & card, int targetpos /* = -1 */)
+// remove() 実現後にコメントを外せ
+/*
+int CardSet::pickup(Card & card, int targetpos)
 {
 	if( numcard == 0 )
 		return -1;
@@ -60,9 +63,10 @@ int CardSet::pickup(Card & card, int targetpos /* = -1 */)
 	else
 		targetpos %= numcard;
 	card = cdat[targetpos];
-	// remove(*ret); // remove() 実現後にコメントを外せ
+	remove(card);
 	return targetpos;
 }
+*/
 
 //
 // CardSet::insert() - 自身に newcard を入れる(常に成功，挿入／存在位置を返す)

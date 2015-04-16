@@ -2,8 +2,8 @@
 // babastate.cc - ババ抜きの状態型(C++版)
 //	作者: (あなたの名前); 日付: (完成した日付)
 //
-#include "babastate.h"
 #include <iostream>
+#include "../babastate.h"
 
 		// to 番のプレーヤが from 番のプレーヤからカードを取る
 		// (true: 成功; false: 失敗)
