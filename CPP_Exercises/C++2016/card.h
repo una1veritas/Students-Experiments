@@ -35,6 +35,10 @@ private:
 public:
 	// デフォルトコンストラクタ(初期値不定)
 	Card(void)	{ }
+
+	// コピーコンストラクタ
+	Card(const Card & c);
+
 	// 組と番号を設定する
 	void set(int st, int num) {
 		suit = st;
