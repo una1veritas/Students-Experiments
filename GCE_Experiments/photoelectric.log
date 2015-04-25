@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.10.10)  24 APR 2015 16:59
+This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2015.4.5)  25 APR 2015 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,30 +7,29 @@ entering extended mode
 (./photoelectric.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2014/05/01> patch level 0)
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2014/texmf-dist/tex/platex/base/jreport.cls
-Document Class: jreport 2006/06/27 v1.6 Standard pLaTeX class
+(/usr/local/texlive/2014/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2006/06/27 v1.6 Standard pLaTeX class
 \c@@paper=\count81
 (/usr/local/texlive/2014/texmf-dist/tex/platex/base/jsize11.clo
 File: jsize11.clo 2006/06/27 v1.6 Standard pLaTeX file (size option)
 )
 \c@part=\count82
-\c@chapter=\count83
-\c@section=\count84
-\c@subsection=\count85
-\c@subsubsection=\count86
-\c@paragraph=\count87
-\c@subparagraph=\count88
-\c@figure=\count89
-\c@table=\count90
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \symmincho=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
-(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 677.
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 601.
 \toclineskip=\dimen118
 \@lnumwidth=\dimen119
 \bibindent=\dimen120
-\heisei=\count91
+\heisei=\count90
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
@@ -57,15 +56,15 @@ Package graphics Info: Driver file: dvips.def on input line 91.
 File: dvips.def 2014/04/23 v3.0j Driver-dependant file (DPC,SPQR)
 ))
 (./theorem.sty
-\c@definition=\count92
-\c@lemma=\count93
-\c@theorem=\count94
-\c@claim=\count95
-\c@corollary=\count96
-\c@proposition=\count97
-\c@example=\count98
+\c@definition=\count91
+\c@lemma=\count92
+\c@theorem=\count93
+\c@claim=\count94
+\c@corollary=\count95
+\c@proposition=\count96
+\c@example=\count97
 )
-\c@fact=\count99
+\c@fact=\count98
  (./A4.tex)
 
 LaTeX Warning: Unused global option(s):
@@ -74,53 +73,71 @@ LaTeX Warning: Unused global option(s):
 (./photoelectric.aux)
 \openout1 = `photoelectric.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 21.
+(Font)              <12> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 21.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 21.
+(Font)              <8> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 23.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 23.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 21.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 23.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+)
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 25.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 46.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 57.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 57.
+
+
+LaTeX Warning: Citation `Aya-' on page 1 undefined on input line 57.
+
+[1
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
- [1]
-(./photoelectric.aux) ) 
-Here is how much of TeX's memory you used:
- 643 strings out of 493807
- 7842 string characters out of 6151950
- 61222 words of memory out of 5000000
- 4144 multiletter control sequences out of 15000+600000
- 15336 words of font info for 65 fonts, out of 8000000 for 9000
- 929 hyphenation exceptions out of 8191
- 22i,6n,21p,185b,222s stack positions out of 5000i,500n,10000p,200000b,80000s
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 76.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 76.
+ [2] [3] (./photoelectric.aux)
 
-Output written on photoelectric.dvi (2 pages, 940 bytes).
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 637 strings out of 493807
+ 7797 string characters out of 6151952
+ 64879 words of memory out of 5000000
+ 4138 multiletter control sequences out of 15000+600000
+ 16643 words of font info for 68 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 22i,6n,23p,233b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on photoelectric.dvi (3 pages, 8040 bytes).
