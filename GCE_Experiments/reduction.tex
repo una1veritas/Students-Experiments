@@ -1,0 +1,428 @@
+%#! pdflatex main
+
+
+In this section, we will give a reduction that shows $\MinConDFAprefSet$ is $\classNP$-hard in Theorem~\ref{theorem:intractability}.
+It is also a main part of the proof of non-approximability in Theorem~\ref{theorem:nonapproximability}.
+At first, we give a transformation procedure employed in our reduction from the graph coloring problem.
+
+Let $\Sigma = \{\pathz, \patho\}$ and $\Gamma = \{\posi, \nega,\wild\}$.
+For notational convention, we define a {\em labeled string} by 
+a pair $(s,r)$ of strings $s \in \Sigma^*$ and $r \in \Gamma^*$ of the same
+length.
+It corresponds to the set $\textit{Pos} = \{ s[0\!:\!i] \mid r[i] = \posi\}$ 
+of positive examples and the set 
+$\textit{Neg} = \{ s[0\!:\!i] \mid r[i] = \nega\}$ of negative examples in an
+obvious way.
+The {\em concatenation} of two labeled strings $u_1 = (s_1,r_1)$ and
+$u_2 = (s_2,r_2)$ is
+naturally defined by $u_1\!\cdot\!u_2 = (s_1\!\cdot\! s_2,r_1\!\cdot\! r_2)$.
+
+Given a graph $G$ of an instance of \MinGC, 
+we translate it into a sample represented by a labeled string $S_G$ of an instance of $\MinConDFAprefSet$.
+First, we describe how the adjacency matrix of $G$ will be encoded in labeled strings. 
+
+For each vertex $i\in V$ of a graph $G=(V,E)$, we associate a labeled
+string $g_i = (\pathz^{2\sizeV}, \tilde{\ell_i})$, where $ \tilde{\ell_i} = \ell_i[0]\cdot \ell_i[1]\cdot\ell_i[2]\cdots
+\ell_i[n-1]$ and, for each $k \in V$, 
+\[
+% \tilde{\ell_i} = \ell_i[0]\cdot \ell_i[1]\cdot\ell_i[2]\cdots
+% \ell_i[n-1]\, \mbox{, \quad and \quad}
+%\]
+%%\[
+\ell_i[k] = 
+\begin{cases}
+\posi\nega & \mbox{ if $k=i$},\\
+\nega\nega & \mbox{ if $(i, k) \in E$},\\
+\wild\nega & \mbox{ otherwise. }
+\end{cases}
+\]
+%
+We call this $g_i$ for a vertex $i$ an {\em adjacency coding of $i$}. 
+
+Notice that, for each $i \in V$, the label $\posi$ exists only at $\ell_i[i]$. 
+Also, the substring $\nega\nega$ occurs at columns where adjacent vertices exist. 
+
+\begin{lemma}
+%	For any $i,j \in V$, 
+%	\begin{enumerate}
+%		\renewcommand{\labelenumi}{(\arabic{enumi})}
+%		\item $(i,j) \in E$ if and only if there exists $k \in V$ such that $\ell_i[k]=\nega\nega$ and $\ell_j[k]=\posi\nega$.
+%		\item $g_i$ and $g_j$ can be merged if and only if $(i,j) \notin E$.
+%	\end{enumerate}
+Labeled strings $\tilde{\ell_i}$ and $\tilde{\ell_j}$ of adjacency codings $g_i, g_j$ for $i, j \in V$ have both $\posi$ and $\nega$ at the same position if and only if $(i,j) \in E$. 
+\label{lem:joint2}
+\end{lemma}
+\begin{proof}
+\newcommand{\set}[1]{\{#1\}}
+% \begin{enumerate}
+	% \renewcommand{\labelenumi}{(\arabic{enumi})}
+%	(1) % \item
+%	If $(i,j) \in E$, we have $\ell_i[j]=\ell_j[i]=\nega\nega$.
+%	Otherwise, $\ell_j[k]=\posi\nega$ holds only at $k=j$.
+%	For the opposite, $\ell_i[j]=\ell_j[i]=\wild\nega$ since $(i,j) \notin E$.
+%
+%	(2) % \item
+%	By the proof of (1), 
+If $(i,j) \notin E$, $g_i$ and $g_j$ have no position $k$ such that $\ell_i[k]=\nega\nega$ and $\ell_j[k]=\posi\nega$, nor $\ell_i[k]=\posi\nega$ and $\ell_j[k]=\nega\nega$.
+%	So these two adjacency codings are consistent, and can be merged into one coding. \qed
+	% Then they can be merged into one coding $g_{\set{i,j}}=(a^{2\sizeV},\tilde{\ell}_{\set{i,j}})$ , where $\tilde{\ell}_{\set{i,j}} = \ell_{\set{i,j}}[0]\cdot \ell_{\set{i,j}}[1]\cdot\ell_{\set{i,j}}[2]\cdots \ell_{\set{i,j}}[\sizeV-1] $ and for each $k \in V$, 
+	% \begin{eqnarray*}
+	% 	\ell_{\set{i,j}}[k] = 
+	% 	\begin{cases}
+	% 	\posi\nega & \mbox{ if $k \in \set{i,j}$},\\
+	% 	\nega\nega & \mbox{ if $\ell_h[k] = \nega\nega$ for some $h \in \set{i,j}$},\\
+	% 	\wild\nega & \mbox{ otherwise. }
+	% 	\end{cases}
+	% \end{eqnarray*} \qed
+% \end{enumerate}
+\qed
+\end{proof}
+%
+Therefore, if $g_i$ and $g_j$ are in a labeled string as parts and $(i,j) \not\in E$, then the prefixes ending within those parts can be correctly classified by one state transition sequence of length $2n$. 
+In the following, we say that such labeled strings are {\em consistent}, and able to be {\em merged}. 
+
+By Lemma~\ref{lem:joint2}, a subset $V' \subseteq V$ is an independent set of graph $G$ if and only if $g_i$ and $g_j$ can be merged  for any $i, j \in V'$.
+A {\em $k$-partition} $V_0, V_1, \ldots, V_{k-1}$ of $V$ is a sequence of mutually disjoint$k$ subsets of $V$ whose union equals $V$.
+We identify a $k$-partition of $V$ with a mapping $f:V \rightarrow \{ 0,1,\cdots,k-1 \}$.
+$f$ is a $k$-coloring of $G$ if and only if, for any $h \in \{ 0,1,\cdots,k-1 \}$ and $i,j \in V_h$, $g_i$ and $g_j$ can be merged.
+We denote the {\em merged adjacency coding} for a subset $V'$ by $g_{V'}=(\pathz^{2\sizeV}, \tilde{\ell}_{V'})$, where $\tilde{\ell}_{V'} = \ell_{V'}[0]\cdot \ell_{V'}[1]\cdots \ell_{V'}[\sizeV-1] $ with for each $k \in V$,
+\[
+	\ell_{V'}[k] = 
+	\begin{cases}
+	\posi\nega & \mbox{ if $k \in V'$},\\
+	\nega\nega & \mbox{ if $\ell_j = \nega\nega$ for some $j \in V'$},\\
+	\wild\nega & \mbox{ otherwise. }
+	\end{cases}
+\]
+
+For preparation,
+we denote by $\ident{i}$ the labeled string $(\Bin_i, \nega^t)$ and call it {\em binary coding},
+where $t=\ceilbrace{\log{\sizeV}}$ and $\Bin_i$ is the binary representation of $i$ by using characters in $\Sigma$ of length $t$.
+For instance, if $\sizeV=6$, we have 
+$\ident{0} = (\pathz\pathz\pathz, \nega\nega\nega)$, 
+$\ident{1} = (\pathz\pathz\patho, \nega\nega\nega)$, 
+$\ident{2} = (\pathz\patho\pathz, \nega\nega\nega)$, 
+$\ldots$ 
+$\ident{6} = (\patho\patho\pathz, \nega\nega\nega)$.
+We now define the labeled string $S_G$ by
+%	we convert graph $G$ and positive integer $k$ to
+%\[
+$S_G = s_0 \cdot s_1 \cdot s_2 \cdots s_{\sizeV-1}$,
+%\]
+%$d =(\patho, \nega)$ plays a role of delimiter, and 
+%each $s_i \ (i=0,1,2,\cdots,n-1)$ is defined by
+%\[
+%\]
+where $s_i = \ident{i}\cdot\head\cdot g_i \cdot \tail$ with $\head = (\pathz^{\sizeV^2}, \nega^{\sizeV^2})$ and $\tail =
+(\pathz\pathz\patho,\posi\posi\nega)$ for each $i \in V$.
+(See Fig.~\ref{fig:exampleSg2}.)
+%	$\Sigma_L$-string $S_G$ and positive integer $p$.
+The length is
+\[
+ |S_G| \, = \, \sizeV( \ceilbrace{\log{\sizeV}} + \sizeV^2 + 2\sizeV + 3) 
+  \, = \, \sizeV^3 + 2\sizeV^2 + \sizeV\ceilbrace{\log{\sizeV}} + 3\sizeV.
+\]
+%
+%Fig.\ref{fig:exampleSg2} shows an example.
+%
+%
+\begin{figure}[tbp]
+%\begin{minipage}{3cm}
+%\fbox{
+\begin{picture}(60,85)(20,5)
+%\put(0,0){(0,0)}
+%\put(100,0){(100,0)}
+%\put(0,100){(0,100)}
+%\put(70,70){(70,70)}
+\put(50,80){\circle{12}}
+\put(48,77){0}
+\put(80,60){\circle{12}}
+\put(78,57){1}
+\put(80,30){\circle{12}}
+\put(78,27){2}
+\put(50,10){\circle{12}}
+\put(48, 7){3}
+\put(20,30){\circle{12}}
+\put(18,27){4}
+\put(20,60){\circle{12}}
+\put(18,57){5}
+%
+%\linethickness{1mm}
+\put(56,77){\line(3,-2){19}} % edge (0, 1)
+\put(80,54){\line(0,-1){18}} % edge (1, 2)
+\put(56,13){\line(3, 2){19}} % edge (3, 2)
+\put(44,13){\line(-3, 2){19}} % edge (3, 4)
+\put(20,54){\line(0,-1){18}} % edge (5, 4)
+\put(44,77){\line(-3, -2){19}} % edge (0, 5)
+\put(75,57){\line(-2,-1){49}} % edge (1, 4)
+\put(26,30){\line(1,0){48}} % edge (4, 2)
+\end{picture}
+%}
+%\end{minipage}
+%
+{ \tabcolsep=4pt
+\renewcommand{\arraystretch}{0.6}
+\newcommand{\zeroooo}{\mbox{\tt 00000}\ldots\mbox{\tt 000}}
+\newcommand{\aaaaaaa}{\mbox{\tt aaaaa}\ldots\mbox{\tt aaa}}
+\def\gray{}
+{\tt 
+\begin{tabular}{>{\columncolor[gray]{0.9}}c>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}cc>{\columncolor[gray]{0.9}}c>{\columncolor[gray]{0.9}}c>{\columncolor[gray]{0.9}}cc}
+\rowcolor{white}$\ident{i}      $ & \head & $0$ && $1$ && $2$ && $3$ && $4$ && $5$ && \tail \\ \hline
+\rowcolor[gray]{.9}aaa & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\zeroooo$         & \cellcolor[gray]{0.9}1 & 0 & 0 & 0 & * & 0 & * & 0 & * & 0 & 0 & 0 & 110 \\
+\rowcolor{white}\\[-2.5mm]
+\rowcolor[gray]{.9}aab & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\zeroooo$         & 0 & 0 & \cellcolor[gray]{0.9}1 & 0 & 0 & 0 & * & 0 & 0 & 0 & * & 0 & 110 \\
+\rowcolor{white}\\[-2.5mm]
+\rowcolor[gray]{.9}aba & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\zeroooo$         & * & 0 & 0 & 0 & \cellcolor[gray]{0.9}1 & 0 & 0 & 0 & 0 & 0 & * & 0 & 110 \\
+\rowcolor{white}\\[-2.5mm]
+\rowcolor[gray]{.9}abb & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\zeroooo$         & * & 0 & * & 0 & 0 & 0 & \cellcolor[gray]{0.9}1 & 0 & 0 & 0 & * & 0 & 110 \\
+\rowcolor{white}\\[-2.5mm]
+\rowcolor[gray]{.9}baa & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\zeroooo$         & * & 0 & 0 & 0 & * & 0 & 0 & 0 & \cellcolor[gray]{0.9}1 & 0 & 0 & 0 & 110 \\
+\rowcolor{white}\\[-2.5mm]
+\rowcolor[gray]{.9}bab & $\aaaaaaa$         & a & a & a & a & a & a & a & a & a & a & a & a & aab \\
+000 & $\underbrace{\zeroooo}$
+                         & 0 & 0 & * & 0 & * & 0 & * & 0 & 0 & 0 & \cellcolor[gray]{0.9}1 & 0 & 110 \\
+% \rowcolor{white}& \underbrace \\[-2.5mm]
+\rowcolor{white} & $36$ 
+\end{tabular} \vspace{-3mm}
+}}
+\caption{A labeled string $S_G$ translated from the graph $G=(V,E)$ on the left.
+Remark that $S_G$ is a single labeled string, although it is written in 6 lines for easy understanding.
+Shadowed symbols depend only on the number $|V|$ of the vertices, and
+only unshadowed symbols reflect the connectivities of the edges in $E$.
+% A gray part is fixed by vertex size $n$. A white part changes by links between vertices.}
+}
+\label{fig:exampleSg2}
+\end{figure}
+\renewcommand{\arraystretch}{1.0}
+
+We now consider DFAs that are consistent with $S_G$.
+Obviously, any DFA of the form as illustrated in Fig.~\ref{fig:minimizeDFA} (top) is consistent with
+$S_G$; here, double circles are accepting states, black circles are
+rejecting states, and single circles can be either accepting or
+rejecting states.
+By merging some states consistently, we can get a smaller DFA.
+For instance, a DFA $\tilde{M}_G$ in Fig.~\ref{fig:minimizeDFA} (bottom)
+is also consistent with $S_G$.
+%Now suppose that a partitioning DFA $\tilde{M}_G$ is 
+We show that $\tilde{M}_G$ has a unique structure which is easily transformed into coloring $\Phi$, and which is specified by {\em necks} and {\em streams} defined as follows.
+
+% $\tilde{M}_G$ has accepting states that are the last symbols of $head$s.
+The {\em necks} are the last symbols of $head$s in $\tilde{M}_G$.
+They contribute to extract coloring from $\tilde{M}_G$.
+% We call those states {\em necks}.
+% Before looking into the proof of our main result, 
+% we show any partitioning DFA has a similar structure specified by necks.
+% or can be transformed in log-space from any DFA consistent with $S_G$ without increasing the number of states.
+% 
+% $\tilde{M}_G$ has acyclic chained states which is called {\em streams}.
+A {\em stream} is an acyclic chained states linked only by $\pathz$-transitions.
+It consists of head, adjacency coding and a part of tail.
+ % and where transition is only $\pathz$-transition.
+% In another word, any transition by $\patho$-transition instantly leads to rejection,
+% although a state on a stream can be either an accepting state or a non-accepting state. 
+Note that no stream can have any transition branching off with $\pathz$-transition because the automaton is deterministic.
+
+
+\begin{property}\label{pro:head}
+	Every neck appears after a stream with $\sizeV^2 -1$ accepting states handling the head parts. 
+	All the streams flowing into the same neck can be merged into one stream, without increasing the number of states. 
+\end{property}
+\begin{proof}
+	Any transitions run over by symbols of the head cannot make a closed cycle; 
+	if there is a cyclic transition, it must merge all the following `$\pathz$'s including those in the adjacency coding and the tail; 
+	then $M_G$ is inconsistent with $S_G$ because the tail part must (and also possibly the body part) have a rejecting state.
+	Since all the streams down to one neck are equivalent --- the states at the same distance to the neck form a right-invariant group ---, all those streams can be merged into one. \qed
+\end{proof}
+
+\begin{property}\label{pro:acyclic}
+	Any transition run over by an adjacency coding and the following tail (except a last few symbols) forms a stream partially.
+\end{property}
+\begin{proof}
+	An adjacency coding part has accepting states on alternate states, but the following tail runs over any such cycle. 
+	The tail has a unique accepting state sequence $(\pathz\pathz\patho, \posi\posi\nega)$, which never appears in adjacency coding.
+	Thus a cycle run over by the adjacency coding and the tail makes a contradiction.
+
+	Note that it is possible that the transitions for a few last symbols can be merged into some stream, and then leaves by $\patho$-transition. \qed
+\end{proof}
+
+\begin{property}\label{pro:tail}
+	All the tails can be merged into one stream without increasing the number of states. 
+	That merge can extend to upstream including a few states of adjacency codings at their end. 
+\end{property}
+\begin{proof}
+	In order to minimize the binary representations, we must merge them like a binary tree.
+	The root node of the tree is the initial state of the binary representations, i.e., the last states of the tails.
+	If all tails are not merged, binary representations cannot form a binary tree.
+
+	Streams down to the root node are equivalent because all of them are tails, so they are merged into one stream.
+	Furthermore, if the last few states in some combination of adjacency coding flowing into tail is equivalent, they can be also merged into one stream respectively. \qed
+	%
+	% Tail has accepting state sequence which don't appear in binary coding, head nor adjacency coding.
+	% So they are merged into one stream.
+	% Note that the last accepting state of tail can be merged with another accepting state in adjacency coding or tail,
+	%  and leaves from stream by $\patho$-transition.
+	%
+	% If the last few states in some combination of adjacency coding flowing into tail is equivalent, they can be also merged into one stream respectively. \qed
+\end{proof}
+
+%\snote{The `information states' of DFA regarding vertex-id parts and then distributing sequences into streams 
+%may have various structure, not limited to dags. 
+%This will not contradict with the discussions on streams given above. 
+%The number of information states will be carefully discussed later. }
+%
+%Let $M_G$ be a DFA consistent with the labeled string $S_G$ and in a $k$-neck normal form. 
+%Then $G$ is $k$-colorable, and the size of $M_G$ satisfies $LB(\sizeV,k) \leq |M_G| \leq UB(\sizeV,k)$, where
+%}
+\begin{lemma} \label{lemma:consistent DFA UB and LB, version 2}
+% Let $G=(V,E)$ be any graph of $n$ nodes, which can be $k$-colored
+% , and
+% let $M_G$ be the smallest DFA that is consistent with the labeled string $S_G$.
+Let $G=(V,E)$ be a graph with $\sizeV$ vertices, and $M_G$ a DFA that is consistent with $S_G$. 
+Let $k$ be the number of states of $M_G$ to which any character at the last of heads visits. 
+Then, (i) with a log-space computation, we can obtain a partitioning DFA $\tilde{M}_G$ whose size is no greater than $M_G$, and in which all characters in heads are treated by one of $k$ chains of $\sizeV^2$ transitions (Fig.~\ref{fig:minimizeDFA}), and (ii) the size $|\tilde{M}_G|$ satisfies the inequality $LB(\sizeV,k) \leq |\tilde{M}_G| \leq UB(\sizeV,k)$, where 
+%Then the size of $M_G$ is bounded by $LB(\sizeV,k) \leq |M_G| \leq UB(\sizeV,k)$, where
+\begin{eqnarray*}
+LB(\sizeV,k) %	&=& ( \ceilbrace{\log_2{\sizeV}} - \ceilbrace{\log_2{k}}+2k-1)+k\sizeV^2 \\
+	     %	& & \ \ \ + (2k\sizeV - ( (\sizeV-2)(\sizeV-1) - (\sizeV-k)(\sizeV-k+1) ) ) + 1 \\
+		&=& k\sizeV^2 +k^2 +3\sizeV +k +\ceilbrace{\log_2{\sizeV}} - \ceilbrace{\log_2{k}}, \mbox{ and } \\
+UB(\sizeV,k) %	&=& (2\sizeV-1) + k\sizeV^2 + (k(2\sizeV-1)+1) + 1\\
+		&=& k \sizeV^2 + 2(k+1)\sizeV -k +1.
+\end{eqnarray*}
+%
+\end{lemma}
+%
+\begin{proof}
+ % Since $G=(V,E)$ is $k$-colorable,
+ % we have a $k$-partition $V_1, V_2, \ldots, V_k$ of $V$,
+ % where each $V_i$ consists of the vertices of the same color.
+ % Note that each $V_i$ is an independent set.
+ (i) Tracing $M_G$ according to $S_G$, we remove states and transition which is not visited from $M_G$.
+ Then we convert from $M_G$ to $\tilde{M}_G$ by Property~\ref{pro:head} - \ref{pro:tail}.
+ So it is obviously done by log-space.
+ 
+ (ii) In $\tilde{M}_G$, the numbers of states in head and adjacency coding are denoted by $\Head(\tilde{M}_G)$ and $\AC(\tilde{M}_G)$ respectively.
+ The number of states in binary coding and tail is denoted by $\Edge(\tilde{M}_G)$.
+ They are bounded as follows.
+ \begin{eqnarray*}
+  \ceilbrace{\log_2{\sizeV}} - \ceilbrace{\log_2{k}} + 2k \leq & \Edge(\tilde{M}_G) & \leq 2\sizeV \\
+  & \Head(\tilde{M}_G) & = k\sizeV^2 \\
+  2k\sizeV - \left((\sizeV-2)(\sizeV-1) - (\sizeV-k)(\sizeV-k+1)\right) \leq & AC(\tilde{M}_G) & \leq k(2\sizeV-1) + 1
+ \end{eqnarray*}
+ Since $|\tilde{M}_G| = \Edge(\tilde{M}_G) + \Head(\tilde{M}_G) + AC(\tilde{M}_G)$, 
+ we get the inequality. \qed
+ %
+ \begin{figure}[tb]
+  \begin{center}
+   % \includegraphics[width=110mm]{figure/mg.eps}
+   % \includegraphics[width=110mm]{figure/mg_merged.eps}
+   % \includegraphics[width=70mm]{figure/exposition.eps}
+   \includegraphics[width=120mm]{figure/mg.png}
+   \includegraphics[width=120mm]{figure/mg_merged.png}
+   \includegraphics[width=80mm]{figure/exposition.png}
+  \end{center}
+  \caption{DFAs that are consistent with $S_G$ in Fig.~\ref{fig:exampleSg2};
+  the obvious one (top) and a smaller DFA $\tilde{M}_G$ (bottom),
+  which implies that the original graph $G$ is $3$-colorable.}
+  % Left is obviously consist $M_G$,
+  % and right is a partitioning DFA $\tilde{M}_G$ which is $3$-colorable.}
+  \label{fig:minimizeDFA}
+ \end{figure}
+\end{proof}
+% 
+% 
+\begin{theorem}\label{theorem:intractability}
+%	$\MinConDFA$ is $\classNP$-hard, even if $\domain(S) \subseteq
+ %	\Prefix(s)$ for some single string $s \in \Sigma^*$.
+	$\MinConDFAprefSet$ is $\classNP$-hard.
+\end{theorem}
+\begin{proof}
+	In Lemma~\ref{lemma:consistent DFA UB and LB, version 2}, we
+ showed a reduction from \MinGC\ to \\ \MinConDFAprefSet.
+ %
+	We can translate both from a graph $G$ to the sample $S_G$, and from a DFA $M_G$ to the coloring $\Phi$ in $O(\sizeS)=O(\sizeV^3)$ time.
+	The former translation is obvious from the construction of $S_G$,
+	 and the latter is done by checking the necks of $M_G$;
+	if the neck of $i$'s stream is identical to the one of $j$'s
+ stream, the vertices $i$ and $j$ have the same color.
+%
+	Thus, there is an approximation preserving reduction from \MinGC\ to $\MinConDFAprefSet$.
+%	Since \MinGC\ is $\classNP$-hard~\cite{Garey-Johnson-the-black-book-1979},
+%	$\MinConDFAprefSet$ is also $\classNP$-hard. 
+\qed
+\end{proof}
+
+
+\subsection{Non-approximability result.}
+
+
+%\subsection{Minimization problems and polynomial-time approximation algorithms}
+
+A {\em polynomial-time approximation algorithm $A$} for a minimization problem $\Pi$ is an algorithm that, for any problem instance $x$ of $\Pi$, produces a feasible solution $s$ in polynomial time with respect to $|x|$. 
+For a rational number $r \geq 1$, $A$ {\em guarantees approximation ratio $r$} (or {\em achieves ratio $r$}) if, for any instance, $A$ outputs a solution $s$ satisfying $\frac{|s|}{|s^*|} \leq r$, where $s^*$ is an optimal solution for instance $x$. 
+
+%\snote{
+%A minimization problem $\Pi$ is a combinatorial optimization problem (See {\it e.g.} \cite{Ausiello-et-al-book-1999}) 
+%that is defined by 
+%%Ausiello, G., Crescenzi, P., Gambosi, G., Kann, V., Marchetti-Spaccamela, A., Protasi, M., Complexity and Approximation, Springer, 1999.
+%%
+%\begin{enumerate}
+%\item
+%The set $I_\Pi$ of instance,
+%\item
+%The set $S_\Pi(x)$ of ({\em feasible}) {\em solutions} for any specified instance $x \in I_\Pi$, 
+%\item
+%The {\em measure} ({\em cost function}) $m_\Pi: I_\Pi \times S_\Pi(x) \to \mathbb{Z}^+$, 
+%\end{enumerate}
+%and optimization directive `minimize.' 
+%We require all the functions specified above is computable in polynomial time with respect to the length of its inputs. 
+%Therefore, for a pair of an instance of the minimization problem and a positive integer threshold, 
+% the question that asks whether a solution whose measure is no more than the threshold exists
+%is a language (decision problem) in class $\classNP$. 
+%A solution of $x$ whose measure is minimum in $S_\Pi(x)$ is an {\em optimum solution}. 
+%With the notation $m^*_\Pi(x)$ we refer to the measure of an optimum solution of $x$. 
+%}
+
+
+%\end{document}
+
+
+\begin{theorem}\label{theorem:nonapproximability}
+%	$\MinConDFA$ cannot be approximated within ratio $n^{\frac{1}{21}-c}$ for any $c >0$ unless $\classP = \classNP$,
+% 	even if $\domain(S) \subseteq \Prefix(s)$ for some single string $s \in \Sigma^*$.
+ $\MinConDFAprefSet$ cannot be approximated within ratio $n^{\frac{1}{21}-c}$ for any $c >0$, unless $\classP = \classNP$.
+\end{theorem}
+
+\begin{proof}
+	If an algorithm for $\MinConDFA$ achieves ratio $r$, it outputs, for any labeled string $S_G$ transformed from $G$, a DFA $M_G$ such that $\frac{|M_G|}{|M^*_G|} \leq r$ with respect to a DFA $M^*_G$ with the minimum number of states.
+	By Lemma~\ref{lemma:consistent DFA UB and LB, version 2}, we can translate DFA $M_G$ and $M^*_G$ to a $k$-coloring and $\kappa^*$-coloring, respectively, in polynomial-time. 
+	For any $k > \kappa^* \geq 1$ and a sufficiently large $\sizeV$, the ratios satisfy the inequality 
+	\[
+	\frac{1}{2}\cdot\frac{k}{\kappa^*} <
+	\frac{k \, ( {\sizeV}^2 +1)}{ \kappa^* (\sizeV+2)^2 } <
+% \textcolor{red}{\frac{\leq k\sizeV^2 + k + (k^2+ 3 \sizeV + \lceil \log_2 \sizeV \rceil - \lceil\log_2 k\rceil) }{\geq \kappa^* \sizeV^2 + 2 \kappa^*(1 +\frac{1}{\kappa^*}) \sizeV -\kappa^* +1} =}
+	\frac{LB(\sizeV, k)}{UB(\sizeV, \kappa^*)} \leq
+	\frac{|M_G|}{|M^*_G|} \leq r \,.
+	\]
+
+	It is known in \cite{Bellare-et-al-siamjc98} (Theorem~\ref{thm:GC is inapproximatability}) that no polynomial-time algorithm can guarantee the ratio $\frac{k}{\kappa^*} < \sizeV^{\frac{1}{7} -c}$ for any $0 < c \leq \frac{1}{7}$, unless $\classP=\classNP$. 
+Since $\sizeS$ is $O(\sizeV^3)$, there exists $c^\prime > \frac{1}{3}c$ such that  
+%\snote{$\frac{1}{3}c + \delta = c'$ such that} 
+the inequality 
+	\begin{eqnarray*}
+	 \sizeS^{\frac{1}{21}-c'} 
+%	<\textcolor{red}{\frac{1}{2} \cdot a^{-\frac{1}{21}} \cdot m^{\delta} \cdot m^{\frac{1}{21}-(\frac{1}{3}c +\delta)} <
+%	 \frac{1}{2} \cdot \left(\frac{1}{a} \cdot\sizeS \right)^{\frac{1}{21} - \frac{1}{3}c} 
+	 < \frac{1}{2} \cdot \sizeV^{\frac{1}{7}-c} \leq %\,}
+ \frac{1}{2}\cdot\frac{k}{\kappa^*} \leq r 
+	\end{eqnarray*}
+holds. 
+%\snote{Because $\frac{1}{2}a^{-\frac{1}{21}} \cdot m^\delta \geq 1$ for sufficiently large $m > n^3$.
+%	Thus the theorem holds.}
+\qed
+\end{proof}
+

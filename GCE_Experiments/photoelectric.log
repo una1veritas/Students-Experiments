@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2015.4.5)  25 APR 2015 15:33
+This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2015.4.5)  26 APR 2015 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -65,10 +65,11 @@ File: dvips.def 2014/04/23 v3.0j Driver-dependant file (DPC,SPQR)
 \c@example=\count97
 )
 \c@fact=\count98
+\c@caution=\count99
  (./A4.tex)
 
 LaTeX Warning: Unused global option(s):
-    [a4,epsf].
+    [sort].
 
 (./photoelectric.aux)
 \openout1 = `photoelectric.aux'.
@@ -109,35 +110,51 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 25.
+File: phototube.ai Graphic file (type eps)
+
+<phototube.ai>
+File: RCA_IP39.eps Graphic file (type eps)
+ <RCA_IP39.eps>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 46.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 57.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 57.
-
-
-LaTeX Warning: Citation `Aya-' on page 1 undefined on input line 57.
-
-[1
+(Font)              <10.95> on input line 62.
+ [1
 
 ]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 73.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 73.
+
+
+LaTeX Warning: Citation `Aya-' on page 2 undefined on input line 73.
+
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 76.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 76.
- [2] [3] (./photoelectric.aux)
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 92.
+[2] [3]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 124.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 124.
+File: LED_module_attach.eps Graphic file (type eps)
+ <LED_module_attach.eps> [4]
+File: control_panel.eps Graphic file (type eps)
+ <control_panel.eps>
+File: LED_module.eps Graphic file (type eps)
+ <LED_module.eps>
+[5] (./photoelectric.bbl) [6] (./photoelectric.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 637 strings out of 493807
- 7797 string characters out of 6151952
- 64879 words of memory out of 5000000
- 4138 multiletter control sequences out of 15000+600000
- 16643 words of font info for 68 fonts, out of 8000000 for 9000
+ 670 strings out of 493807
+ 8235 string characters out of 6151952
+ 85739 words of memory out of 5000000
+ 4161 multiletter control sequences out of 15000+600000
+ 17414 words of font info for 71 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 22i,6n,23p,233b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 22i,7n,23p,16444b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on photoelectric.dvi (3 pages, 8040 bytes).
+Output written on photoelectric.dvi (6 pages, 18420 bytes).
