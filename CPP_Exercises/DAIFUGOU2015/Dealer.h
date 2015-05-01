@@ -16,6 +16,7 @@ struct GameStatus {
 	int numOfPlayers;
 	int numOfCards[MAXIMUM_NUM_OF_PLAYERS];
 	int pauperOfThisGame;
+	int currentLeader;
 	int inTurnPlayer;
 	int leadingPlayer;
 	CardSet lead;

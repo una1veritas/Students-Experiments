@@ -29,6 +29,8 @@ daifugou: main.o ThinkTA1.o $(OBJS) $(HEADERS) $(EXTRA_HEADERS)
 taikai: $(OBJS) $(EXTRA_OBJS) taikai_main.o ThinkTA1.o $(HEADERS) $(EXTRA_HEADERS)
 	$(C++) $(C++FLAGS) $(OBJS) $(EXTRA_OBJS) taikai_main.o ThinkTA1.o -o taikai
 
+ThinkTA1.o:
+	$(C++) -c $(C++FLAGS) extras/ThinkTA1.cpp
 
 help:  README.txt
 	more README.txt

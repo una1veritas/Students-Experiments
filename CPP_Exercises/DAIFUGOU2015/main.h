@@ -20,17 +20,17 @@
 #include "Dealer.h"
 
 #include "LittleThinkPlayer.h"
-#include "ThinkTA1.h"
 #include "ThinkDifferent.h"
+#include "extras/ThinkTA1.h"
 
 //#include "GroupA_MT.h"
-#include "GroupB.h"
-#include "GroupC.h"
+#include "extras/GroupB.h"
+#include "extras/GroupC.h"
 //#include "GroupD.h"
 //#include "GroupEPlayer.h"
 //#include "GroupF.h"
 //#include "GroupG.h"
-#include "GroupH.h"
+#include "extras/GroupH.h"
 //#include "GroupI.h"
 
 #endif /* MAIN_H_ */
