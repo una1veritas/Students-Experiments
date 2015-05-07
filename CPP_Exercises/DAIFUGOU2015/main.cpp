@@ -1,25 +1,23 @@
 #include "main.h"
 
 int main (int argc, char * const argv[]) {
-    // insert code here...
-//    std::cout << "Hello, World!\n";
 	
 	Dealer d;
 	char dummy[32];
 	
 	std::cout << "Ok?" << std::endl;
-	std::cin.getline(dummy,31); // dummy に1行，31 文字までよむ．
-
+	std::cin.getline(dummy,31); // 標準入力から dummy に改行まで最大31文字を読む
 
 	d.regist(new Player("Player 0"));
 	d.regist(new Player("Player 1"));
 	d.regist(new Player("Player 2"));
-	d.regist(new ThinkTA1("PlayerTA"));
-	d.regist(new LittleThinkPlayer("LTP"));
+	d.regist(new ThinkTA1("TA"));
+	d.regist(new LittleThinkPlayer("Little"));
+
 	d.hailPlayers();
 
 	for (int g = 1; g < 5; g++) {
-		std::cout << std::endl << "Game " << g << std::endl;
+		std::cout << std::endl << "Starting Game " << g << std::endl;
 		d.newGame();
 		std::cin.getline(dummy,31);
 		d.dealAll();
@@ -36,7 +34,8 @@ int main (int argc, char * const argv[]) {
 				std::cout << d.playerInTurn().playerName() << "'s turn: " << std::endl ;
 				CardSet currentLead(d.discardPile());
 				CardSet opened;
-				d.playerInTurn().follow(currentLead, opened);
+				GameStatus status = d.gameStatus();
+				d.playerInTurn().follow(currentLead, opened, status);
 				std::cout << opened;
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if ( !opened.isEmpty() ) {

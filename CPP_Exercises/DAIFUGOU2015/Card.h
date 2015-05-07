@@ -11,6 +11,18 @@
 // Card - トランプカード型
 //
 class Card {
+	// メンバ変数
+	private:
+		int suit;	// 組
+		int number;	// 番号
+		
+	// クラス定数
+		static const char suitname[][8];
+		static const char suitabbrevname[][4];
+		static const char ranksymbol[][3];
+
+	// メンバ関数
+	public:
 	// クラス定数
 	// トランプの組(suit)のコード
 	public:
@@ -23,19 +35,14 @@ class Card {
 		SUIT_BLANK
 	};
 	
-// メンバ変数
-private:
-//	インスタンスメンバ変数．Card 型データ（オブジェクト）がそれぞれ持っているデータ．
-	int suit;	// 組
-	int number;	// 番号
-
-//	static は，クラスメンバのこと．Card クラスの中で共通の定数として Card::suitnames で参照できる．
-	static const char * suitnames[]; // クラス変数（定数）．値の初期化は .cpp で行う
-
 // メンバ関数
 public:
-	// デフォルトコンストラクタ(初期値不定)
-	Card(void)	{ }
+	// デフォルトコンストラクタ(初期値は白カード)
+	Card(void) : suit(SUIT_BLANK), number(0) {}
+		// デフォルトコンストラクタ
+	Card(const char * str);
+		// 文字列 str から作成する(文字列が適切なカードを表さない場合は、Card(void) と同じ。)
+
 	// 組と番号を設定する
 	void set(int st, int num) {
 		suit = st;
@@ -48,47 +55,34 @@ public:
 		return (suit == tgt.suit) && (number == tgt.number); 
 	}
 
-	bool isValid() const {
-		if ( ((SUIT_SPADE <= suit) && (suit <= SUIT_CLUB)) 
-			 && (1 <= number && (number <= 13)) )
-			return true;
-		else if (suit == SUIT_JOKER)
-			return true;
-		return false;
-	}
-	
-	bool isJoker() const { return suit == SUIT_JOKER; }
-	bool isGreaterThan(const Card & c) const;
+	// まともなカードか？
+	bool isValid(void) const;
 
 	// アクセサ
 	int getNumber(void) const {
 		return number;
 	}
-	int getRank(void) const {
-		return getNumber();
-	}
-	
+	int getRank(void) const { return getNumber(); }  // for backward compatibility.
+
 	int getSuit(void) const {
 		return suit;
 	}
+	
+	bool isJoker() const { return suit == SUIT_JOKER; }
+	bool isGreaterThan(const Card & c) const;
 
 	// 標準出力から自身に入力する(true: 正常終了; false: 異常終了)
 	bool scan(void);
 	
 	
 	// 自身の値を標準出力に出力する
-	void print(void);
+	void print(void) { printOn(std::cout); }
+	std::ostream & printOn(std::ostream& ostr) const;
 
 	// おまけ
 	friend std::ostream & operator<<(std::ostream& ostr, const Card & card) {
-		ostr << '[' << suitnames[card.suit][0];
-		if (card.suit == SUIT_JOKER )
-			ostr << "kr";
-		else
-			ostr << " " << card.number;
-		ostr << ']';
-		return ostr;
+		return card.printOn(ostr);
 	}
-
 };
+
 #endif

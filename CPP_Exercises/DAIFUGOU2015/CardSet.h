@@ -17,25 +17,26 @@ public:
 // メンバ変数
 private:
 	int numcard;		// 現在の集合内のカード数
-	Card cdat[maxnumcard];	// カードのデータ
+	Card cards[maxnumcard];	// カードのデータ
 // メンバ関数
 private:
-	int locate(Card & target);
+	int locate(const Card & target) const;
 		// 内部での target のカードの位置を返す(-1: ない)
-	int locate(int num);
+	int locate(const int num) const;
 		// 内部で数字が num のカードの位置を返す(-1: ない)
 public:
-	CardSet(void)		{ makeEmpty(); }
+	CardSet(void);
 		// デフォルトコンストラクタ(初期値空集合)
-	void makeEmpty(void)	{ numcard = 0 ; }
-		// 自身を空集合にする
-	void clear(void) { return makeEmpty(); }
+	CardSet(const CardSet & cset);
 
+	void makeEmpty(void)	{ numcard = 0 ; }
+	void clear(void)	{ makeEmpty(); }
+		// 自身を空集合にする
 	bool isEmpty(void)	{ return numcard == 0; }
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
 
-	int size() { return numcard; }
 
+	int size() { return numcard; }
 	Card & at(int);
 	Card & operator[](int);
 
@@ -48,13 +49,14 @@ public:
 		// (-1: 失敗; 0以上: 成功)
 	int insert(Card newcard);
 		// 自身に newcard を入れる(-1: もう入らないので失敗; 0以上: 成功)
-	bool insert(CardSet & cards);
-	bool insertAll(CardSet & cards) { return insert(cards); }
+	int insert(const CardSet & cards);
+	int insertAll(CardSet & cards) { return insert(cards); }
 
 	int remove(Card & target);
 		// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)
 	int remove(int num);
 		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
+
 	void print(void);
 		// 自身の状態を標準出力に出力する
 

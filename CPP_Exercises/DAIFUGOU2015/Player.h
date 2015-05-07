@@ -10,6 +10,8 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
+#include "GameStatus.h"
+
 /*
  * プレイヤークラスの基底クラス．
  * Player を public の基底クラスとし，グループのプレイヤーを拡張クラスとして
@@ -37,8 +39,10 @@ public:
 
 	void setId(int);
 	int getId();
+
 	void clearHand();
 	bool isEmptyHanded();
+
 	bool pickup(Card );
 	CardSet & inHand() { return hand; }
 	int size() { return hand.size(); }
@@ -46,8 +50,15 @@ public:
 	std::string playerName();
 
 	virtual void startNewGame(void) { hand.makeEmpty(); } // hand.clear(); }
-	virtual bool follow(CardSet & pile, CardSet & cards);
+
+	virtual bool follow(CardSet & pile, CardSet & cards, GameStatus & status);
 	virtual bool approve(CardSet & pile, int cardnum[] );
+
+	// backward compatibility
+	virtual bool follow(CardSet & pile, CardSet & cards) {
+		GameStatus status;
+		return follow(pile, cards, status);
+	}
 
 	std::ostream & printStream(std::ostream & out) const;
 

@@ -66,13 +66,15 @@ bool Player::approve(CardSet & pile, int numCards[]) {
   return true;
 }
 
-bool Player::follow(CardSet & pile, CardSet & s) {
+bool Player::follow(CardSet & pile, CardSet & cards, GameStatus & status) {
 	Card tmp;
-	s.makeEmpty(); //clear();
+	status.printOn(std::cout);
+	cards.makeEmpty();
 	hand.pickup(tmp, -1); // choose a card.
 	/*
 	 * いったん tmp のカードは手札からなくなる
 	 */
-	s.insert(tmp);
+	cards.insert(tmp);
 	return true;
 }
+
