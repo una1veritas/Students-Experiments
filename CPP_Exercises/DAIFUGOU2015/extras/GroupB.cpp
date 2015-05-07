@@ -10,9 +10,9 @@
 #include <iostream>
 #include <string>
 
-#include "Card.h"
-#include "CardSet.h"
-#include "Player.h"
+#include "../Card.h"
+#include "../CardSet.h"
+#include "../Player.h"
 #include "GroupB.h"
 
 bool GroupB::approve(CardSet & pile, int numCards[]) {

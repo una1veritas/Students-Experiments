@@ -7,18 +7,15 @@ int main (int argc, char * const argv[]) {
 	Dealer d;
 	char dummy[32];
 	
-	std::cin.getline(dummy,31);
-	Card c((const char *)dummy);
-
 	std::cout << "Ok?" << std::endl;
-	std::cin.getline(dummy,31);
+	std::cin.getline(dummy,31); // dummy に1行，31 文字までよむ．
 
 
 	d.regist(new Player("Player 0"));
 	d.regist(new Player("Player 1"));
 	d.regist(new Player("Player 2"));
-	d.regist(new ThinkTA1("PlayerTA")); 
-	d.regist(new LittleThinkPlayer("LTP")); 
+	d.regist(new ThinkTA1("PlayerTA"));
+	d.regist(new LittleThinkPlayer("LTP"));
 	d.hailPlayers();
 
 	for (int g = 1; g < 5; g++) {

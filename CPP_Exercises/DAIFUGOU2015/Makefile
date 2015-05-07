@@ -4,9 +4,9 @@ CFLAGS = -Wall -O0 -g3
 C++FLAGS = -Wall -O0 -g3 
 
 OBJS = Card.o CardSet.o Dealer.o Player.o LittleThinkPlayer.o
-HEADERS = main.h Card.h CardSet.h Dealer.h Player.h main.h LittleThinkPlayer.h ThinkTA1.h
+HEADERS = main.h Card.h CardSet.h Dealer.h Player.h main.h LittleThinkPlayer.h ./extras/ThinkTA1.h
 EXTRA_OBJS = GroupB.o GroupC.o GroupH.o 
-EXTRA_HEADERS = GroupB.h GroupC.h GroupH.h 
+EXTRA_HEADERS = ./extras/GroupB.h ./extras/GroupC.h ./extras/GroupH.h 
 
 .SUFFIXES: .o .cc .cpp .c++ .c
 
@@ -31,6 +31,13 @@ taikai: $(OBJS) $(EXTRA_OBJS) taikai_main.o ThinkTA1.o $(HEADERS) $(EXTRA_HEADER
 
 ThinkTA1.o:
 	$(C++) -c $(C++FLAGS) extras/ThinkTA1.cpp
+
+GroupB.o:
+	$(C++) -c $(C++FLAGS) extras/GroupB.cpp
+GroupC.o:
+	$(C++) -c $(C++FLAGS) extras/GroupC.cpp
+GroupH.o:
+	$(C++) -c $(C++FLAGS) extras/GroupH.cpp
 
 help:  README.txt
 	more README.txt

@@ -34,14 +34,14 @@ bool LittleThinkPlayer::approve(CardSet & pile, int numCards[]) {
 }
 
 void LittleThinkPlayer::clearHand() {
-	hand.clear();
-	memory.clear();
-	trump.clear();
+	hand.makeEmpty(); //hand.clear();
+	memory.makeEmpty(); //memory.clear();
+	trump.makeEmpty(); //trump.clear();
 }
 
 bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
 	Card tmp;
-	s.clear();
+	s.makeEmpty(); //clear();
 	sortInHand();
 	std::cout << "( " << inHand() << " )" << std::endl;
 	inHand().pickup(tmp, -1); // とにかく選ぶ．
@@ -58,7 +58,7 @@ bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
  * 自分のならべたい順序の定義を作成する．
  */
 bool LittleThinkPlayer::cardsLessThan(const Card & c1, const Card & c2) {
-	if ( c1.getRank() < c2.getRank() )
+	if ( c1.getNumber() < c2.getNumber() )
 		return true;
 	return false;
 }

@@ -37,14 +37,15 @@ public:
 
 	void setId(int);
 	int getId();
+	void clearHand();
 	bool isEmptyHanded();
 	bool pickup(Card );
 	CardSet & inHand() { return hand; }
-	int size() {return hand.size();}
+	int size() { return hand.size(); }
 	std::string getName() { return name; }
 	std::string playerName();
 
-	virtual void startNewGame(void) { hand.clear(); }
+	virtual void startNewGame(void) { hand.makeEmpty(); } // hand.clear(); }
 	virtual bool follow(CardSet & pile, CardSet & cards);
 	virtual bool approve(CardSet & pile, int cardnum[] );
 

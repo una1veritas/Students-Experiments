@@ -44,11 +44,11 @@ public:
 
 	// 自身と tgt のカードの組，番号が等しいか判定 (true: 同; false: 異)
 	// データとして同じオブジェクトかどうかではない．
-	bool equal(Card tgt) const {
+	bool equal(Card tgt) { 
 		return (suit == tgt.suit) && (number == tgt.number); 
 	}
 
-	bool isValid() const {
+	bool isValid() {
 		if ( ((SUIT_SPADE <= suit) && (suit <= SUIT_CLUB)) 
 			 && (1 <= number && (number <= 13)) )
 			return true;
@@ -57,18 +57,12 @@ public:
 		return false;
 	}
 	
-	bool isJoker() const { return suit == SUIT_JOKER; }
-	bool isGreaterThan(const Card & c) const;
-
 	// アクセサ
-	int getNumber(void) const {
+	int getNumber(void) {
 		return number;
 	}
-	int getRank(void) const {
-		return getNumber();
-	}
 	
-	int getSuit(void) const {
+	int getSuit(void)	{
 		return suit;
 	}
 
@@ -81,10 +75,8 @@ public:
 
 	// おまけ
 	friend std::ostream & operator<<(std::ostream& ostr, const Card & card) {
-		ostr << '[' << suitnames[card.suit][0];
-		if (card.suit == SUIT_JOKER )
-			ostr << "kr";
-		else
+		ostr << '[' << suitnames[card.suit];
+		if (card.suit != SUIT_JOKER )
 			ostr << " " << card.number;
 		ostr << ']';
 		return ostr;
