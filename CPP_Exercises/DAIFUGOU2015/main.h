@@ -18,6 +18,7 @@
 #include "Card.h"
 #include "CardSet.h"
 #include "Dealer.h"
+#include "GameStatus.h"
 
 #include "LittleThinkPlayer.h"
 #include "ThinkDifferent.h"

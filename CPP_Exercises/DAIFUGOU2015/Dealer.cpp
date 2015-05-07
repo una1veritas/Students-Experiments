@@ -135,7 +135,7 @@ bool Dealer::checkRankUniqueness(CardSet & cs) {
 		j++;
 	for (int i = j+1; i < cs.size(); i++) {
 	  if (cs[i].isJoker()){continue;} // 追加：途中にJkrを許す
-	  if (cs[j].getRank() != cs[i].getRank() )
+	  if (cs[j].getNumber() != cs[i].getNumber() )
 	    return false;
 	}
 	return true;

@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "Card.h"
-#include "CardSet.h"
-#include "Player.h"
+#include "../Card.h"
+#include "../CardSet.h"
+#include "../Player.h"
 #include "GroupH.h"
 
 #define MAXCARD 17
@@ -45,7 +45,7 @@ bool GroupH::follow(CardSet & pile, CardSet & s) {
   k = 0;
   l = 0;
 
-  pcard = pile[0].getRank();
+  pcard = pile[0].getNumber();
   pcnum = pile.size();
   mhsize = inHand().size();
 
@@ -59,7 +59,7 @@ bool GroupH::follow(CardSet & pile, CardSet & s) {
 
   /* 場に出ているカードの数字における枚数の管理 */
   for(i = 0; i < memory.size(); i++){
-      k = memory[i].getRank();
+      k = memory[i].getNumber();
       if(k == 0){
         tablec[16]++;
       }
@@ -76,7 +76,7 @@ bool GroupH::follow(CardSet & pile, CardSet & s) {
 
   /* カードのそれぞれの数字における枚数の管理 */
   for(i = 0; i < inHand().size(); i++){
-    k = inHand()[i].getRank();
+    k = inHand()[i].getNumber();
     if(k == 0){
       cnum[16]++;
     }

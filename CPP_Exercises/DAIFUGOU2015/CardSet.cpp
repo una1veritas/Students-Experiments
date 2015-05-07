@@ -27,7 +27,7 @@ CardSet::CardSet(const CardSet & orig) {
 int CardSet::locate(Card target)
 {
 	for(int i = 0; i < numcard; i++)
-		if(target.isEqualTo(cards[i]))
+		if(target.equal(cards[i]))
 			return i;
 
 	return -1;	// 見つからなかった
@@ -39,7 +39,7 @@ int CardSet::locate(Card target)
 int CardSet::locate(int number)
 {
 	for(int i = 0; i < numcard; i++)
-		if(number == cards[i].getRank())
+		if(number == cards[i].getNumber())
 			return i;
 
 	return -1;	// 見つからなかった
@@ -68,71 +68,69 @@ void CardSet::setupDeck(void)
 //	pos が適切な配列の添字の範囲外のとき（典型的には -1）はランダムに選ぶ。
 // true: カードを選び抜き出すことに成功、false: カードが一枚もない。
 //
-bool CardSet::pickup(Card & ret, int pos)
-{
-	if(numcard == 0)
-		return false;
-	if( pos < 0 || pos >= numcard )
-		pos = random() % numcard;
-	ret = cards[pos];
-	return remove(ret);
+int CardSet::pickup(Card & card, int targetpos) {
+	if( numcard == 0 )
+		return -1;
+	if(targetpos == -1 )
+		targetpos = random() % numcard;
+	else
+		targetpos %= numcard;
+	card = cards[targetpos];
+	remove(card);
+	return targetpos;
 }
 
 //
-// CardSet::insert() - 自身に newcard のカードを入れる(true: 失敗; false: 成功)
+// CardSet::insert() - 自身に newcard を入れる(常に成功，挿入／存在位置を返す)
 //
-bool CardSet::insert(Card newcard)
+int CardSet::insert(Card newcard)
 {
-	if(locate(newcard) >= 0)
-		return false;	// 既にある
-// 最後に追加
-	cards[numcard] = newcard;
+	int location = locate(newcard);
+	if( location >= 0)
+		return location;	// 既にある
+	// 最後に追加
+	if ( numcard >= maxnumcard )
+		return -1; // もうはいらないし，入れるカードはないはず
+	location = numcard;
+	cards[location] = newcard;
 	numcard++;
-	cards[numcard] = Card();
-	return true;
+
+  return location;
 }
 
-bool CardSet::insertAll(const CardSet & orig) {
+int CardSet::insertAll(const CardSet & orig) {
 	for(int i = 0; i < orig.numcard; i++) {
 		insert(orig.cards[i]);
 	}
-	return true;
+	return orig.numcard;
 }
 
-//
-// CardSet::remove() - 自身から target のカードを除く(true: 失敗; false: 成功)
-//
-bool CardSet::remove(Card target)
-{
-	int pos;
-
-// 除くカードの位置を求める
-	if((pos = locate(target)) < 0)
-		return false;	// target は無い
-	target = cards[pos];
-// 1つずつ前に詰める
+int CardSet::remove(Card & target) {
+	// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)
+	int pos = locate(target);
+	if( pos == -1 )
+		// ない
+		return -1;
+	for( ; pos < numcard; pos++) {
+		cards[pos] = cards[pos+1];
+	}
 	numcard--;
-	for(int i = pos; i < numcard; i++)
-		cards[i] = cards[i+1];
-	return true;
+	return pos;
 }
 
-//
-// CardSet::remove() - ランクが rnum のカードを除く(true: 失敗; false: 成功)
-//
-bool CardSet::remove(int rnum)
-{
-	int pos;
 
-// 除くカードの位置を求める
-	if((pos = locate(rnum)) < 0)
-		return false;	// rnum のカードは無い
-// 1つずつ前に詰める
-	for(int i = pos + 1; i < numcard; i++)
-		cards[i-1] = cards[i];
+int CardSet::remove(int num) {
+		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
+	int pos = locate(num);
+	if( pos == -1 )
+		// ない
+		return -1;
+	for( ; pos < numcard; pos++) {
+		cards[pos] = cards[pos+1];
+	}
 	numcard--;
+	return pos;
 
-	return true;
 }
 
 //

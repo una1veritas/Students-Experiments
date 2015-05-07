@@ -26,7 +26,8 @@ public:
 	// デフォルトコンストラクタ
 	CardSet(const CardSet & cards);
 
-	void clear(void)	{ numcard = 0 ; }
+	void makeEmpty(void)	{ numcard = 0 ; }
+	void clear(void)	{ makeEmpty(); }
 		// 空にする.
 
 	int size() { return numcard; }
@@ -39,19 +40,19 @@ public:
 	void setupDeck(void);
 		// 自身にすべて(maxnumcard 枚の)カードを入れる
 
-	bool pickup(Card & ret, int pos = -1);
+	int pickup(Card & card, int targetpos = -1);
 		// 自身から pos 枚目のカードを除き ret に返す
 		// pos が適正な範囲外のときはランダムに選ぶ
 		// true: ぬきとり成功; false: 失敗（一枚もなかった）
-	bool insert(Card newcard);
-	// 自身に newcard のカードを入れる(true: 成功; false: 失敗)
+	int insert(Card newcard);
+		// 自身に newcard を入れる(-1: もう入らないので失敗; 0以上: 成功)
+	int insertAll(const CardSet & cards);
+		// カードセットの内容を追加する
+	int remove(Card & target);
+		// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)
+	int remove(int num);
+		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
 
-	bool insertAll(const CardSet & cards);
-
-	bool remove(Card target);
-		// カード target を削除（最初にみつけた一枚）。削除した場合 true, なかった場合 false
-	bool remove(int rnum);
-		// カードのランクが rnum の最初にみつけたカード一枚をのぞく。削除した場合 true、なかった場合 false
 	void print(void);
 		// 標準出力に印字。
 

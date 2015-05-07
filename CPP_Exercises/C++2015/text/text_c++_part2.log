@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2015.4.5)  15 APR 2015 22:01
+This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.10.10)  7 MAY 2015 12:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -136,83 +136,83 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
 )
 \c@execnumber=\count95
 \c@pntnumber=\count96
-
-No file text_c++_part2.aux.
+ (./text_c++_part2.aux)
 \openout1 = `text_c++_part2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 88.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 90.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 88.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 90.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 88.
+(Font)              <17.28> on input line 90.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 88.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 88.
+(Font)              <12> on input line 90.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 90.
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 88.
+(Font)              <8> on input line 90.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 88.
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 88.
+(Font)              <6> on input line 90.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 90.
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 88.
+LaTeX Font Info:    No file OMScmss.fd. on input line 90.
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 88.
+(Font)              for symbol `textbraceleft' on input line 90.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 88.
+(Font)              <9> on input line 90.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 88.
+(Font)              <5> on input line 90.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 96.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 96.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 98.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 96.
+(Font)              <10.95> on input line 98.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 101.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 101.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 104.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 106.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 104.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 106.
  [1
 
 ] [2]
-Overfull \hbox (14.09998pt too wide) in paragraph at lines 191--191
+Overfull \hbox (14.09998pt too wide) in paragraph at lines 206--206
  [] 
  []
 
-[3] [4] (./text_c++_part2.aux)
+[3] [4] [5] (./text_c++_part2.aux)
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
- 631 strings out of 493807
- 7741 string characters out of 6151952
+ 633 strings out of 493807
+ 7780 string characters out of 6151950
  63989 words of memory out of 5000000
  4108 multiletter control sequences out of 15000+600000
  33155 words of font info for 125 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 25i,7n,21p,434b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,7n,21p,396b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on text_c++_part2.dvi (4 pages, 21332 bytes).
+Output written on text_c++_part2.dvi (5 pages, 23008 bytes).

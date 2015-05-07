@@ -10,7 +10,7 @@ class Card {
 	// メンバ変数
 	private:
 		int suit;	// 組
-		int rank;	// 番号
+		int number;	// 番号
 		
 		static const char suitname[][8];
 		static const char suitabbrevname[][4];
@@ -47,27 +47,43 @@ class Card {
 	};
 
 
-	Card(void) : suit(SUIT_INVALID), rank(RANK_INVALID) {}
+	Card(void) : suit(SUIT_INVALID), number(RANK_INVALID) {}
 		// デフォルトコンストラクタ
 	Card(const char * str);
 		// 文字列 str から作成する(文字列が適切なカードを表さない場合は、Card(void) と同じ。)
 
 
 	void set(int s, int r)
-		{ suit = s; rank = r; return; }
+		{ suit = s; number = r; return; }
 		// 自身に指定した組と番号を入れる
 
-	bool isEqualTo(const Card & tgt) const
-		{ return suit == tgt.suit && rank == tgt.rank; }
-		// 自身と tgt が同じか否かの判定 (true: 同; false: 異)
-	bool operator==(const Card & tgt) const { return isEqualTo(tgt); }
+	// 自身と tgt のカードの組，番号が等しいか判定 (true: 同; false: 異)
+	// データとして同じオブジェクトかどうかではない．
+	bool equal(Card tgt) {
+		return (suit == tgt.suit) && (number == tgt.number);
+	}
 
-	int getRank(void) const	{ return rank; }
+	bool isValid() {
+		if ( ((SUIT_SPADE <= suit) && (suit <= SUIT_CLUB))
+			 && (1 <= number && (number <= 13)) )
+			return true;
+		else if (suit == SUIT_JOKER)
+			return true;
+		return false;
+	}
 
-	int getSuit(void) const	{ return suit; }
-		// アクセサ
+	// アクセサ
+	int getNumber(void) const {
+		return number;
+	}
+	int getRank(void) const { return getNumber(); }  // for backward compatibility.
 
-	bool isJoker() { return rank == RANK_JOKER; }
+	int getSuit(void) const {
+		return suit;
+	}
+
+
+	bool isJoker() { return suit == SUIT_JOKER; }
 	bool isGreaterThan(Card c);
 
 	void print(void);

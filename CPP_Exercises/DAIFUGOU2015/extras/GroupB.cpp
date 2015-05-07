@@ -10,9 +10,9 @@
 #include <iostream>
 #include <string>
 
-#include "Card.h"
-#include "CardSet.h"
-#include "Player.h"
+#include "../Card.h"
+#include "../CardSet.h"
+#include "../Player.h"
 #include "GroupB.h"
 
 bool GroupB::approve(CardSet & pile, int numCards[]) {
@@ -51,7 +51,7 @@ bool GroupB::follow(CardSet & pile, CardSet & s) {
       if(inHand().isEmpty()){
 	break;
       }
-    } while(inHand()[0].getRank() == temp.getRank());
+    } while(inHand()[0].getNumber() == temp.getNumber());
   }
   else{
     if(pile.size() >= 2){
@@ -72,9 +72,9 @@ bool GroupB::follow(CardSet & pile, CardSet & s) {
 	  break;
 	}
 
-	if(handCard.getRank() == handGreatestCard.getRank()){
+	if(handCard.getNumber() == handGreatestCard.getNumber()){
 	  if(handCard.isGreaterThan(fieldGreatestCard) ||
-	     handCard.getRank() == fieldGreatestCard.getRank()){
+	     handCard.getNumber() == fieldGreatestCard.getNumber()){
 	    if(handCard.isGreaterThan(pileCard)){
 	      inHand().pickup(handCard, i);
 	      s.insert(handCard);
@@ -116,7 +116,7 @@ bool GroupB::multiCard(CardSet & s)
       do{
 	inHand().pickup(c, i);
 	s.insert(c);
-      } while(inHand()[i].getRank() == c.getRank());
+      } while(inHand()[i].getNumber() == c.getNumber());
       return true;
     }
   }
@@ -134,7 +134,7 @@ bool GroupB::multiCard(CardSet & pile, CardSet & s)
   for(int i=0; i < inHand().size(); i++){
     if(pairFlag[i] && 
        inHand()[i].isGreaterThan(pileCard) &&
-       inHand()[i].getRank() != handGreatestCard.getRank()){
+       inHand()[i].getNumber() != handGreatestCard.getNumber()){
       Card c;
       do{
 	if(i >= inHand().size()){
@@ -142,7 +142,7 @@ bool GroupB::multiCard(CardSet & pile, CardSet & s)
 	}
 	inHand().pickup(c, i);
 	temp.insert(c);
-      } while(inHand()[i].getRank() == c.getRank());
+      } while(inHand()[i].getNumber() == c.getNumber());
       if(temp.size() == pileSize){
 	s.insertAll(temp);
 	return true;
@@ -215,7 +215,7 @@ void GroupB::searchPair()
   }
 
   for(int i=0; i < size-1; i++){
-    if(inHand()[i].getRank() == inHand()[i+1].getRank()){
+    if(inHand()[i].getNumber() == inHand()[i+1].getNumber()){
       pairFlag[i] = pairFlag[i+1] = true;
     }
   }
@@ -226,7 +226,7 @@ int GroupB::searchMemory(int num)
   int count = 0;
   for(int i=0; i < memory.size(); i++){
     Card c = memory[i];
-    if(c.getRank() == num){
+    if(c.getNumber() == num){
       count++;
     }
   }
@@ -242,13 +242,13 @@ void GroupB::memoryInsert(CardSet& cards)
   do{
     flag = false;
     if(fieldGreatestCard.isJoker() && 
-       searchMemory(fieldGreatestCard.getRank()) >= 1){
+       searchMemory(fieldGreatestCard.getNumber()) >= 1){
       fieldGreatestCard.set(0, 2);
       flag = true;
       // std::cerr << "Joker is taked out\n";
     }
-    else if(searchMemory(fieldGreatestCard.getRank()) >= 4){
-      int rank = fieldGreatestCard.getRank();
+    else if(searchMemory(fieldGreatestCard.getNumber()) >= 4){
+      int rank = fieldGreatestCard.getNumber();
       if(rank == 3){
 	break;
       }

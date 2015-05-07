@@ -58,7 +58,7 @@ bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
  * 自分のならべたい順序の定義を作成する．
  */
 bool LittleThinkPlayer::cardsLessThan(const Card & c1, const Card & c2) {
-	if ( c1.getRank() < c2.getRank() )
+	if ( c1.getNumber() < c2.getNumber() )
 		return true;
 	return false;
 }

@@ -46,13 +46,13 @@ Card::Card(const char * str)
 		break;
 	}
 	if (suit == SUIT_INVALID) {
-		rank = RANK_INVALID;
+		number = RANK_INVALID;
 		return;
 	}
 
 	for (i=0; isalpha(buf[i]); i++ ) {}
 	for (; isspace(buf[i]); i++ ) {}
-	rank = atoi(buf+i);
+	number = atoi(buf+i);
 //	std::cout << "Hey !" << *this << std::endl;
 	/*
 
@@ -84,7 +84,7 @@ bool Card::isGreaterThan(Card another) {
 		return true;
 	if (another.suit == SUIT_JOKER)
 		return false;
-	return (rank + 10) % 13 > (another.rank + 10) % 13;
+	return (number + 10) % 13 > (another.number + 10) % 13;
 }
 
 //
@@ -96,7 +96,7 @@ void Card::print(void)
 	const char* symbol[] = { " X", " A", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", " J", " Q", " K" };
 
 	if(suit < SUIT_JOKER)
-		printf("[%s%s]", suitname[suit], symbol[rank]);
+		printf("[%s%s]", suitname[suit], symbol[number]);
 	else if(suit == SUIT_JOKER)
 		printf("[Jkr]");
 }
@@ -110,7 +110,7 @@ std::ostream& Card::printOn(std::ostream& out) const {
 	case SUIT_DIAMOND:
 	case SUIT_HEART:
 	case SUIT_CLUB:
-		out << suitname[suit] << symbol[rank];
+		out << suitname[suit] << symbol[number];
 		break;
 	case SUIT_JOKER:
 		out <<  "Jkr";

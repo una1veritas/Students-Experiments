@@ -15,14 +15,16 @@
 %\renewcommand{\@}[1]{{\bf #1}}
 \title{{\normalsize 知能情報工学実験演習 II }\\
 \bf C++演習 (Part 2)\footnote{2013年度版 下薗，嶋田 作} }
-\author{担当： 中村 貞吾，下薗 真一\\
-TA: 原田，井上	\\
-E-mail: \footnotesize
-{\sf \{teigo, m\_harada\}@dumbo.ai.kyutech.ac.jp}
-\footnotesize
-{\sf sin@ai.kyutech.ac.jp},\\
-\footnotesize
-{\sf t\_inoue@pluto.ai.kyutech.ac.jp}}
+\author{担当: 中村貞吾，下薗真一\\
+TA: 石田竹至，蓑代成功\\
+\small
+e-mail: 
+{\sf \{teigo,  t\_ishida, minoshiro \} @dumbo.ai.kyutech.ac.jp},\\
+\small
+{\sf sin@ai.kyutech.ac.jp}
+%\footnotesize
+%{\sf t\_inoue@pluto.ai.kyutech.ac.jp}
+}
 %\date{第1.0.3版 \ 2004 年 10 月}
 \date{}
 %
@@ -93,7 +95,7 @@ E-mail: \footnotesize
 %\item[期間:] 第 3 年次前期
 %\item[機材:] 共通教育研究棟 3 階 S303 室 および S318 室の Linux PC 端末%\\
 %	初回のみ 第 I 計算機室(研究棟 6 階)の Linux PC 端末
-\item[注意:] \underline{Part 2 では実験はグループ単位でプログラムを作成すること}．
+\item[注意:] \underline{Part 2 では，グループ単位でプログラムを作成し，レポートを提出すること}．
 \end{description}
 
 \medskip
@@ -156,24 +158,27 @@ E-mail: \footnotesize
 
 
 \subsection*{サンプルプログラム}
-ゲームを行う環境をつくるためのプログラム，\verb+Dealer.h+ および \verb+Dealer.cc+ ，\verb+main.cc+ は, 変更を加えずにそのまま使用する．
+ゲームを行う環境をつくるためのプログラム，\verb+Dealer.h+ および \verb+Dealer.cpp+ ，\verb+main.cpp+ は, 変更を加えずにそのまま使用する．
 グループで作成するのは，プレーヤーをシミュレートするクラス \verb+Player+ に関する部分のみである．
 
 サンプルプログラムとして，\verb+Player.h+ および \verb+Player.cc+が用意した．
 このクラスのデータ構造や手続きを拡張，整備して，より強いプレーヤーを作るのが目的である．
 クラス継承のしくみを使えば，\verb+Player+ クラスを継承した別のプレーヤー用クラスを作り，新たに必要な変数と関数の作成もしくは変更だけを行えば，そのまま既存の \verb+Dealer+ クラスとともに使用できる．
 
-プレイヤーが，ターンにおいてどのカードを出すかは \verb+Player::follow()+ によって決定される．
+プレイヤーが，ターンにおいてどのカードを出すかは \verb+Player::follow()+ によって決定する．
 サンプルプログラムにおいては，
 \begin{quote}
 \linesparpage{50}
 \begin{verbatim}
-void Player::follow(const CardSet & tbl, CardSet & s) {
-    Card tmp;
-    s.makeempty();
-    hand.pickup(&tmp, -1) );
-    s.insert(tmp);
-    return;
+bool Player::follow(CardSet & pile, CardSet & cards, GameStatus & status) {
+	Card tmp;
+	cards.clear();
+	hand.pickup(tmp, -1); // 初心者なので，とりあえずランダムに出してみる．
+	/*
+	 * いったん tmp のカードは手札からなくなる．ダメな場合，後で手元に戻される．
+	 */
+	cards.insert(tmp);
+	return true;
 }
 \end{verbatim}
 \end{quote}
@@ -185,9 +190,19 @@ void Player::follow(const CardSet & tbl, CardSet & s) {
 プレイヤーが出したカードが現在の場に出ているカードと比較して受理できるかなどの判定は， \verb+Dealer+ が行うので考えなくて良い\footnote{ゲームとしての判定は \verb+Dealer+ が行うが，実際問題としては，場に出そうとしているカードが通るのかを \verb+Player+ も判定した方が良い．それを考慮せず，通らないカードを出してしまうと，パスしたという扱いになり，不利になる．}．
 また，パスをしたい場合は，空のセットもしくは通らないカード(現在，場に出ているカードよりも弱いカード)を \verb+follow()+ に渡せばよい．
 その場合，通らないカードセットは自動的に手持ち札に戻される．
- 
+
+\subsection*{2015変更点}
+Part 1 での \verb+Card+ クラス，\verb+CardSet+ クラスは 2014年度までのものから若干変更されているが，Part 2 のクラスもそれに合わせてある．
+
+また，各プレーヤーの手札の枚数，その時点のリーダーなどの基本的な状況について，2014年度までは自身で他プレーヤーの捨て札をすべて監視して把握しつづけていたが，\verb+GameStatus+ 型構造体で引数として渡されるようにした．
+互換性のため，この引数を使わない関数プロトタイプも宣言されている．
+
 \EXERCISE{
-\verb+Player::follow()+ と必要であれば \verb+Player::approve()+ を改良し，より知的な戦略に基づく Player を実現せよ． 
+\verb+Player+ クラスを拡張したサブクラスを新たに定義し，
+\verb+follow()+ と必要であれば \verb+approve()+ を改良し，より知的な戦略に基づくプレーヤーを実現せよ．
+
+ただし，他のクラスには一切変更を加えないこと．
+
 }
 \section*{演習を進める上での注意}
 演習に際しては，リーダーを中心にグループ内で事前に役割分担を決め，プログラムを作成すること．
@@ -195,8 +210,9 @@ void Player::follow(const CardSet & tbl, CardSet & s) {
 例えば，現在は1枚しか出せないが，複数のカード(ペアや3カードなど)を出せるようにしたり，選んだカードが場に通るかどうかを判定して出すなどが考えられる．
 それぞれを対戦させたり，考察することで，より洗練されたプレイヤーに改良するプロセスを繰り返していく．
 
-基本的に \verb+Player::follow()+ と \verb+Player::approve()+ 以外の関数を変更しないこと．
-この2つの関数を拡張する場合，使用して良いのは \verb+Card+ と  \verb+CardSet+ のメンバ関数である\footnote{他の班と対戦する際に，改良した \verb+Player::follow()+ と \verb+Player::approve()+ をコピーすれば動作するように心がけて作ること． \verb+Player+ 内に必要に応じて新しい関数を作っても良いが，あくまで， 他のクラスや \verb+Player+ 内に既に定義されているメンバ関数などに影響しないようにすること．}．
+自分で作成した \verb+Player+ クラスのサブクラス以外の変更をしないこと．
+\verb+Player+ クラスの関数を拡張したり追加したりする際に，\verb+follow+ や \verb+approve+ のインターフェースを変更しないこと．
+他の班と対戦する際に，改良した \verb+Player::follow()+ と \verb+Player::approve()+ をコピーすれば動作するように心がけて作ること． \verb+Player+ 内に必要に応じて新しい関数を作っても良いが，あくまで， 他のクラスや \verb+Player+ 内に既に定義されているメンバ関数などに影響しないようにすること．
 複数のプレイヤーを実装する方法はいくつか考えられるが，
 継承によりサブクラスを作成すること．
 そのためのサンプルとして，\verb+LittleThinkPlayer+を用意している．
@@ -238,6 +254,8 @@ d.regist(new LittleThinkPlayer("Warabi"));
 
 \section{レポートについて}
 レポートは以下の書式・期日で各班ごとに1つ提出すること．
+ただし，すべてのメンバーがレポートの作成に携わること
+（節ごとに分担する，下書き・編集を担当する，推敲を担当する，など．）
 \begin{enumerate}
  \item A4 のレポート用紙を用い，上部をステープラでとめること．\vspace*{-0.5em}
  \item 表紙には，演習名 (知能情報工学実験演習 II\ C++演習：グループ演習)，班員の学生番号と名前，提出日を明記すること．\vspace*{-0.5em}

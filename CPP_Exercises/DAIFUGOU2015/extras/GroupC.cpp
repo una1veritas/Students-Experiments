@@ -10,9 +10,9 @@
 #include <iostream>
 #include <string>
 
-#include "Card.h"
-#include "CardSet.h"
-#include "Player.h"
+#include "../Card.h"
+#include "../CardSet.h"
+#include "../Player.h"
 #include "GroupC.h"
 
 
@@ -42,7 +42,7 @@ bool GroupC::follow(CardSet & pile, CardSet & s) {
 	int i, j, crank, num, small=0, big=0, count[14] = {};
 
 	for(i = 0; i< inHand().size(); i++){
-		num = inHand()[i].getRank();
+		num = inHand()[i].getNumber();
 		count[num]++;
 		if(num>2 && num<13){
 			if(count[num] == 1)
@@ -80,7 +80,7 @@ bool GroupC::follow(CardSet & pile, CardSet & s) {
 		  }
 
 		for(i = 0; num > 0&&i<inHand().size(); i++){
-			if(inHand()[i].getRank() == crank){
+			if(inHand()[i].getNumber() == crank){
 				inHand().pickup(tmp, i);
 				s.insert(tmp);
 				i--;
@@ -98,12 +98,12 @@ bool GroupC::follow(CardSet & pile, CardSet & s) {
 
 	else{//空でないとき
 		num = pile.size();
-		//printf("\n num: %d : %d :\n",num, pile.at(0).getRank());
-		if(pile[0].getRank() > 2){//3以上13以下の時、
-			for(i = pile[0].getRank()+1; i < 13; i++){
+		//printf("\n num: %d : %d :\n",num, pile.at(0).getNumber());
+		if(pile[0].getNumber() > 2){//3以上13以下の時、
+			for(i = pile[0].getNumber()+1; i < 13; i++){
 				if(count[i] >= num){
 					for(j = 0; num > 0; j++)
-						if(inHand()[j].getRank() == i){
+						if(inHand()[j].getNumber() == i){
 							inHand().pickup(tmp, j);
 							s.insert(tmp);
 							j--;

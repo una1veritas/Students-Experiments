@@ -9,9 +9,9 @@
 #include <iostream>
 #include <string>
 
-#include "Card.h"
-#include "CardSet.h"
-#include "Player.h"
+#include "../Card.h"
+#include "../CardSet.h"
+#include "../Player.h"
 #include "ThinkTA1.h"
 
 
@@ -39,8 +39,8 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       //微妙
       //1/2までで３枚組があるか探す;あったら出す
       for(int i = 0; i < sortset.size() /2; i++){ 
-	if(sortset[i].getRank() == sortset[i+1].getRank()){
-	  if(sortset[i+1].getRank() == sortset[i+2].getRank()){ //３枚組あり
+	if(sortset[i].getNumber() == sortset[i+1].getNumber()){
+	  if(sortset[i+1].getNumber() == sortset[i+2].getNumber()){ //３枚組あり
 	    sortset.pickup(tmp, i);
 	    inHand().remove(tmp);
 	    s.insert(tmp);
@@ -70,7 +70,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
 
       //半分までで２枚組があるか探す;あったら２枚出す
       for(int i = 0; i < sortset.size() / 2; i++){ 
-	if(sortset[i].getRank() == sortset[i+1].getRank()){
+	if(sortset[i].getNumber() == sortset[i+1].getNumber()){
 	  sortset.pickup(tmp, i);
 	  inHand().remove(tmp);
 	  s.insert(tmp);
@@ -105,9 +105,9 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       for(int i = 0; i < limit; i++){
 	if(sortset[i].isGreaterThan(now)){ //場より大きい
 	  //組になっているものはスキップ
-	  if(sortset[i].getRank() == sortset[i+1].getRank()){
+	  if(sortset[i].getNumber() == sortset[i+1].getNumber()){
 	    i++;
-	    if(sortset[i].getRank() == sortset[i+1].getRank())
+	    if(sortset[i].getNumber() == sortset[i+1].getNumber())
 	      i++;
 	    continue;
 	  }
@@ -133,7 +133,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       //int limit = sortset.size();
       for(int i = 0; i < limit; i++){
 	if(sortset[i].isGreaterThan(now)){
-	  if(sortset[i].getRank() == sortset[i+1].getRank()){
+	  if(sortset[i].getNumber() == sortset[i+1].getNumber()){
 	    sortset.pickup(tmp, i);
 	    inHand().remove(tmp);
 	    s.insert(tmp);
@@ -146,7 +146,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
 	//Jokerがあったら&&エース以上が必要
 	  int over = 13;
 	  if(sortset[sortset.size()-1].isJoker())
-	    if((sortset[i].getRank()+10) % 13 > (over+10) % 13){
+	    if((sortset[i].getNumber()+10) % 13 > (over+10) % 13){
 	      sortset.pickup(tmp, i);
 	      inHand().remove(tmp);
 	      s.insert(tmp);
@@ -163,8 +163,8 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       //半分までで３枚組があるか探す;あったら３枚出す
       for(int i = 0; i < sortset.size()/2; i++){ 
 	if(sortset[i].isGreaterThan(now)){ //２枚組あり
-	  if(sortset[i].getRank() == sortset[i+1].getRank()){
-	    if(sortset[i+1].getRank() == sortset[i+2].getRank()){ //３枚組あり
+	  if(sortset[i].getNumber() == sortset[i+1].getNumber()){
+	    if(sortset[i+1].getNumber() == sortset[i+2].getNumber()){ //３枚組あり
 	      sortset.pickup(tmp, i);
 	      inHand().remove(tmp);
 	      s.insert(tmp);
@@ -179,7 +179,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
 	    }
 	    else if(sortset[sortset.size()-1].isJoker()){ //２枚組あり&&Jokerあり
 	      int over = 9;
-	      if((sortset[i].getRank()+10) % 13 > (over+10) % 13){
+	      if((sortset[i].getNumber()+10) % 13 > (over+10) % 13){
 	      //sortset.pickup(&tmp, sortset.size()-1);
 	      //isIsHand()().remove(tmp);
 	      //s.insert(tmp);	    
