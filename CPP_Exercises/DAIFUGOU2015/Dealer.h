@@ -13,6 +13,10 @@
 #include "GameStatus.h"
 
 class Dealer {
+public:
+	const static int NUM_OF_ALL_CARDS = 53;
+
+private:
 	CardSet theDeck;
 	CardSet discarded;
 	Card discardedRank;
@@ -34,7 +38,6 @@ public:
 	void newGame();
 	bool regist(Player *);
 	bool deal(int);
-	bool dealAll();
 	void show();
 	
 	int howManyPlayers() { return numberOfPlayers; }
@@ -54,7 +57,8 @@ public:
 	const CardSet & discardPile();
 	void clearDiscardPile();
 	bool playerInTurnIsLeader();
-	void setAsLeader();
+	void setAsLeader(void);
+	void setAsLeader(const int id);
 	Player & player(int);
 	int numberOfFinishedPlayers();
 	void withdrawPlayer(int);
@@ -70,7 +74,7 @@ public:
 	void putBackOpened(CardSet &);
 
 	GameStatus gameStatus(void) const {
-		return GameStatus(numberOfPlayers, numberOfCards, pauper, leaderIndex);
+		return GameStatus(discarded, turn, numberOfPlayers, numberOfCards, leaderIndex);
 	}
 };
 

@@ -8,41 +8,50 @@
 #ifndef GAMESTATUS_H_
 #define GAMESTATUS_H_
 
-
+#include "Card.h"
+#include "CardSet.h"
 
 struct GameStatus {
 	static const int MAXIMUM_NUM_OF_PLAYERS = 8;
 
+	CardSet currentPile;
+	int playerInTurn;
 	int numOfPlayers;
 	int numOfCards[MAXIMUM_NUM_OF_PLAYERS];
-	int pauperOfThisGame;
 	int currentLeader;
 
 	GameStatus(void) { numOfPlayers = 0; numOfCards[0] = 0; }  // Empty instance
 
-	GameStatus(const int nofp, const int * nofc, const int pog, const int cl) :
-		numOfPlayers( nofp > MAXIMUM_NUM_OF_PLAYERS ? MAXIMUM_NUM_OF_PLAYERS : nofp),
-		pauperOfThisGame(pog), currentLeader(cl)
+	GameStatus(const CardSet & pile, const int inturn, const int nofp, const int * nofc, const int cl) :
+		currentPile(pile), playerInTurn(inturn), numOfPlayers(nofp), currentLeader(cl)
 	{
 		for(int i = 0; i < numOfPlayers; i++) {
 			numOfCards[i] = nofc[i];
 		}
 	}
 
-	std::ostream & printOn(std::ostream & out) {
+	std::ostream & printOn(std::ostream & out) const {
 		out << "Game status: ";
-		out << "Num. of cards = [";
+		out << numOfPlayers << " players, ";
+		out << playerInTurn << "'s turn, ";
+		out << "cards = [";
 		for(int i = 0; i < numOfPlayers; i++) {
 			out << numOfCards[i];
 			out << " ";
 		}
 		out << "], ";
-		out << "current leader = ";
+		out << "leader = ";
 		out << currentLeader;
 
 		out << std::endl;
 		return out;
 	}
+
+	// おまけ
+	friend std::ostream & operator<<(std::ostream& ostr, const GameStatus & stat) {
+		return stat.printOn(ostr);
+	}
+
 };
 
 

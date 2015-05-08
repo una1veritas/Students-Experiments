@@ -1,11 +1,23 @@
-#include "main.h"
+#include <iostream>
+#include <iomanip>
+#include <map>
+
+#include <stdio.h>
+#include <string.h>
+
+#include "Card.h"
+#include "CardSet.h"
+#include "Dealer.h"
+
+#include "LittleThinkPlayer.h"
+#include "ThinkTA1.h"
 
 int main (int argc, char * const argv[]) {
 	
 	Dealer d;
 	char dummy[32];
 	
-	std::cout << "Ok?" << std::endl;
+	std::cout << "Daifugou match starting." << std::endl;
 	std::cin.getline(dummy,31); // 標準入力から dummy に改行まで最大31文字を読む
 
 	d.regist(new Player("Player 0"));
@@ -20,8 +32,8 @@ int main (int argc, char * const argv[]) {
 		std::cout << std::endl << "Starting Game " << g << std::endl;
 		d.newGame();
 		std::cin.getline(dummy,31);
-		d.dealAll();
-		d.setAsLeader();
+		d.deal(Dealer::NUM_OF_ALL_CARDS);
+		d.setAsLeader(0);
 		bool passed = true;
 		while (true) {
 			while (true) {
@@ -35,7 +47,7 @@ int main (int argc, char * const argv[]) {
 				CardSet currentLead(d.discardPile());
 				CardSet opened;
 				GameStatus status = d.gameStatus();
-				d.playerInTurn().follow(currentLead, opened, status);
+				d.playerInTurn().follow(status, opened);
 				std::cout << opened;
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if ( !opened.isEmpty() ) {

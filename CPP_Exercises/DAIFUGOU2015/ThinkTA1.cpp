@@ -9,15 +9,16 @@
 #include <iostream>
 #include <string>
 
-#include "../Card.h"
-#include "../CardSet.h"
-#include "../Player.h"
+#include "Card.h"
+#include "CardSet.h"
+#include "Player.h"
 #include "ThinkTA1.h"
 
-
+/*
 bool ThinkTA1::approve(CardSet & pile, int numCards[]) {
 	return true;
 }
+*/
 
 bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
   Card tmp;

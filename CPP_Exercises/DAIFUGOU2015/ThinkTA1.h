@@ -13,6 +13,5 @@ public:
 	ThinkTA1(const char * name = "Tata") : Player(name) {}
 
 	bool follow(CardSet &, CardSet &);
-	bool approve(CardSet &, int[] );
 	bool sort(CardSet&);
 };

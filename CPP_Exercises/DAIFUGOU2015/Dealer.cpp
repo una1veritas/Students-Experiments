@@ -16,6 +16,7 @@
 
 Dealer::Dealer() {
 	numberOfPlayers = 0;
+	turn = 0;
 	players[numberOfPlayers] = NULL;
 	pauper = 0;
 	for (int i = 0; i < 11; i++) { numberOfCards[i] = 0; }
@@ -54,7 +55,12 @@ void Dealer::newGame() {
 	}
 }
 
-void Dealer::setAsLeader() {
+void Dealer::setAsLeader(void) {
+	leaderIndex = turn;
+}
+
+void Dealer::setAsLeader(const int id) {
+	turn = id;
 	leaderIndex = turn;
 }
 
@@ -75,12 +81,7 @@ bool Dealer::deal(int c) {
 			numberOfCards[(numberOfPlayers - 1 - p) % numberOfPlayers]++;
 		}
 	}
-	turn = 0;
 	return true;
-}
-
-bool Dealer::dealAll() {
-	return deal(53);
 }
 
 void Dealer::clearDiscardPile() {
@@ -142,7 +143,8 @@ bool Dealer::checkRankUniqueness(CardSet & cs) {
 }
 
 void Dealer::showDiscardedToPlayers() {
-	CardSet aCopy(discarded);
+	GameStatus gstat = gameStatus();
+
   for (int i = 0, j=0; i < howManyParticipants(); i++) {
     if (numberOfCards[i] == 0){
       continue;
@@ -153,7 +155,7 @@ void Dealer::showDiscardedToPlayers() {
   numberOfCards[howManyParticipants()] = Player::NO_MORE_PLAYERS;
 
   for (int i = 1; i < numberOfPlayers; i++) {
-    players[(turn + i) % numberOfPlayers]->approve(aCopy, numberOfCards);
+    players[(turn + i) % numberOfPlayers]->approve(gstat);
   }
   return; 
 }
@@ -237,7 +239,7 @@ void Dealer::show() {
 				std::cout << "$ ";
 			else 
 				std::cout << "  ";
-			players[p]->printStream(std::cout);
+			players[p]->printOn(std::cout);
 			std::cout << std::endl;
 		}
 		std::cout << std::endl;

@@ -3,7 +3,29 @@
  */
 
 #include <cstdlib>
-#include "main.h"
+#include <iostream>
+#include <iomanip>
+#include <map>
+
+#include <stdio.h>
+#include <string.h>
+
+#include "Card.h"
+#include "CardSet.h"
+#include "Dealer.h"
+
+#include "LittleThinkPlayer.h"
+#include "ThinkTA1.h"
+
+//#include "GroupA_MT.h"
+#include "extras/GroupB.h"
+#include "extras/GroupC.h"
+//#include "GroupD.h"
+//#include "GroupEPlayer.h"
+//#include "GroupF.h"
+//#include "GroupG.h"
+#include "extras/GroupH.h"
+//#include "GroupI.h"
 
 void registAllPlayers(Dealer & d) {
 	d.regist(new GroupH("Henry 8"));

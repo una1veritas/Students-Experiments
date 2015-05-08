@@ -27,7 +27,7 @@ std::string Player::playerName() {
 }
 
 
-std::ostream & Player::printStream(std::ostream & out) const {
+std::ostream & Player::printOn(std::ostream & out) const {
 	out << name << ": ";
 	hand.printOn(out);
 	return out;
@@ -42,7 +42,7 @@ int Player::getId(){
 }
 
 void Player::clearHand() {
-	hand.makeEmpty(); //clear();
+	hand.makeEmpty();
 }
 
 bool Player::isEmptyHanded() {
@@ -62,13 +62,17 @@ bool Player::takeCards(CardSet & s) {
 	return true;
 }
 
+/*
 bool Player::approve(CardSet & pile, int numCards[]) {
   return true;
 }
+*/
+bool Player::approve(const GameStatus & gstat) {
+  return true;
+}
 
-bool Player::follow(CardSet & pile, CardSet & cards, GameStatus & status) {
+bool Player::follow(const GameStatus & gstat, CardSet & cards) {
 	Card tmp;
-	status.printOn(std::cout);
 	cards.makeEmpty();
 	hand.pickup(tmp, -1); // choose a card.
 	/*

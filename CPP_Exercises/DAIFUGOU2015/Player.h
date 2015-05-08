@@ -51,16 +51,17 @@ public:
 
 	virtual void startNewGame(void) { hand.makeEmpty(); } // hand.clear(); }
 
-	virtual bool follow(CardSet & pile, CardSet & cards, GameStatus & status);
-	virtual bool approve(CardSet & pile, int cardnum[] );
-
+	virtual bool follow(const GameStatus & gstat, CardSet & cards);
 	// backward compatibility
 	virtual bool follow(CardSet & pile, CardSet & cards) {
-		GameStatus status;
-		return follow(pile, cards, status);
+		GameStatus gstat(pile, 0, 0, NULL, -1); // dummy
+		return follow(gstat, cards);
 	}
+//	virtual bool approve(const CardSet & pile, int cardnum[] );
+	virtual bool approve(const GameStatus & gstat);
 
-	std::ostream & printStream(std::ostream & out) const;
+
+	std::ostream & printOn(std::ostream & out) const;
 
 };
 
