@@ -36,8 +36,8 @@ public:
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
 
 
-	int size() { return numcard; }
-	Card & at(int);
+	int size() const { return numcard; }
+	const Card & at(int) const;
 	Card & operator[](int);
 
 	void setupDeck(void);

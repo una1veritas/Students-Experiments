@@ -15,14 +15,15 @@
 #include "Player.h"
 #include "LittleThinkPlayer.h"
 
-void LittleThinkPlayer::clearHand() {
+void LittleThinkPlayer::ready() {
 	hand.makeEmpty(); //hand.clear();
 	memory.makeEmpty(); //memory.clear();
 	trump.makeEmpty(); //trump.clear();
 }
 
-bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
+bool LittleThinkPlayer::follow(const GameStatus & gstat, CardSet & s) {
 	Card tmp;
+	std::cout << gstat << std::endl;
 	s.makeEmpty(); //clear();
 	sortInHand();
 	std::cout << "( " << inHand() << " )" << std::endl;

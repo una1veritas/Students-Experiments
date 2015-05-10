@@ -46,20 +46,11 @@ public:
 	bool pickup(Card );
 	CardSet & inHand() { return hand; }
 	int size() { return hand.size(); }
-	std::string getName() { return name; }
-	std::string playerName();
+	std::string playerName() { return name; }
 
-	virtual void startNewGame(void) { hand.makeEmpty(); } // hand.clear(); }
-
+	virtual void ready(void) { } //
 	virtual bool follow(const GameStatus & gstat, CardSet & cards);
-	// backward compatibility
-	virtual bool follow(CardSet & pile, CardSet & cards) {
-		GameStatus gstat(pile, 0, 0, NULL, -1); // dummy
-		return follow(gstat, cards);
-	}
-//	virtual bool approve(const CardSet & pile, int cardnum[] );
 	virtual bool approve(const GameStatus & gstat);
-
 
 	std::ostream & printOn(std::ostream & out) const;
 

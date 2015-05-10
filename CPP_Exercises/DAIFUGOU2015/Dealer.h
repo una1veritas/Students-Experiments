@@ -23,11 +23,10 @@ private:
 	
 	Player * players[8];
 	float rankingById[8];
-	int numberOfPlayers;
+	int numberOfPlayingPlayers;
 	int pauper;
 	int turn;
 	int leaderIndex;
-	int numberOfCards[8];
 
 	// Rule flags
 	bool noMillionaire;
@@ -40,8 +39,8 @@ public:
 	bool deal(int);
 	void show();
 	
-	int howManyPlayers() { return numberOfPlayers; }
-	int howManyParticipants();
+	int howManyPlayers() const { return numberOfPlayingPlayers; }
+	int howManyParticipants() const;
 		
 	void hailPlayers() { return; }
 	void showDiscardedToPlayers();
@@ -73,9 +72,8 @@ public:
 	
 	void putBackOpened(CardSet &);
 
-	GameStatus gameStatus(void) const {
-		return GameStatus(discarded, turn, numberOfPlayers, numberOfCards, leaderIndex);
-	}
+	GameStatus gameStatus(void) const;
+
 };
 
 #endif

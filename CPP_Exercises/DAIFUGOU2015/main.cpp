@@ -44,7 +44,6 @@ int main (int argc, char * const argv[]) {
 					d.show();
 				}
 				std::cout << d.playerInTurn().playerName() << "'s turn: " << std::endl ;
-				CardSet currentLead(d.discardPile());
 				CardSet opened;
 				GameStatus status = d.gameStatus();
 				d.playerInTurn().follow(status, opened);
@@ -60,12 +59,12 @@ int main (int argc, char * const argv[]) {
 					passed = false;
 				}
 				std::cout << std::endl << std::endl;
-				if (d.playerInTurn().isEmptyHanded())
-					break;
 				if (!passed) {
 					d.setAsLeader();
 					std::cout << "--- Lead " << d.discardPile() << " by " << d.currentLeader().playerName() << ". " << std::endl;
 				}
+				if (d.playerInTurn().isEmptyHanded())
+					break;
 
 				d.showDiscardedToPlayers();
 

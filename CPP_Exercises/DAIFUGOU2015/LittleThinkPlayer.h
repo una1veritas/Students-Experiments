@@ -30,10 +30,10 @@ public:
   /*
    * グループで実態を作成し思考処理を追加する関数．
    */
-  // ゲームを始めるにあたり，必要な初期化をする．手札は残っていてもすべて捨てる．
-  void clearHand();
+  // ゲームを始めるにあたり必要な初期化をする．
+  void ready();
   // カードを出す思考処理を組み込む．
-  bool follow(CardSet &, CardSet &);
+  bool follow(const GameStatus &, CardSet &);
 
   /*
    * 思考処理を実装するのに使うユーティリティ関数は，自由につくってよい．

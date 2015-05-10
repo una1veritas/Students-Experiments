@@ -15,27 +15,21 @@
 #include "../Player.h"
 #include "GroupB.h"
 
-bool GroupB::approve(CardSet & pile, int numCards[]) {
+bool GroupB::approve(const GameStatus & gstat) {
+	CardSet pile(gstat.pile);
+
   memoryInsert(pile);
   // memoryには他のプレイヤーが場に出したカードがストックされる
   
   // 自分自身のidは getId() で獲得できる
   // std::cerr << "your information is "<< getName() << " " << getId() << std::endl;
 
-//  for (int i=0; numCards[i] != 99; i++){
-    // numCardsには自分を含めたそれぞれの持ち札の数が格納されている
-    // 配列の最後には終端検知のため"99"という値が入っている
-    // numCardsの添字はプレイヤーのidを表す
-    // std::cerr << i << " " << numCards[i] << std::endl;
-//  }
-
-  myCards = numCards[getId()];
-
   return true;
   
 }
 
-bool GroupB::follow(CardSet & pile, CardSet & s) {
+bool GroupB::follow(const GameStatus & gstat, CardSet & s) {
+	CardSet pile(gstat.pile);
   sort();
   searchPair();
 

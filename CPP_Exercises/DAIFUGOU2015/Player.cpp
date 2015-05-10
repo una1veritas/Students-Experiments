@@ -22,11 +22,6 @@ Player::Player(char const * given) {
 	return;
 }
 
-std::string Player::playerName() { 
-	return name; 
-}
-
-
 std::ostream & Player::printOn(std::ostream & out) const {
 	out << name << ": ";
 	hand.printOn(out);

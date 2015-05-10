@@ -21,12 +21,12 @@ CardSet::CardSet(const CardSet & orig) {
 		cards[i] = orig.cards[i];	// カードのデータ
 }
 
-Card & CardSet::at(int i) {
+const Card & CardSet::at(int i) const {
 	return cards[i];
 }
 
 Card & CardSet::operator[](int i) {
-	return at(i);
+	return cards[i];
 }
 
 //

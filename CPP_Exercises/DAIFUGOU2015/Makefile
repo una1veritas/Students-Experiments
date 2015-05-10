@@ -1,41 +1,35 @@
 CC	= cc
 C++	= c++
-CFLAGS = -Wall -O0 -g3 
-C++FLAGS = -Wall -O0 -g3 
+CFLAGS = -Wall -O0 -g3
+C++FLAGS = -Wall -O0 -g3
 
-OBJS = Card.o CardSet.o Dealer.o Player.o LittleThinkPlayer.o ThinkTA1.o
-HEADERS = Card.h CardSet.h Dealer.h Player.h GameStatus.h LittleThinkPlayer.h ThinkTA1.h
-EXTRA_OBJS = GroupB.o GroupC.o GroupH.o 
-EXTRA_HEADERS = ./extras/GroupB.h ./extras/GroupC.h ./extras/GroupH.h 
+HEADERS = Card.h CardSet.h Dealer.h Player.h GameStatus.h 
+OBJS = Card.o CardSet.o Dealer.o Player.o
+EXTRA_OBJS = GroupB.o GroupH.o
 
-.SUFFIXES: .o .cc .cpp .c++ .c
-
-
-.c.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(CC) -c $(CFLAGS) $< 
-
-.cc.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) $< 
-
-.cpp.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) $< 
-
-all: daifugou
+all: daifugou taikai
 	@echo "build finished."
 
-daifugou: main.o ThinkTA1.o $(OBJS) $(HEADERS)
-	$(C++) $(C++FLAGS) main.o $(OBJS) -o daifugou
+daifugou: main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o
+	$(C++) $(C++FLAGS) main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o -o daifugou
 
-taikai: $(OBJS) $(EXTRA_OBJS) taikai_main.o $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) $(C++FLAGS) $(OBJS) ThinkTA1.o $(EXTRA_OBJS) taikai_main.o -o taikai
+taikai: $(OBJS) $(EXTRA_OBJS) LittleThinkPlayer.o ThinkTA1.o taikai_main.o 
+	$(C++) $(C++FLAGS) $(OBJS) $(EXTRA_OBJS) taikai_main.o LittleThinkPlayer.o ThinkTA1.o -o taikai
 
-GroupB.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) extras/GroupB.cpp
-GroupC.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) extras/GroupC.cpp
-GroupH.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) extras/GroupH.cpp
 
+ThinkTA1.o: $(HEADERS) ./extras/ThinkTA1.h 
+	$(C++) -c $(C++FLAGS) ./extras/ThinkTA1.cpp
+GroupB.o: $(HEADERS) ./extras/GroupB.h
+	$(C++) -c $(C++FLAGS) ./extras/GroupB.cpp
+GroupH.o: $(HEADERS) ./extras/GroupH.h
+	$(C++) -c $(C++FLAGS) ./extras/GroupH.cpp
+
+Card.o: $(HEADERS)
+CardSet.o: $(HEADERS)
+Player.o: $(HEADERS)
+Dealer.o: $(HEADERS)
+main.o: $(HEADERS)
+taikai_main.o: $(HEADERS)
 
 help:  README.txt
 	more README.txt
@@ -43,7 +37,6 @@ help:  README.txt
 clean   :
 	\rm -f core $(OBJS) $(EXTRA_OBJS) main.o taikai_main.o *~ #*#
 
-cleanall: clean
-	\rm -f ThinkTA1.o
+allclean: clean
 	\rm -f taikai
 	\rm -f daihugou

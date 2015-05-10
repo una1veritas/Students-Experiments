@@ -14,34 +14,34 @@
 struct GameStatus {
 	static const int MAXIMUM_NUM_OF_PLAYERS = 8;
 
-	CardSet currentPile;
-	int playerInTurn;
-	int numOfPlayers;
-	int numOfCards[MAXIMUM_NUM_OF_PLAYERS];
-	int currentLeader;
+	CardSet pile;
+	int nofPlayers;
+	int inTurn;
+	int leader;
+	int nofCards[MAXIMUM_NUM_OF_PLAYERS];
+	int playerIDs[MAXIMUM_NUM_OF_PLAYERS];
 
-	GameStatus(void) { numOfPlayers = 0; numOfCards[0] = 0; }  // Empty instance
-
-	GameStatus(const CardSet & pile, const int inturn, const int nofp, const int * nofc, const int cl) :
-		currentPile(pile), playerInTurn(inturn), numOfPlayers(nofp), currentLeader(cl)
-	{
-		for(int i = 0; i < numOfPlayers; i++) {
-			numOfCards[i] = nofc[i];
-		}
-	}
+	GameStatus(void) { nofPlayers = 0; }  // Empty instance
 
 	std::ostream & printOn(std::ostream & out) const {
 		out << "Game status: ";
-		out << numOfPlayers << " players, ";
-		out << playerInTurn << "'s turn, ";
+		out << "pile " << pile << ", ";
+		out << nofPlayers << " players, ";
+		out << inTurn << "'s turn, ";
 		out << "cards = [";
-		for(int i = 0; i < numOfPlayers; i++) {
-			out << numOfCards[i];
+		for(int i = 0; i < nofPlayers; i++) {
+			out << nofCards[i];
+			out << " ";
+		}
+		out << "], ";
+		out << "IDs = [";
+		for(int i = 0; i < nofPlayers; i++) {
+			out << playerIDs[i];
 			out << " ";
 		}
 		out << "], ";
 		out << "leader = ";
-		out << currentLeader;
+		out << leader;
 
 		out << std::endl;
 		return out;
@@ -53,7 +53,5 @@ struct GameStatus {
 	}
 
 };
-
-
 
 #endif /* GAMESTATUS_H_ */

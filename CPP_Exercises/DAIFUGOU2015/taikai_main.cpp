@@ -69,7 +69,7 @@ int main(int argc, char * const argv[]) {
 		d.newGame();
 		prompt(autorepeat, "Auto-repeat? ", "yes");
 
-		d.dealAll();
+		d.deal(Dealer::NUM_OF_ALL_CARDS);
 		d.setAsLeader();
 		bool passed = true;
 		while (true) {
@@ -80,8 +80,8 @@ int main(int argc, char * const argv[]) {
 					d.show();
 				}
 				std::cout << std::endl << "Turn: " << d.playerInTurn().playerName() << " ";
-				CardSet discarded = d.discardPile();
-				d.playerInTurn().follow(discarded, opened);
+				GameStatus status = d.gameStatus();
+				d.playerInTurn().follow(status, opened);
 				std::cout << opened; // the set of opened cards.
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if (!opened.isEmpty()) {
