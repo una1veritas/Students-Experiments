@@ -32,7 +32,7 @@ void Player::setId(int temp){
   id=temp;
 }
 
-int Player::getId(){
+int Player::getId() const{
   return id;
 }
 
@@ -40,7 +40,7 @@ void Player::clearHand() {
 	hand.makeEmpty();
 }
 
-bool Player::isEmptyHanded() {
+bool Player::isEmptyHanded() const {
 	return hand.isEmpty();
 }
 
@@ -57,16 +57,12 @@ bool Player::takeCards(CardSet & s) {
 	return true;
 }
 
-/*
-bool Player::approve(CardSet & pile, int numCards[]) {
-  return true;
-}
-*/
 bool Player::approve(const GameStatus & gstat) {
   return true;
 }
 
 bool Player::follow(const GameStatus & gstat, CardSet & cards) {
+	CardSet pile(gstat.pile);
 	Card tmp;
 	cards.makeEmpty();
 	hand.pickup(tmp, -1); // choose a card.

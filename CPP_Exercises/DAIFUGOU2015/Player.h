@@ -29,7 +29,7 @@ protected:
 	CardSet hand;
 
 public:
-	bool takeCards(CardSet &);
+	virtual bool takeCards(CardSet &);
 
 	static const int NO_MORE_PLAYERS = -1;
 
@@ -38,21 +38,20 @@ public:
     virtual ~Player() { }
 
 	void setId(int);
-	int getId();
-
+	int getId() const;
 	void clearHand();
-	bool isEmptyHanded();
-
+	bool isEmptyHanded() const;
 	bool pickup(Card );
 	CardSet & inHand() { return hand; }
-	int size() { return hand.size(); }
-	std::string playerName() { return name; }
-
-	virtual void ready(void) { } //
-	virtual bool follow(const GameStatus & gstat, CardSet & cards);
-	virtual bool approve(const GameStatus & gstat);
+	int size() const { return hand.size(); }
+	std::string playerName() const { return name; }
 
 	std::ostream & printOn(std::ostream & out) const;
+
+	// 拡張した派生クラスでオーバーライドする関数
+	virtual void ready(void) { }
+	virtual bool follow(const GameStatus & gstat, CardSet & cards);
+	virtual bool approve(const GameStatus & gstat);
 
 };
 

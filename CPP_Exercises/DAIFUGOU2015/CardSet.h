@@ -32,7 +32,7 @@ public:
 	void makeEmpty(void)	{ numcard = 0 ; }
 	void clear(void)	{ makeEmpty(); }
 		// 自身を空集合にする
-	bool isEmpty(void)	{ return numcard == 0; }
+	bool isEmpty(void) const { return numcard == 0; }
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
 
 
