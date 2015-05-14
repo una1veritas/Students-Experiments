@@ -21,7 +21,7 @@ void LittleThinkPlayer::ready() {
 	trump.makeEmpty(); //trump.clear();
 }
 
-bool LittleThinkPlayer::follow(const GameStatus & gstat, CardSet & s) {
+bool LittleThinkPlayer::follow(const GameState & gstat, CardSet & s) {
 	CardSet pile(gstat.pile);
 	Card tmp;
 	std::cout << gstat << std::endl;

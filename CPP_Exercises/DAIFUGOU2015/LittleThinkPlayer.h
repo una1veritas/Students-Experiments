@@ -33,7 +33,7 @@ public:
   // ゲームを始めるにあたり必要な初期化をする．
   void ready();
   // カードを出す思考処理を組み込む．
-  bool follow(const GameStatus &, CardSet &);
+  bool follow(const GameState &, CardSet &);
 
   /*
    * 思考処理を実装するのに使うユーティリティ関数は，自由につくってよい．

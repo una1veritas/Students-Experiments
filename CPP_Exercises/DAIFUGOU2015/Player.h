@@ -10,7 +10,7 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
-#include "GameStatus.h"
+#include "GameState.h"
 
 /*
  * プレイヤークラスの基底クラス．
@@ -50,8 +50,8 @@ public:
 
 	// 拡張した派生クラスでオーバーライドする関数
 	virtual void ready(void) { }
-	virtual bool follow(const GameStatus & gstat, CardSet & cards);
-	virtual bool approve(const GameStatus & gstat);
+	virtual bool follow(const GameState & gstat, CardSet & cards);
+	virtual bool approve(const GameState & gstat);
 
 };
 

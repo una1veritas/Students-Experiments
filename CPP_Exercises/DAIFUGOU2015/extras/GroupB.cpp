@@ -15,7 +15,7 @@
 #include "../Player.h"
 #include "GroupB.h"
 
-bool GroupB::approve(const GameStatus & gstat) {
+bool GroupB::approve(const GameState & gstat) {
 	CardSet pile(gstat.pile);
 
   memoryInsert(pile);
@@ -28,7 +28,7 @@ bool GroupB::approve(const GameStatus & gstat) {
   
 }
 
-bool GroupB::follow(const GameStatus & gstat, CardSet & s) {
+bool GroupB::follow(const GameState & gstat, CardSet & s) {
 	CardSet pile(gstat.pile);
   sort();
   searchPair();

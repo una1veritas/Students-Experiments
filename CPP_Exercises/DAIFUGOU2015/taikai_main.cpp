@@ -80,8 +80,8 @@ int main(int argc, char * const argv[]) {
 					d.show();
 				}
 				std::cout << std::endl << "Turn: " << d.playerInTurn().playerName() << " ";
-				GameStatus status = d.gameStatus();
-				d.playerInTurn().follow(status, opened);
+				GameState state = d.gameState();
+				d.playerInTurn().follow(state, opened);
 				std::cout << opened; // the set of opened cards.
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if (!opened.isEmpty()) {

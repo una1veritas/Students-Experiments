@@ -9,8 +9,8 @@
 #ifndef _DEALER_H_
 #define _DEALER_H_
 
+#include "GameState.h"
 #include "Player.h"
-#include "GameStatus.h"
 
 class Dealer {
 public:
@@ -72,7 +72,7 @@ public:
 	
 	void putBackOpened(CardSet &);
 
-	GameStatus gameStatus(void) const;
+	GameState gameState(void) const;
 
 };
 

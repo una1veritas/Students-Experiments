@@ -142,7 +142,7 @@ bool Dealer::checkRankUniqueness(CardSet & cs) {
 }
 
 void Dealer::showDiscardedToPlayers() {
-	GameStatus gstat = gameStatus();
+	GameState gstat = gameState();
 	for (int i = 1; i < numberOfPlayingPlayers; i++) {
 		players[(turn + i) % numberOfPlayingPlayers]->approve(gstat);
 	}
@@ -237,8 +237,8 @@ void Dealer::putBackOpened(CardSet & opened) {
 	players[turn]->takeCards(opened);
 }
 
-GameStatus Dealer::gameStatus(void) const {
-	GameStatus gstat;
+GameState Dealer::gameState(void) const {
+	GameState gstat;
 	gstat.pile = discarded;
 	gstat.inTurn = turn;
 	gstat.nofPlayers = numberOfPlayingPlayers;

@@ -3,7 +3,7 @@ C++	= c++
 CFLAGS = -Wall -O0 -g3
 C++FLAGS = -Wall -O0 -g3
 
-HEADERS = Card.h CardSet.h Dealer.h Player.h GameStatus.h 
+HEADERS = Card.h CardSet.h Dealer.h Player.h GameState.h 
 OBJS = Card.o CardSet.o Dealer.o Player.o
 EXTRA_OBJS = GroupB.o GroupH.o
 

@@ -14,7 +14,7 @@
 #include "../Player.h"
 #include "ThinkTA1.h"
 
-bool ThinkTA1::follow(const GameStatus & gstat, CardSet & s) {
+bool ThinkTA1::follow(const GameState & gstat, CardSet & s) {
   Card tmp;
   s.clear();
 //  std::cerr << "#####################" << std::endl;

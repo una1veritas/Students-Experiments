@@ -45,8 +45,8 @@ int main (int argc, char * const argv[]) {
 				}
 				std::cout << d.playerInTurn().playerName() << "'s turn: " << std::endl ;
 				CardSet opened;
-				GameStatus status = d.gameStatus();
-				d.playerInTurn().follow(status, opened);
+				GameState state = d.gameState();
+				d.playerInTurn().follow(state, opened);
 				std::cout << opened;
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if ( !opened.isEmpty() ) {

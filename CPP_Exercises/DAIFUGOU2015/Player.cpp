@@ -57,11 +57,11 @@ bool Player::takeCards(CardSet & s) {
 	return true;
 }
 
-bool Player::approve(const GameStatus & gstat) {
+bool Player::approve(const GameState & gstat) {
   return true;
 }
 
-bool Player::follow(const GameStatus & gstat, CardSet & cards) {
+bool Player::follow(const GameState & gstat, CardSet & cards) {
 	CardSet pile(gstat.pile);
 	Card tmp;
 	cards.makeEmpty();

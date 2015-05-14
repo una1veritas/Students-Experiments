@@ -1,17 +1,17 @@
 /*
- * GameStatus.h
+ * GameState.h
  *
  *  Created on: 2015/05/07
  *      Author: sin
  */
 
-#ifndef GAMESTATUS_H_
-#define GAMESTATUS_H_
+#ifndef GAMESTATE_H_
+#define GAMESTATE_H_
 
 #include "Card.h"
 #include "CardSet.h"
 
-struct GameStatus {
+struct GameState {
 	static const int MAXIMUM_NUM_OF_PLAYERS = 8;
 
 	CardSet pile;
@@ -21,7 +21,7 @@ struct GameStatus {
 	int nofCards[MAXIMUM_NUM_OF_PLAYERS];
 	int playerIDs[MAXIMUM_NUM_OF_PLAYERS];
 
-	GameStatus(void) { nofPlayers = 0; }  // Empty instance
+	GameState(void) { nofPlayers = 0; }  // Empty instance
 
 	std::ostream & printOn(std::ostream & out) const {
 		out << "Game status: ";
@@ -48,10 +48,10 @@ struct GameStatus {
 	}
 
 	// おまけ
-	friend std::ostream & operator<<(std::ostream& ostr, const GameStatus & stat) {
+	friend std::ostream & operator<<(std::ostream& ostr, const GameState & stat) {
 		return stat.printOn(ostr);
 	}
 
 };
 
-#endif /* GAMESTATUS_H_ */
+#endif /* GAMESTATE_H_ */

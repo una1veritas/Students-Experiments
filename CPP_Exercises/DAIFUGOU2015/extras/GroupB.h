@@ -20,8 +20,8 @@ class GroupB : public Player {
     init();
   }
 
-  bool follow(const GameStatus &, CardSet &);
-  bool approve(const GameStatus &);
+  bool follow(const GameState &, CardSet &);
+  bool approve(const GameState &);
   
  private:
   void init();
