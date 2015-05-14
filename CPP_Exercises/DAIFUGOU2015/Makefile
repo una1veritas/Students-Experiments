@@ -7,8 +7,6 @@ HEADERS = Card.h CardSet.h Dealer.h Player.h GameState.h
 OBJS = Card.o CardSet.o Dealer.o Player.o
 EXTRA_OBJS = GroupB.o GroupH.o
 
-all: daifugou taikai
-	@echo "build finished."
 
 daifugou: main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o
 	$(C++) $(C++FLAGS) main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o -o daifugou
