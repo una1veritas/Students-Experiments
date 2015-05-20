@@ -1,25 +1,35 @@
 CC	= cc
 C++	= c++
-CFLAGS = -Wall -O0 -g3 
-C++FLAGS = -Wall -O0 -g3 
+CFLAGS = -Wall -O0 -g3
+C++FLAGS = -Wall -O0 -g3
 
+<<<<<<< HEAD
 OBJS = Card.o CardSet.o Dealer.o Player.o LittleThinkPlayer.o
 HEADERS = main.h Card.h CardSet.h Dealer.h Player.h main.h LittleThinkPlayer.h ./extras/ThinkTA1.h
 EXTRA_OBJS = GroupB.o GroupC.o GroupH.o 
 EXTRA_HEADERS = ./extras/GroupB.h ./extras/GroupC.h ./extras/GroupH.h 
+=======
+HEADERS = Card.h CardSet.h Dealer.h Player.h GameState.h 
+OBJS = Card.o CardSet.o Dealer.o Player.o
+EXTRA_OBJS = GroupB.o GroupH.o
+>>>>>>> master
 
-.SUFFIXES: .o .cc .cpp .c++ .c
+
+daifugou: main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o
+	$(C++) $(C++FLAGS) main.o $(OBJS) LittleThinkPlayer.o ThinkTA1.o -o daifugou
+
+taikai: $(OBJS) $(EXTRA_OBJS) LittleThinkPlayer.o ThinkTA1.o taikai_main.o 
+	$(C++) $(C++FLAGS) $(OBJS) $(EXTRA_OBJS) taikai_main.o LittleThinkPlayer.o ThinkTA1.o -o taikai
 
 
-.c.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(CC) -c $(CFLAGS) $< 
+ThinkTA1.o: $(HEADERS) ./extras/ThinkTA1.h 
+	$(C++) -c $(C++FLAGS) ./extras/ThinkTA1.cpp
+GroupB.o: $(HEADERS) ./extras/GroupB.h
+	$(C++) -c $(C++FLAGS) ./extras/GroupB.cpp
+GroupH.o: $(HEADERS) ./extras/GroupH.h
+	$(C++) -c $(C++FLAGS) ./extras/GroupH.cpp
 
-.cc.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) $< 
-
-.cpp.o: $(HEADERS) $(EXTRA_HEADERS)
-	$(C++) -c $(C++FLAGS) $< 
-
+<<<<<<< HEAD
 all: daifugou
 	@echo "build finished."
 
@@ -37,6 +47,14 @@ GroupC.o:
 	$(C++) -c $(C++FLAGS) extras/GroupC.cpp
 GroupH.o:
 	$(C++) -c $(C++FLAGS) extras/GroupH.cpp
+=======
+Card.o: $(HEADERS)
+CardSet.o: $(HEADERS)
+Player.o: $(HEADERS)
+Dealer.o: $(HEADERS)
+main.o: $(HEADERS)
+taikai_main.o: $(HEADERS)
+>>>>>>> master
 
 help:  README.txt
 	more README.txt

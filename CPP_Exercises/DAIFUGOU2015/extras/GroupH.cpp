@@ -10,7 +10,8 @@
 
 GroupH::GroupH(const char * s) : Player(s) {}
 
-bool GroupH::approve(CardSet & pile, int numCards[]) {
+bool GroupH::approve(const GameState & gstat) {
+	CardSet pile(gstat.pile);
   memory.insertAll(pile);
   // memoryには他のプレイヤーが場に出したカードがストックされる
   
@@ -29,7 +30,8 @@ bool GroupH::approve(CardSet & pile, int numCards[]) {
   
 }
 
-bool GroupH::follow(CardSet & pile, CardSet & s) {
+bool GroupH::follow(const GameState & gstat, CardSet & s) {
+	CardSet pile(gstat.pile);
   Card tmp;
   CardSet tmp1;
   int i, j, k, l, mhsize, cmpp1 = 0, cmpp2 = 0, cmpp3 = 0, pcard, pcnum, large;

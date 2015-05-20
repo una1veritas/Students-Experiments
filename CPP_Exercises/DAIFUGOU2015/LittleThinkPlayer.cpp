@@ -15,33 +15,17 @@
 #include "Player.h"
 #include "LittleThinkPlayer.h"
 
-
-bool LittleThinkPlayer::approve(CardSet & pile, int numCards[]) {
-	/*
-	 * たとえば，場に出たカードをすべておぼえておく．
-	 * memory.insert(pile);
-	 */
-
-	/*
-	 * 手札数の状況をみる．
-	 * 自分自身のidは getId() で得られる．
-	 * std::cerr << getName() << " " << getId() << std::endl;
-	 * for (int i = 0; numCards[i] != NO_MORE_PLAYERS; i++) {
-	 *	 std::cerr << i << " " << numCards[i] << std::endl;
-	 * }
-	 */
-	return true;
+void LittleThinkPlayer::ready() {
+	hand.makeEmpty(); //hand.clear();
+	memory.makeEmpty(); //memory.clear();
+	trump.makeEmpty(); //trump.clear();
 }
 
-void LittleThinkPlayer::clearHand() {
-	hand.clear();
-	memory.clear();
-	trump.clear();
-}
-
-bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
+bool LittleThinkPlayer::follow(const GameState & gstat, CardSet & s) {
+	CardSet pile(gstat.pile);
 	Card tmp;
-	s.clear();
+	std::cout << gstat << std::endl;
+	s.makeEmpty(); //clear();
 	sortInHand();
 	std::cout << "( " << inHand() << " )" << std::endl;
 	inHand().pickup(tmp, -1); // とにかく選ぶ．
@@ -56,8 +40,13 @@ bool LittleThinkPlayer::follow(CardSet & pile, CardSet & s) {
 /*
  * ソートに使う順序関数の例．
  * 自分のならべたい順序の定義を作成する．
+ * これはカード同士の比較であり，カードの集合同士の比較ではない．
  */
+<<<<<<< HEAD
 bool LittleThinkPlayer::cardsLessThan(const Card & c1, const Card & c2) {
+=======
+bool LittleThinkPlayer::cardLessThan(const Card & c1, const Card & c2) {
+>>>>>>> master
 	if ( c1.getNumber() < c2.getNumber() )
 		return true;
 	return false;
@@ -66,18 +55,18 @@ bool LittleThinkPlayer::cardsLessThan(const Card & c1, const Card & c2) {
 /*
  * 順序関数と整合性のある同値（等しい）関係．
  */
-bool LittleThinkPlayer::cardsEqualTo(const Card & c1, const Card & c2) {
-	return !cardsLessThan(c1, c2) && !cardsLessThan(c2, c2);
+bool LittleThinkPlayer::cardEquals(const Card & c1, const Card & c2) {
+	return !cardLessThan(c1, c2) && !cardLessThan(c2, c2);
 }
 
 /*
  * 順序関係 compareCards を使うナイーヴな naive ソートの例．
- * 枚数は少ないので効率は気にならない．
+ * 枚数は少ないので，効率は気にしない．
  */
 void LittleThinkPlayer::sortInHand(void) {
 	for(int i = 0; i+1 < hand.size(); i++) {
 		for(int j = i+1; j < hand.size(); j++) {
-			if ( cardsLessThan(hand[i], hand[j]) ) {
+			if ( cardLessThan(hand[i], hand[j]) ) {
 				Card t = hand[i];
 				hand[i] = hand[j];
 				hand[j] = t;

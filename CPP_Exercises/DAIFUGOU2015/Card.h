@@ -1,58 +1,61 @@
 //
+// card.h - トランプカードの型
+//	作者: (あなたの名前); 日付: (完成した日付)
+//
+#ifndef CARD_H
+#define CARD_H
+
+#include <cstdio>
+#include <iostream>
+//
 // Card - トランプカード型
 //
-#ifndef _CARD_H_
-#define _CARD_H_
-
-#include <iostream>
-
 class Card {
 	// メンバ変数
 	private:
 		int suit;	// 組
 		int number;	// 番号
 		
+	// クラス定数
 		static const char suitname[][8];
 		static const char suitabbrevname[][4];
+		static const char ranksymbol[][3];
 
 	// メンバ関数
 	public:
+	// クラス定数
 	// トランプの組(suit)のコード
-	enum SUIT {
-		SUIT_SPADE = 0,
+	public:
+	enum {
+		SUIT_SPADE, 	// = 0
 		SUIT_DIAMOND,
 		SUIT_HEART,
 		SUIT_CLUB,
-		SUIT_JOKER,
-		SUIT_INVALID = 7,
+		SUIT_JOKER, 	// = 4
+		SUIT_BLANK
 	};
-
-	enum RANK {
-		RANK_ACE = 1,
-		RANK_TWO = 2,
-		RANK_THREE = 3,
-		RANK_FOUR = 4,
-		RANK_FIVE = 5,
-		RANK_SIX = 6,
-		RANK_SEVEN = 7,
-		RANK_EIGHT = 8,
-		RANK_NINE = 9,
-		RANK_TEN = 10,
-		RANK_JACK = 11,
-		RANK_QUEEN = 12,
-		RANK_KING = 13,
-		RANK_JOKER = 14,
-		RANK_INVALID = 15,
-		RANK_NULL = 0,
-	};
+<<<<<<< HEAD
 
 
 	Card(void) : suit(SUIT_INVALID), number(RANK_INVALID) {}
+=======
+	
+// メンバ関数
+public:
+	// デフォルトコンストラクタ(初期値は白カード)
+	Card(void) : suit(SUIT_BLANK), number(0) {}
+>>>>>>> master
 		// デフォルトコンストラクタ
 	Card(const char * str);
 		// 文字列 str から作成する(文字列が適切なカードを表さない場合は、Card(void) と同じ。)
 
+	// 組と番号を設定する
+	void set(int st, int num) {
+		suit = st;
+		number = num; 
+	}
 
+<<<<<<< HEAD
 	void set(int s, int r)
 		{ suit = s; number = r; return; }
 		// 自身に指定した組と番号を入れる
@@ -85,18 +88,42 @@ class Card {
 
 	bool isJoker() { return suit == SUIT_JOKER; }
 	bool isGreaterThan(Card c);
+=======
+	// 自身と tgt のカードの組，番号が等しいか判定 (true: 同; false: 異)
+	// データとして同じオブジェクトかどうかではない．
+	bool equal(Card tgt) const {
+		return (suit == tgt.suit) && (number == tgt.number); 
+	}
 
-	void print(void);
-		// 自身の値を標準出力に出力する
-	/*
-	 * Streaming
-	 */
-	std::ostream & printOn(std::ostream &out) const;
+	// まともなカードか？
+	bool isValid(void) const;
+>>>>>>> master
 
-	friend std::ostream& operator<<(std::ostream& out, const Card & c) {
-		return c.printOn(out);
+	// アクセサ
+	int getNumber(void) const {
+		return number;
+	}
+	int getRank(void) const { return getNumber(); }  // for backward compatibility.
+
+	int getSuit(void) const {
+		return suit;
+	}
+	
+	bool isJoker() const { return suit == SUIT_JOKER; }
+	bool isGreaterThan(const Card & c) const;
+
+	// 標準出力から自身に入力する(true: 正常終了; false: 異常終了)
+	bool scan(void);
+	
+	
+	// 自身の値を標準出力に出力する
+	void print(void) { printOn(std::cout); }
+	std::ostream & printOn(std::ostream& ostr) const;
+
+	// おまけ
+	friend std::ostream & operator<<(std::ostream& ostr, const Card & card) {
+		return card.printOn(ostr);
 	}
 };
 
 #endif
-

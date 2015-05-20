@@ -12,7 +12,6 @@ class ThinkTA1 : public Player {
 public:
 	ThinkTA1(const char * name = "Tata") : Player(name) {}
 
-	bool follow(CardSet &, CardSet &);
-	bool approve(CardSet &, int[] );
+	bool follow(const GameState &, CardSet &);
 	bool sort(CardSet&);
 };

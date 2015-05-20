@@ -30,18 +30,18 @@ public:
   /*
    * グループで実態を作成し思考処理を追加する関数．
    */
-  bool follow(CardSet &, CardSet &);
-  bool approve(CardSet &, int[]);
-
-  void clearHand();
+  // ゲームを始めるにあたり必要な初期化をする．
+  void ready();
+  // カードを出す思考処理を組み込む．
+  bool follow(const GameState &, CardSet &);
 
   /*
-   * 思考処理を実装するのに使うユーティリティ関数群の例．
+   * 思考処理を実装するのに使うユーティリティ関数は，自由につくってよい．
  　* たとえば手札のソート，ソート順のもとで同等のカードの判別を行うための
    * 順序比較と同値検証の関数，ソート関数など．
    */
-	bool cardsLessThan(const Card & c1, const Card & c2);
-	bool cardsEqualTo(const Card & c1, const Card & c2);
+	bool cardLessThan(const Card & c1, const Card & c2);
+	bool cardEquals(const Card & c1, const Card & c2);
 	void sortInHand();
 
 };

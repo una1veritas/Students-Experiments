@@ -15,10 +15,10 @@
 #include "Dealer.h"
 
 Dealer::Dealer() {
-	numberOfPlayers = 0;
-	players[numberOfPlayers] = NULL;
+	numberOfPlayingPlayers = 0;
+	turn = 0;
+	players[numberOfPlayingPlayers] = NULL;
 	pauper = 0;
-	for (int i = 0; i < 11; i++) { numberOfCards[i] = 0; }
 	// set rules
 	noMillionaire = true;
 	return;
@@ -45,16 +45,22 @@ bool Dealer::playerInTurnIsLeader() {
 }
 
 void Dealer::newGame() {
-	numberOfPlayers = howManyParticipants();
+	numberOfPlayingPlayers = howManyParticipants();
 	if ( !noMillionaire )
 		pauper = 0;
 	//
 	for (int p = 0; players[p] ; p++) {
-		players[p]->startNewGame();
+		players[p]->inHand().clear();
+		players[p]->ready();
 	}
 }
 
-void Dealer::setAsLeader() {
+void Dealer::setAsLeader(void) {
+	leaderIndex = turn;
+}
+
+void Dealer::setAsLeader(const int id) {
+	turn = id;
 	leaderIndex = turn;
 }
 
@@ -67,24 +73,18 @@ bool Dealer::deal(int c) {
 	theDeck.setupDeck();
 	theDeck.shuffle();
 	for (int i = 0; i < c; i++) {
-		for (int p = 0; p < numberOfPlayers; p++) {
+		for (int p = 0; p < numberOfPlayingPlayers; p++) {
 			if ( theDeck.isEmpty() )
 				break;
 			theDeck.pickup(top, 0);
-			players[ (numberOfPlayers - 1 - p) % numberOfPlayers]->pickup(top);
-			numberOfCards[(numberOfPlayers - 1 - p) % numberOfPlayers]++;
+			players[ (numberOfPlayingPlayers - 1 - p) % numberOfPlayingPlayers]->pickup(top);
 		}
 	}
-	turn = 0;
 	return true;
 }
 
-bool Dealer::dealAll() {
-	return deal(53);
-}
-
 void Dealer::clearDiscardPile() {
-	discarded.clear();
+	discarded.makeEmpty(); //clear();
 }
 
 const CardSet & Dealer::discardPile() {
@@ -112,9 +112,9 @@ bool Dealer::accept(CardSet & opened) {
 
 	// passed all the checks.
 
-   discarded.clear();
-	discarded.insertAll(opened);
-	opened.clear();
+	discarded.makeEmpty(); //clear();
+	discarded.insert(opened); //	discarded.insertAll(opened);
+	opened.makeEmpty(); //clear();
 	discardedRank=openedRank;
 
 	return true;
@@ -142,38 +142,29 @@ bool Dealer::checkRankUniqueness(CardSet & cs) {
 }
 
 void Dealer::showDiscardedToPlayers() {
-	CardSet aCopy(discarded);
-  for (int i = 0, j=0; i < howManyParticipants(); i++) {
-    if (numberOfCards[i] == 0){
-      continue;
-    }
-    numberOfCards[players[j]->getId()]=players[j]->size();
-    j++;
-  }
-  numberOfCards[howManyParticipants()] = Player::NO_MORE_PLAYERS;
-
-  for (int i = 1; i < numberOfPlayers; i++) {
-    players[(turn + i) % numberOfPlayers]->approve(aCopy, numberOfCards);
-  }
-  return; 
+	GameState gstat = gameState();
+	for (int i = 1; i < numberOfPlayingPlayers; i++) {
+		players[(turn + i) % numberOfPlayingPlayers]->approve(gstat);
+	}
+	return;
 }
 
 void Dealer::withdrawPlayer(int i) {
 	Player * p;
 	p = players[i];
-	for ( ; i+1 < numberOfPlayers; i++) {
+	for ( ; i+1 < numberOfPlayingPlayers; i++) {
 		players[i] = players[i+1];
 	}
-	if (pauper == numberOfPlayers) {
+	if (pauper == numberOfPlayingPlayers) {
 		players[i] = players[i+1];
 		i++;
 		pauper--;
 	}
 	players[i] = p;
-	numberOfPlayers--; 
-	if (numberOfPlayers > 0) {
-		turn = turn % numberOfPlayers;
-		leaderIndex = leaderIndex % numberOfPlayers;
+	numberOfPlayingPlayers--;
+	if (numberOfPlayingPlayers > 0) {
+		turn = turn % numberOfPlayingPlayers;
+		leaderIndex = leaderIndex % numberOfPlayingPlayers;
 	}
 }
 
@@ -182,15 +173,14 @@ Player & Dealer::playerInTurnFinished() {
 	bool bankrupt = false;
 	
 	Player * p = 0;
-	numberOfCards[players[turn]->getId()]=0;
-	if (numberOfPlayers == howManyParticipants() 
+	if (numberOfPlayingPlayers == howManyParticipants()
 		// the first finished person is not the millionaire 
 			) { 
 		if (turn != howManyParticipants() - 1)
 			bankrupt = true;
 		withdrawPlayer(turn); // millionaire
 		if ( bankrupt && !noMillionaire) {
-			pauper = numberOfPlayers-1;
+			pauper = numberOfPlayingPlayers-1;
 			withdrawPlayer(pauper);
 		}
 		// 次の１行をコメントアウトすると 都落ちなし
@@ -203,7 +193,7 @@ Player & Dealer::playerInTurnFinished() {
 }
 
 
-int Dealer::howManyParticipants() {
+int Dealer::howManyParticipants() const {
 	int i;
 	for (i = 0; players[i]; i++) {}
 	return i;
@@ -215,7 +205,7 @@ Player & Dealer::player(int i) {
 
 
 int Dealer::numberOfFinishedPlayers() {
-	return howManyParticipants() - numberOfPlayers;
+	return howManyParticipants() - numberOfPlayingPlayers;
 }
 
 Player & Dealer::playerInTurn() {
@@ -223,13 +213,13 @@ Player & Dealer::playerInTurn() {
 }
 
 Player & Dealer::nextPlayer() {
-	turn = (turn+1) % numberOfPlayers;
+	turn = (turn+1) % numberOfPlayingPlayers;
 	return * players[turn];
 }
 
 void Dealer::show() {
 		for (int p = 0; players[p] ; p++) {
-			if ( p==numberOfPlayers)
+			if ( p==numberOfPlayingPlayers)
 				std::cout << "-------" << std::endl;
 			if ( p == pauper )
 				std::cout << "* ";
@@ -237,7 +227,7 @@ void Dealer::show() {
 				std::cout << "$ ";
 			else 
 				std::cout << "  ";
-			players[p]->printStream(std::cout);
+			players[p]->printOn(std::cout);
 			std::cout << std::endl;
 		}
 		std::cout << std::endl;
@@ -245,5 +235,18 @@ void Dealer::show() {
 
 void Dealer::putBackOpened(CardSet & opened) {
 	players[turn]->takeCards(opened);
+}
+
+GameState Dealer::gameState(void) const {
+	GameState gstat;
+	gstat.pile = discarded;
+	gstat.inTurn = turn;
+	gstat.nofPlayers = numberOfPlayingPlayers;
+	for (int i = 0; i < howManyParticipants(); i++)
+		gstat.nofCards[i] = players[i]->size();
+	for (int i = 0; i < howManyParticipants(); i++)
+		gstat.playerIDs[i] = players[i]->id;
+	gstat.leader = leaderIndex;
+	return gstat;
 }
 

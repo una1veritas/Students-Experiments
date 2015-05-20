@@ -10,7 +10,11 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
+<<<<<<< HEAD
 #include "GameStatus.h"
+=======
+#include "GameState.h"
+>>>>>>> master
 
 /*
  * プレイヤークラスの基底クラス．
@@ -29,7 +33,7 @@ protected:
 	CardSet hand;
 
 public:
-	bool takeCards(CardSet &);
+	virtual bool takeCards(CardSet &);
 
 	static const int NO_MORE_PLAYERS = -1;
 
@@ -38,16 +42,22 @@ public:
     virtual ~Player() { }
 
 	void setId(int);
+<<<<<<< HEAD
 	int getId();
 	bool isEmptyHanded();
 	void clearHand();
 
+=======
+	int getId() const;
+	void clearHand();
+	bool isEmptyHanded() const;
+>>>>>>> master
 	bool pickup(Card );
 	CardSet & inHand() { return hand; }
-	int size() {return hand.size();}
-	std::string getName() { return name; }
-	std::string playerName();
+	int size() const { return hand.size(); }
+	std::string playerName() const { return name; }
 
+<<<<<<< HEAD
 	virtual void startNewGame(void) { hand.clear(); }
 	virtual bool approve(CardSet & pile, int cardnum[] );
 
@@ -60,6 +70,14 @@ public:
 	}
 
 	std::ostream & printStream(std::ostream & out) const;
+=======
+	std::ostream & printOn(std::ostream & out) const;
+
+	// 拡張した派生クラスでオーバーライドする関数
+	virtual void ready(void) { }
+	virtual bool follow(const GameState & gstat, CardSet & cards);
+	virtual bool approve(const GameState & gstat);
+>>>>>>> master
 
 };
 

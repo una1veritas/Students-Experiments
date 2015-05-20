@@ -16,18 +16,13 @@
 #include "Player.h"
 
 Player::Player(char const * given) {
-	hand.clear();
+	hand.makeEmpty(); //clear();
 	id=-1;
 	name = given;
 	return;
 }
 
-std::string Player::playerName() { 
-	return name; 
-}
-
-
-std::ostream & Player::printStream(std::ostream & out) const {
+std::ostream & Player::printOn(std::ostream & out) const {
 	out << name << ": ";
 	hand.printOn(out);
 	return out;
@@ -37,15 +32,15 @@ void Player::setId(int temp){
   id=temp;
 }
 
-int Player::getId(){
+int Player::getId() const{
   return id;
 }
 
 void Player::clearHand() {
-	hand.clear();
+	hand.makeEmpty();
 }
 
-bool Player::isEmptyHanded() {
+bool Player::isEmptyHanded() const {
 	return hand.isEmpty();
 }
 
@@ -62,13 +57,20 @@ bool Player::takeCards(CardSet & s) {
 	return true;
 }
 
-bool Player::approve(CardSet & pile, int numCards[]) {
+bool Player::approve(const GameState & gstat) {
   return true;
 }
 
+<<<<<<< HEAD:CPP_Exercises/DAIFUGOU2015/Player.cpp
 bool Player::follow(CardSet & pile, CardSet & cards, GameStatus & status) {
 	Card tmp;
 	cards.clear();
+=======
+bool Player::follow(const GameState & gstat, CardSet & cards) {
+	CardSet pile(gstat.pile);
+	Card tmp;
+	cards.makeEmpty();
+>>>>>>> master:CPP_Exercises/DAIFUGOU2015/Player.cpp
 	hand.pickup(tmp, -1); // choose a card.
 	/*
 	 * いったん tmp のカードは手札からなくなる

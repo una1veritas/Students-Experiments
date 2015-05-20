@@ -3,7 +3,29 @@
  */
 
 #include <cstdlib>
-#include "main.h"
+#include <iostream>
+#include <iomanip>
+#include <map>
+
+#include <stdio.h>
+#include <string.h>
+
+#include "Card.h"
+#include "CardSet.h"
+#include "Dealer.h"
+
+#include "LittleThinkPlayer.h"
+#include "ThinkTA1.h"
+
+//#include "GroupA_MT.h"
+#include "extras/GroupB.h"
+#include "extras/GroupC.h"
+//#include "GroupD.h"
+//#include "GroupEPlayer.h"
+//#include "GroupF.h"
+//#include "GroupG.h"
+#include "extras/GroupH.h"
+//#include "GroupI.h"
 
 void registAllPlayers(Dealer & d) {
 	d.regist(new GroupH("Henry 8"));
@@ -47,7 +69,7 @@ int main(int argc, char * const argv[]) {
 		d.newGame();
 		prompt(autorepeat, "Auto-repeat? ", "yes");
 
-		d.dealAll();
+		d.deal(Dealer::NUM_OF_ALL_CARDS);
 		d.setAsLeader();
 		bool passed = true;
 		while (true) {
@@ -58,8 +80,8 @@ int main(int argc, char * const argv[]) {
 					d.show();
 				}
 				std::cout << std::endl << "Turn: " << d.playerInTurn().playerName() << " ";
-				CardSet discarded = d.discardPile();
-				d.playerInTurn().follow(discarded, opened);
+				GameState state = d.gameState();
+				d.playerInTurn().follow(state, opened);
 				std::cout << opened; // the set of opened cards.
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if (!opened.isEmpty()) {

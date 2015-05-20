@@ -14,6 +14,7 @@
 //クラス定数の初期化。
 const char Card::suitname[][8] = { "Spade", "Diamond", "Heart", "Club", "Joker" };
 const char Card::suitabbrevname[][4] = { "S", "D", "H", "C", "Jkr" };
+const char Card::ranksymbol[][3] = { " X", " A", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", " J", " Q", " K" };
 
 //
 // Card::scan() - 標準出力から自身に入力する(true: エラー; false: 正常終了)
@@ -42,11 +43,16 @@ Card::Card(const char * str)
 		suit = SUIT_JOKER;
 		break;
 	default:
-		suit = SUIT_INVALID;
+		suit = SUIT_BLANK;
 		break;
 	}
+<<<<<<< HEAD:CPP_Exercises/DAIFUGOU2015/Card.cpp
 	if (suit == SUIT_INVALID) {
 		number = RANK_INVALID;
+=======
+	if (suit == SUIT_BLANK) {
+		number = 0;
+>>>>>>> master:CPP_Exercises/DAIFUGOU2015/Card.cpp
 		return;
 	}
 
@@ -79,7 +85,7 @@ Card::Card(const char * str)
 	*/
 }
 
-bool Card::isGreaterThan(Card another) {
+bool Card::isGreaterThan(const Card & another) const {
 	if (suit == SUIT_JOKER)
 		return true;
 	if (another.suit == SUIT_JOKER)
@@ -87,6 +93,7 @@ bool Card::isGreaterThan(Card another) {
 	return (number + 10) % 13 > (another.number + 10) % 13;
 }
 
+<<<<<<< HEAD:CPP_Exercises/DAIFUGOU2015/Card.cpp
 //
 // Card::print() - 自身の値を標準出力に出力する
 //
@@ -121,4 +128,24 @@ std::ostream& Card::printOn(std::ostream& out) const {
 	}
 	out << ']';
 	return out;
+=======
+bool Card::isValid(void) const {
+	if ( ((SUIT_SPADE <= suit) && (suit <= SUIT_CLUB))
+		 && (1 <= number && (number <= 13)) )
+		return true;
+	else if (suit == SUIT_JOKER)
+		return true;
+	return false;
+}
+
+//
+// Card::printOn - 自身の値を出力ストリームに出力する
+//
+std::ostream & Card::printOn(std::ostream& ostr) const {
+	ostr << '[' << suitabbrevname[suit];
+	if (suit != SUIT_JOKER )
+		ostr << ranksymbol[number];
+	ostr << ']';
+	return ostr;
+>>>>>>> master:CPP_Exercises/DAIFUGOU2015/Card.cpp
 }

@@ -12,7 +12,7 @@
 #include "CardSet.h"
 
 CardSet::CardSet(void)	{
-	clear();
+	makeEmpty();
 }
 
 CardSet::CardSet(const CardSet & orig) {
@@ -21,10 +21,18 @@ CardSet::CardSet(const CardSet & orig) {
 		cards[i] = orig.cards[i];	// カードのデータ
 }
 
+const Card & CardSet::at(int i) const {
+	return cards[i];
+}
+
+Card & CardSet::operator[](int i) {
+	return cards[i];
+}
+
 //
 // CardSet::locate() - 内部での target のカードの位置を返す(-1: ない)
 //
-int CardSet::locate(Card target)
+int CardSet::locate(const Card & target) const
 {
 	for(int i = 0; i < numcard; i++)
 		if(target.equal(cards[i]))
@@ -36,7 +44,7 @@ int CardSet::locate(Card target)
 //
 // CardSet::locate() - 内部での num 番のカードの位置を返す(-1: ない)
 //
-int CardSet::locate(int number)
+int CardSet::locate(const int number) const
 {
 	for(int i = 0; i < numcard; i++)
 		if(number == cards[i].getNumber())
@@ -45,6 +53,7 @@ int CardSet::locate(int number)
 	return -1;	// 見つからなかった
 }
 
+// 演習で作成した関数
 //
 // CardSet::makeDeck() - 自身に全部の(maxnumcard 枚の)カードを入れる
 //
@@ -98,7 +107,11 @@ int CardSet::insert(Card newcard)
   return location;
 }
 
+<<<<<<< HEAD:CPP_Exercises/DAIFUGOU2015/CardSet.cpp
 int CardSet::insertAll(const CardSet & orig) {
+=======
+int CardSet::insert(const CardSet & orig) {
+>>>>>>> master:CPP_Exercises/DAIFUGOU2015/CardSet.cpp
 	for(int i = 0; i < orig.numcard; i++) {
 		insert(orig.cards[i]);
 	}
@@ -175,17 +188,11 @@ void CardSet::shuffle(void) {
     for (t = 0; t < 100; t++) {
       i = random() % numcard;
       j = i + (random() % (numcard-i));
-      /* std::cout << "shuffling [" << i << ", " << j << ")" << std::endl; */
       for (k = 0; i + k < j; k++) {
     	  swap = cards[k];
     	  cards[k] = cards[j-k - 1];
     	  cards[j-k - 1] = swap;
        }
-      /* std::cout << std::endl;
-      for(k = 0; k < maxnumcard+1; k++) {
-    	  std::cout << cards[k] << ", ";
-      }
-      std::cout << std::endl; */
     }
 }
 

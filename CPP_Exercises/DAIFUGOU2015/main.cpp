@@ -1,13 +1,27 @@
-#include "main.h"
+#include <iostream>
+#include <iomanip>
+#include <map>
+
+#include <stdio.h>
+#include <string.h>
+
+#include "Card.h"
+#include "CardSet.h"
+#include "Dealer.h"
+
+#include "LittleThinkPlayer.h"
+#include "ThinkTA1.h"
 
 int main (int argc, char * const argv[]) {
-    // insert code here...
-//    std::cout << "Hello, World!\n";
 	
 	Dealer d;
 	char dummy[32];
 	
+<<<<<<< HEAD
 	std::cout << "Ok?" << std::endl;
+=======
+	std::cout << "Daifugou match starting." << std::endl;
+>>>>>>> master
 	std::cin.getline(dummy,31); // 標準入力から dummy に改行まで最大31文字を読む
 
 	d.regist(new Player("Player 0"));
@@ -15,14 +29,18 @@ int main (int argc, char * const argv[]) {
 	d.regist(new Player("Player 2"));
 	d.regist(new ThinkTA1("TA"));
 	d.regist(new LittleThinkPlayer("Little"));
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 	d.hailPlayers();
 
 	for (int g = 1; g < 5; g++) {
-		std::cout << std::endl << "Game " << g << std::endl;
+		std::cout << std::endl << "Starting Game " << g << std::endl;
 		d.newGame();
 		std::cin.getline(dummy,31);
-		d.dealAll();
-		d.setAsLeader();
+		d.deal(Dealer::NUM_OF_ALL_CARDS);
+		d.setAsLeader(0);
 		bool passed = true;
 		while (true) {
 			while (true) {
@@ -33,10 +51,14 @@ int main (int argc, char * const argv[]) {
 					d.show();
 				}
 				std::cout << d.playerInTurn().playerName() << "'s turn: " << std::endl ;
-				CardSet currentLead(d.discardPile());
 				CardSet opened;
+<<<<<<< HEAD
 				GameStatus status = d.gameStatus();
 				d.playerInTurn().follow(currentLead, opened, status);
+=======
+				GameState state = d.gameState();
+				d.playerInTurn().follow(state, opened);
+>>>>>>> master
 				std::cout << opened;
 				if (opened.isEmpty() || !d.accept(opened)) {
 					if ( !opened.isEmpty() ) {
@@ -49,12 +71,12 @@ int main (int argc, char * const argv[]) {
 					passed = false;
 				}
 				std::cout << std::endl << std::endl;
-				if (d.playerInTurn().isEmptyHanded())
-					break;
 				if (!passed) {
 					d.setAsLeader();
 					std::cout << "--- Lead " << d.discardPile() << " by " << d.currentLeader().playerName() << ". " << std::endl;
 				}
+				if (d.playerInTurn().isEmptyHanded())
+					break;
 
 				d.showDiscardedToPlayers();
 

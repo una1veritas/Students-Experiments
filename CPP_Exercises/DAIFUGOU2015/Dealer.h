@@ -9,21 +9,28 @@
 #ifndef _DEALER_H_
 #define _DEALER_H_
 
+#include "GameState.h"
 #include "Player.h"
+<<<<<<< HEAD
 #include "GameStatus.h"
+=======
+>>>>>>> master
 
 class Dealer {
+public:
+	const static int NUM_OF_ALL_CARDS = 53;
+
+private:
 	CardSet theDeck;
 	CardSet discarded;
 	Card discardedRank;
 	
 	Player * players[8];
 	float rankingById[8];
-	int numberOfPlayers;
+	int numberOfPlayingPlayers;
 	int pauper;
 	int turn;
 	int leaderIndex;
-	int numberOfCards[8];
 
 	// Rule flags
 	bool noMillionaire;
@@ -34,11 +41,10 @@ public:
 	void newGame();
 	bool regist(Player *);
 	bool deal(int);
-	bool dealAll();
 	void show();
 	
-	int howManyPlayers() { return numberOfPlayers; }
-	int howManyParticipants();
+	int howManyPlayers() const { return numberOfPlayingPlayers; }
+	int howManyParticipants() const;
 		
 	void hailPlayers() { return; }
 	void showDiscardedToPlayers();
@@ -54,7 +60,8 @@ public:
 	const CardSet & discardPile();
 	void clearDiscardPile();
 	bool playerInTurnIsLeader();
-	void setAsLeader();
+	void setAsLeader(void);
+	void setAsLeader(const int id);
 	Player & player(int);
 	int numberOfFinishedPlayers();
 	void withdrawPlayer(int);
@@ -69,9 +76,14 @@ public:
 	
 	void putBackOpened(CardSet &);
 
+<<<<<<< HEAD
 	GameStatus gameStatus(void) const {
 		return GameStatus(numberOfPlayers, numberOfCards, pauper, leaderIndex);
 	}
+=======
+	GameState gameState(void) const;
+
+>>>>>>> master
 };
 
 #endif

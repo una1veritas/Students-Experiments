@@ -14,21 +14,16 @@
 #include "../Player.h"
 #include "ThinkTA1.h"
 
-
-bool ThinkTA1::approve(CardSet & pile, int numCards[]) {
-	return true;
-}
-
-bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
+bool ThinkTA1::follow(const GameState & gstat, CardSet & s) {
   Card tmp;
   s.clear();
-  //std::cerr << "#####################" << std::endl;
+//  std::cerr << "#####################" << std::endl;
     Card now, min;
-    now = pile.operator[](0); //場のカードが判明
+    now = gstat.pile.at(0); //場のカードが判明
     CardSet sortset;
     sort(sortset); //sorted
     //**********場が０枚**************
-    if(pile.size() == 0){
+    if(gstat.pile.size() == 0){
       /*  for(int i=0; i < sortset.size(); i++){
 	for(int j=1; j < )
 	if(sortset[i+1].getRank()){
@@ -90,7 +85,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       return true;
     }
     //**********場が１枚**************
-    else if(pile.size() == 1){
+    else if(gstat.pile.size() == 1){
       //枚数が少なくなるまでは強いのはとっておく
       int limit = inHand().size();
       if(sortset.size() > 5)
@@ -127,7 +122,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
 	}
     }
     //**********場が２枚**************
-    else if(pile.size() == 2){
+    else if(gstat.pile.size() == 2){
       //半分までで出せるなら出す
       int limit = sortset.size() - (int)(sortset.size()/3);
       //int limit = sortset.size();
@@ -159,7 +154,7 @@ bool ThinkTA1::follow(CardSet & pile, CardSet & s) {
       }     
     }
     //**********場が３枚**************
-    else if(pile.size() == 3){
+    else if(gstat.pile.size() == 3){
       //半分までで３枚組があるか探す;あったら３枚出す
       for(int i = 0; i < sortset.size()/2; i++){ 
 	if(sortset[i].isGreaterThan(now)){ //２枚組あり
