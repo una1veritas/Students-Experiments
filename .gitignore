@@ -8,3 +8,7 @@
 *.pptx
 *.pdf
 *.ppt
+
+*.aux
+*.log
+*.gz
