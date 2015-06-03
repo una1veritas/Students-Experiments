@@ -8,7 +8,7 @@
 //
 // Vector2::Vector2() - x0, y0 を与えて定数 (x0, y0) を得るコンストラクタ
 //
-Vector2::Vector2(double x0, double y0)
+Vector2::Vector2(const double x0, const double y0)
 {
 	x = x0;
 	y = y0;
@@ -17,7 +17,7 @@ Vector2::Vector2(double x0, double y0)
 //
 // Vector2::add() - 自身のベクトルとベクトル u との和を求める
 //
-Vector2 Vector2::add(Vector2 u)
+Vector2 Vector2::add(const Vector2 & u)
 {
 	Vector2 ret;
 
