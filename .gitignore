@@ -4,8 +4,6 @@
 .cproject
 .project
 
-*.docx
-*.ppt
 
 *.aux
 *.log
