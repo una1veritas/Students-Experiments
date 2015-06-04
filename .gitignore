@@ -5,8 +5,6 @@
 .project
 
 *.docx
-*.pptx
-*.pdf
 *.ppt
 
 *.aux
