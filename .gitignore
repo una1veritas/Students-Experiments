@@ -4,7 +4,8 @@
 .cproject
 .project
 
-*.docx
-*.pptx
+
+*.aux
+*.log
+*.gz
 *.pdf
-*.ppt

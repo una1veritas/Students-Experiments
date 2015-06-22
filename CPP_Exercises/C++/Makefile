@@ -23,7 +23,7 @@ EX7TOBJS = card.o cardset.o babastate.o babanuki.o cardset_remove.o cardset_pick
 .cpp.o:
 	$(C++) -c $(C++FLAGS) $<
 
-all     :
+all     : bigint
 	@echo '使用法: make xxx の形で演習を指定すること'
 
 ex1	: $(EX1OBJS)
@@ -62,6 +62,12 @@ babanuki.o	: babastate.h cardset.h
 cardset_remove.o: card.h cardset.h
 cardsetex6t.o : card.h cardset.h
 babastate_move.o	: babastate.h cardset.h
+
+bigint: BigIntExample.o BigInt.o
+	$(C++) BigIntExample.o BigInt.o -o bigintex
+	
+BigInt.o: BigInt.h
+BigIntExample.o: BigInt.h
 
 clean   :
 	rm -f core *.o *~
