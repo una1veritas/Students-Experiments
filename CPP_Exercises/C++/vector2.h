@@ -6,6 +6,8 @@
 #define VECTOR2P_H
 
 #define MESSAGE_OUT
+//#define COPYCONSTRUCTOR_ON
+
 //
 // Vector2 - 2次元ベクトル型
 //
@@ -16,24 +18,35 @@ private:
 	double y;	// y値
 // メンバ関数
 public:
+	// デフォルトコンストラクタ
 	Vector2(void)	{
 #ifdef MESSAGE_OUT
 	printf("this is Vector2::Vector2(void).\n");
 #endif
 	x = 0; y = 0;
 	}
-		// デフォルトコンストラクタ(初期値不定)
+
+	// x0, y0 を与えて定数 (x0, y0) を得るコンストラクタ
 	Vector2(const double x0, const double y0);
-		// x0, y0 を与えて定数 (x0, y0) を得るコンストラクタ
+
+#ifdef COPYCONSTRUCTOR_ON
+	// コピーコンストラクタの型宣言
 	Vector2(const Vector2 & v);
+#endif
+
+	// 自身のベクトルとベクトル u との和を求める
 	Vector2 add(const Vector2 & u);
-		// 自身のベクトルとベクトル u との和を求める
+
+	// 自身のベクトルとベクトル u との差を求める
 	Vector2 sub(const Vector2 & u);
-		// 自身のベクトルとベクトル u との差を求める
-	void scan(void);
-		// ベクトルの値を標準入力から自身に入力する
-	void print(void) const;
-		// 自身のベクトルの値を標準出力に出力する
+
+	// ベクトルの値を標準入力から自身に入力する
+	void scan(char * str);
+
+	// 自身のベクトルの値を str に文字列出力する
+	void toString(char * str) const;
+
+	Vector2 operator+(const Vector2 & u);
 };
 
 #endif

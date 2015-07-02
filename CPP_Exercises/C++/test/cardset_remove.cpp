@@ -5,8 +5,8 @@
  *      Author: sin
  */
 
-#include "../card.h"
-#include "../cardset.h"
+#include "../Card.h"
+#include "../CardSet.h"
 
 int CardSet::remove(Card & target) {
 	// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)

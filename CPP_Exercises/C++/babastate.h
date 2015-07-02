@@ -5,8 +5,8 @@
 #ifndef BABASTATE_H
 #define BABASTATE_H
 
-#include "card.h"
-#include "cardset.h"
+#include "Card.h"
+#include "CardSet.h"
 
 //
 // BabaState - ババ抜きの状態型

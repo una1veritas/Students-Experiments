@@ -23,7 +23,7 @@ EX7TOBJS = card.o cardset.o babastate.o babanuki.o cardset_remove.o cardset_pick
 .cpp.o:
 	$(C++) -c $(C++FLAGS) $<
 
-all     : bigint
+all     : texas
 	@echo '使用法: make xxx の形で演習を指定すること'
 
 ex1	: $(EX1OBJS)
@@ -46,6 +46,16 @@ ex7 : $(EX7OBJS)
 
 ex7t : $(EX7TEST)
 	$(C++) $(EX7TOBJS) -o ex7t
+	
+CARDOBJS = Card.o CardSet.o
+Card.o	: Card.h
+CardSet.o	: Card.h Cardset.h
+texas: TexHoldem.h TexHoldem.cpp TexHoldemPlay.cpp $(CARDOBJS)
+	$(C++) TexHoldem.cpp -c 
+	$(C++) TexHoldemPlay.cpp -c 
+	$(C++) TexHoldem.o TexHoldemPlay.o $(CARDOBJS) -o texas
+	
+	
 
 vector2c.o	: vector2c.h
 vec2ex1c.o	: vector2c.h
@@ -53,8 +63,6 @@ vector2.o	: vector2.h
 vec2ex2.o	: vector2.h
 matrix22.o	: matrix22.h
 mat22ex4.o	: matrix22.h
-card.o	: card.h
-cardset.o	: card.h cardset.h
 cardsetex6.o : card.h cardset.h
 babastate.o	: babastate.h cardset.h
 babanuki.o	: babastate.h cardset.h

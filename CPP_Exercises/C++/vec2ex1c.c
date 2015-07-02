@@ -10,26 +10,26 @@
  */
 int main(void)
 {
-	struct vector2 a, b;
+	struct vector2 a, b, c;
+	char tmp[64];
 
 /* a, b を入力 */
-	printf("x, y ? ");
-	scanv2(&a);
-	printf("x, y ? ");
-	scanv2(&b);
-	printf("\na = ");
-	printv2(a);
-	printf("\nb = ");
-	printv2(b);
-	printf("\n\n");
+	printf("a = (x, y) ? ");
+	fgets(tmp, 63, stdin);
+	a = vector2scan(tmp);
+	printf("b = (x, y) ? ");
+	fgets(tmp, 63, stdin);
+	b = vector2scan(tmp);
+	vector2toString(tmp, a);
+	printf("\n\na = %s\n", tmp);
+	printf("b = %s\n", vector2toString(tmp, b)); /* このようにも書ける. */
 /* a + b を出力 */
 	printf("a + b = ");
-	printv2(addv2(a, b));
-	printf("\n");
+	c = vector2add(a, b);
+	printf("%s\n\n", vector2toString(tmp, c));
 /* a + (2, 1) を出力 */
 	printf("a + (2,1) = ");
-	printv2(addv2(a, initv2(2, 1)));
-	printf("\n");
-
+	c = vector2add(a, vector2init(2, 1));
+	printf("%s\n", vector2toString(tmp, c));
 	return 0;
 }

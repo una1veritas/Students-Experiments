@@ -13,11 +13,11 @@ Vector2::Vector2(const double x0, const double y0)
 #ifdef MESSAGE_OUT
 	printf("this is Vector2::Vector2(const double , const double): ");
 #endif
-
 	x = x0;
 	y = y0;
 }
 
+#ifdef COPYCONSTRUCTOR_ON
 Vector2::Vector2(const Vector2 & v) {
 #ifdef MESSAGE_OUT
 	printf("this is Vector2::Vector2(const Vector2 &): ");
@@ -25,9 +25,10 @@ Vector2::Vector2(const Vector2 & v) {
 	x = v.x;
 	y = v.y;
 }
+#endif
 
 //
-// Vector2::add() - 自身のベクトルとベクトル u との和を求める
+// Vector2::add() - 自身のベクトルとベクトル u との和を新しく作成し返す
 //
 Vector2 Vector2::add(const Vector2 & u)
 {
@@ -40,17 +41,23 @@ Vector2 Vector2::add(const Vector2 & u)
 }
 
 //
-// Vector2::scan() - ベクトルの値を標準入力から自身に入力する
+// Vector2::scan() - ベクトルの値を文字列から自身にセットする
 //
-void Vector2::scan(void)
+void Vector2::scan(char * str)
 {
-	scanf("%lf,%lf", &x, &y);
+	sscanf(str, "(%lf,%lf)", &x, &y);
 }
 
 //
-// Vector2::print() - 自身のベクトルの値を標準出力に出力する
+// Vector2::print() - 自身のベクトルの値を文字列で出力する
 //
-void Vector2::print(void) const
+void Vector2::toString(char * str) const
 {
-	printf("( %f, %f )", x, y);
+	sprintf(str, "( %f, %f )", x, y);
+}
+
+// Definiton expansion
+Vector2 Vector2::operator+(const Vector2 & u) {
+	Vector2 me = this->add(u);
+	return me;
 }

@@ -6,6 +6,7 @@
 #define CARDSET_H
 
 #include <cstdlib>
+#include "Card.h"
 
 //
 // CardSet - トランプカードの集合型
@@ -17,36 +18,61 @@ public:
 // メンバ変数
 private:
 	int numcard;		// 現在の集合内のカード数
-	Card cdat[maxnumcard];	// カードのデータ
+	Card cards[maxnumcard];	// カードのデータ
 // メンバ関数
 private:
-	int locate(Card & target);
+	int locate(const Card & target) const;
 		// 内部での target のカードの位置を返す(-1: ない)
-	int locate(int num);
+	int locate(const int num) const;
 		// 内部で数字が num のカードの位置を返す(-1: ない)
 public:
-	CardSet(void)		{ makeEmpty(); }
+	CardSet(void);
 		// デフォルトコンストラクタ(初期値空集合)
+	CardSet(const CardSet & cset);
+
 	void makeEmpty(void)	{ numcard = 0 ; }
+	void clear(void)	{ makeEmpty(); }
 		// 自身を空集合にする
-	bool isEmpty(void)	{ return numcard == 0; }
+	bool isEmpty(void) const { return numcard == 0; }
 		// 自身が空集合か否かの判定 (true: 空; false: 非空)
-	void setupDeck(void);
-		// 自身に全部の(maxnumcard 枚の)カードを入れる
+
+
+	int size() const { return numcard; }
+	const Card & at(int) const;
+	Card & operator[](int);
+
+	// 自身にカードをすべて，useJoker = true ならば Joker も，入れる
+	void setupDeck(bool useJoker = true);
+
+	// 自身から targetpos 枚目のカードを除き，そのカードを返す
 	int pickup(Card & card, int targetpos);
-		// 自身から targetpos 枚目のカードを除き，そのカードを返す
+
 	int pickup(Card & card) { return pickup(card, -1); }
 		// 同様だが，ランダムに選ぶ
 		// (-1: 失敗; 0以上: 成功)
 	int insert(Card newcard);
 		// 自身に newcard を入れる(-1: もう入らないので失敗; 0以上: 成功)
+	int insert(const CardSet & cards);
+	int insertAll(CardSet & cards) { return insert(cards); }
+
 	int remove(Card & target);
 		// 自身から target と同一のカードを取り除く(-1: 失敗; 0以上: 成功)
 	int remove(int num);
 		// 自身から数字が num であるカードいずれか一枚を除く(-1: 失敗; 0以上: 成功)
+
 	void print(void);
 		// 自身の状態を標準出力に出力する
-		
+
+	void shuffle(void);
+
+	// Streaming
+	//
+	std::ostream&  printOn(std::ostream& out) const;
+
+	friend std::ostream& operator<<(std::ostream& out, const CardSet & c) {
+		return c.printOn(out);
+	}
+
 };
 
 #endif

@@ -7,21 +7,27 @@
 #define VECTOR2C_H
 
 /* データ定義・宣言 */
-struct vector2 { /* 2次元ベクトル型 */
-	double x;	/* x値 */
-	double y;	/* y値 */
+struct vector2 { /* 2 次元次元ベクトル型 */
+	double x, y;
 };
 
+typedef struct vector2 vector2;
+
 /* プロトタイプ宣言 */
-struct vector2 initv2(double x0, double y0);
-	/* x0, y0 を与えて，定数 (x0, y0) を得る */
-struct vector2 addv2(struct vector2 u, struct vector2 v);
-	/* ベクトル u と v の和 u + v を求める */
-struct vector2 subv2(struct vector2 u, struct vector2 v);
-	/* ベクトル u と v の差 u - v を求める */
-void scanv2(struct vector2* pu);
-	/* ベクトルの値を標準入力から *pu に入力する */
-void printv2(struct vector2 u);
-	/* ベクトル u の値を標準出力に出力する */
+
+vector2 vector2init(double x, double y);
+	/* x, y を与えて，二次元ベクトル (x, y) を新しい vector2 型オブジェクトとして返す */
+
+vector2 vector2add(vector2 u, vector2 v);
+	/* ベクトル u と v の和 u + v を求め，新しい vector2 型オブジェクトにセットして返す */
+
+vector2 vector2sub(vector2 u, vector2 v);
+	/* ベクトル u と v の差 u - v を求め，新しい vector2 型オブジェクトにセットして返す */
+
+vector2 vector2scan(char * str);
+	/* vector2 を文字列表現 "(x, y)" から作成して返す */
+
+char * vector2toString(char * str, vector2 v);
+	/* ベクトル u の値を文字列表現に変換する */
 
 #endif

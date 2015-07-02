@@ -3,27 +3,29 @@
  *	作者: (あなたの名前); 日付: (完成した日付)
  */
 #include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>    /* ERANGE を使用するために必要 */
+#include <math.h>   /* HUGE_VAL を使用するために必要 */
+
 #include "vector2c.h"
 
 /*
  * initv2() - x0, y0 を与えて，定数 (x0, y0) を得る
  */
-struct vector2 initv2(double x0, double y0)
+vector2 vector2init(double x, double y)
 {
-	struct vector2 ret;
-
-	ret.x = x0;
-	ret.y = y0;
-
-	return ret;
+	vector2 me;
+	me.x = x;
+	me.y = y;
+	return me;
 }
 
 /*
  * addv2() - ベクトル u と v の和 u + v を求める
  */
-struct vector2 addv2(struct vector2 u, struct vector2 v)
+vector2 vector2add(vector2 u, vector2 v)
 {
-	struct vector2 ret;
+	vector2 ret;
 
 	ret.x = u.x + v.x;
 	ret.y = u.y + v.y;
@@ -32,17 +34,20 @@ struct vector2 addv2(struct vector2 u, struct vector2 v)
 }
 
 /*
- * scanv2() - ベクトルの値を標準入力から *pu に入力する
+ * vector2scan() - ベクトルを文字列から作成する
  */
-void scanv2(struct vector2* pu)
+vector2 vector2scan(char * str)
 {
-	scanf("%lf,%lf", &pu->x, &pu->y);
+	vector2 v;
+	sscanf("(%lf,%lf)", str, &v.x, &v.y);
+	return v;
 }
 
 /*
- * printv2() - ベクトル u の値を標準出力に出力する
+ *  vector2toString() - ベクトル u の値を文字列で出力する
  */
-void printv2(struct vector2 u)
+char * vector2toString(char * str, vector2 v)
 {
-	printf("( %f, %f )", u.x, u.y);
+	sprintf(str, "(%f, %f)", v.x, v.y);
+	return str;
 }

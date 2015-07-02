@@ -5,8 +5,8 @@
  *      Author: sin
  */
 
-#include "../card.h"
-#include "../cardset.h"
+#include "../Card.h"
+#include "../CardSet.h"
 
 int CardSet::pickup(Card & card, int targetpos) {
 	if( numcard == 0 )
